@@ -34,3 +34,4 @@ class Resume:
 if __name__ == "__main__":
     resume = Resume(RESUME_PARTS)
     resume.build()
+    print(resume)
