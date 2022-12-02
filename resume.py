@@ -25,7 +25,7 @@ class Resume:
 
     def build(self, filename: str = f"Resume_{AUTHOR.replace(' ', '_')}.md"):
         with open(OUTPUT_DIR + filename, "w") as file:
-            file.write(self.__str__())
+            file.write(str(self))
 
     def __str__(self) -> str:
         return "\n".join(self.data.values()).strip()
