@@ -22,18 +22,18 @@
 
 ## <u>Technical Skills</u>
 
-**Programming Languages**: Python, Shell Script, HTML, CSS, JavaScript, Java, LISP, C, C++  
-**Technologies**: Microsoft Office (Word, Excel, PowerPoint, Access), Linux, Git, jQuery, Bootstrap
+**Programming Languages**: Python, Shell Script, HTML, CSS, JavaScript, Java, C, C++  
+**Technologies**: Microsoft Office (Word, Excel, PowerPoint), Linux, Git, jQuery, Bootstrap
 
 ## <u>Projects</u>
 
 **Cy | Search - Search Engine Frontend** (Jan 2022 - Apr 2022)  
-*[search.cybar.dev](https://search.cybar.dev)*
+_[search.cybar.dev](https://search.cybar.dev)_
 
 - TODO
 
 **Accessible Blog with CMS** (Jan 2022 - Apr 2022)  
-*Northwood Care, Halifax, Nova Scotia*
+_Northwood Care, Halifax, Nova Scotia_
 
 - Served as the project manager in a team of 4 peers for our Mobile App Development course
 - Designed a workflow for continuous integration and deployment using GitHub Actions to automate releases
@@ -43,7 +43,7 @@
 - Enforced CRUD standards to efficiently handle database operations
 
 **K'we - Language Learning Game** (Sep 2021 - Jan 2022)  
-*Eskasoni Immersion School, Halifax, Nova Scotia*
+_Eskasoni Immersion School, Halifax, Nova Scotia_
 
 - Teamed up with 5 peers as part of our Software Engineering course
 - Managed the codebase in an organizational GitHub repository created for the project for continuous integration
@@ -53,7 +53,7 @@
 ## <u>Experience</u>
 
 **Computer Science Tutor** (Oct 2021 - Sept 2022)  
-*Halifax, Nova Scotia*
+_Halifax, Nova Scotia_
 
 - Explained fundamentals of programming and web development in Python, Java, HTML, CSS, JavaScript, SQL, etc.
 - Assisted in understanding core technical concepts and web development principles

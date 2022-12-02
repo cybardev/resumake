@@ -10,8 +10,9 @@ RESUME_PARTS: dict[str, str] = {
     "experience": "experience.md",
 }
 
-SOURCE_DIR: str = "./src/"
-OUTPUT_DIR: str = "./assets/"
+PATH: str = "./"
+SOURCE_DIR: str = PATH + "src/"
+OUTPUT_DIR: str = PATH + "assets/"
 
 
 class Resume:
