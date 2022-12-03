@@ -179,7 +179,7 @@ class Person:
             + "<header>\n"
             + f"<p>{self.address}</p>\n"
             + "<section style='display: flex; justify-content: space-around; margin-top: 1.1em;'>\n"
-            + f"<a href='tel:{self.__phone_format(self.phone)}'>{self.phone}</a>\n"
+            + f"<a href='tel:{self.__phone_fmt(self.phone)}'>{self.phone}</a>\n"
             + f"<a href='mailto:{self.email}'>{self.email}</a>\n"
             + f"<a href='https://{self.website}'>{self.website}</a>\n"
             + f"<a href='https://github.com/{self.social}'>github.com/{self.social}</a>\n"
@@ -189,7 +189,7 @@ class Person:
             + "---"
         )
 
-    def __phone_format(self, number) -> str:
+    def __phone_fmt(self, number) -> str:
         return (
             number.replace("-", "")
             .replace("(", "")
