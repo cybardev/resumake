@@ -22,8 +22,7 @@
 
 ## <u>Technical Skills</u>
 
-**Programming Languages**: Python, Shell Script, HTML, CSS, JavaScript, Java, C, C++
-
+**Programming Languages**: Python, Shell Script, HTML, CSS, JavaScript, Java, C, C++  
 **Technologies**: Microsoft Office (Word, Excel, PowerPoint), Linux, Git, jQuery, Bootstrap
 
 ## <u>Projects</u>
@@ -31,19 +30,16 @@
 **Cy | Search - Search Engine Frontend** (Jan 2022 - Apr 2022)  
 _https://search.cybar.dev_  
 
-- **Accessible Blog with CMS** (Jan 2022 - Apr 2022)  
-  _Northwood Care, Halifax, Nova Scotia_  
+- TODO: description
+
+**Accessible Blog with CMS** (Jan 2022 - Apr 2022)  
+_Northwood Care, Halifax, Nova Scotia_  
 
 - Served as the project manager in a team of 4 peers for our Mobile App Development course
-
 - Designed a workflow for continuous integration and deployment using GitHub Actions to automate releases
-
 - Built a 3-page blog website as well as a custom CMS (content management system) admin page
-
 - Created an accessible on-screen keyboard to accommodate client's typing difficulties caused by Cerebral Palsy
-
 - Implemented the blog as a full-stack webapp using Bootstrap, jQuery, AlpineJS, Node, Express, and MongoDB
-
 - Enforced CRUD standards to efficiently handle database operations
 
 **K'we - Language Learning Game** (Sep 2021 - Jan 2022)  

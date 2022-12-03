@@ -17,148 +17,7 @@ def generate_resume(output_dir: str = PATH + "assets/"):
     print(resume)
 
 
-@dataclass(kw_only=True)
-class Education:
-    school: str
-    location: str
-    program: str
-    major: str
-    minor: str
-    start: str
-    end: str
-    courses: list[str]
-
-
-@dataclass(kw_only=True)
-class Skill:
-    name: str
-    attributes: list[str]
-
-
-@dataclass(kw_only=True)
-class Experience:
-    name: str
-    start: str
-    end: str
-    address: str
-    attributes: list[str]
-
-
-@dataclass(kw_only=True)
-class Person:
-    name: str
-    address: str
-    phone: str
-    email: str
-    website: str
-    social: str
-    education: Education
-    skills: list[Skill]
-    projects: list[Experience]
-    experiences: list[Experience]
-
-
-class Resume:
-    def __init__(self, author: Person):
-        self.author = author
-
-    def build(self, filename: str, output_dir: str):
-        with open(output_dir + filename, "w") as file:
-            file.write(str(self))
-
-    def __str__(self) -> str:
-        return "\n\n".join(
-            [
-                self.header,
-                self.education,
-                self.skills,
-                self.projects,
-                self.experience,
-            ]
-        )
-
-    @property
-    def header(self) -> str:
-        auth: Person = self.author
-
-        return (
-            f"# {auth.name}\n\n"
-            + "<header>\n"
-            + f"<p>{auth.address}</p>\n"
-            + "<section style='display: flex; justify-content: space-around; margin-top: 1.1em;'>\n"
-            + f"<a href='tel:{self.__phone_format(auth.phone)}'>{auth.phone}</a>\n"
-            + f"<a href='mailto:{auth.email}'>{auth.email}</a>\n"
-            + f"<a href='https://{auth.website}'>{auth.website}</a>\n"
-            + f"<a href='https://github.com/{auth.social}'>github.com/{auth.social}</a>\n"
-            + f"<a href='https://www.linkedin.com/in/{auth.social}'>linkedin.com/in/{auth.social}</a>\n"
-            + "</section>\n"
-            + "</header>\n\n"
-            + "---"
-        )
-
-    @property
-    def education(self) -> str:
-        edu: Education = self.author.education
-
-        return (
-            "## <u>Education</u>\n\n"
-            + f"**{edu.program}** ({edu.start} - {edu.end})  \n"
-            + f"**{edu.school}**, {edu.location}  \n"
-            + f"**Major**: {edu.major}, **Minor**: {edu.minor}  \n"
-            + f"**Courses**: "
-            + ",".join(edu.courses)
-            + ", etc."
-        )
-
-    @property
-    def skills(self) -> str:
-        res: str = "## <u>Technical Skills</u>\n\n"
-
-        for skill in self.author.skills:
-            res += f"**{skill.name}**: " + ", ".join(skill.attributes) + "\n\n"
-
-        return res.strip()
-
-    @property
-    def projects(self) -> str:
-        res: str = "## <u>Projects</u>\n\n"
-
-        for project in self.author.projects:
-            res += (
-                f"**{project.name}** ({project.start} - {project.end})  \n"
-                + f"_{project.address}_  \n\n"
-            )
-            for info in project.attributes:
-                res += f"- {info}\n"
-            res += "\n"
-
-        return res.strip()
-
-    @property
-    def experience(self) -> str:
-        res: str = "## <u>Experience</u>\n\n"
-
-        for experience in self.author.experiences:
-            res += (
-                f"**{experience.name}** ({experience.start} - {experience.end})  \n"
-                + f"_{experience.address}_  \n\n"
-            )
-            for info in experience.attributes:
-                res += f"- {info}\n"
-            res += "\n"
-
-        return res.strip()
-
-    def __phone_format(self, number) -> str:
-        return (
-            number.replace("-", "")
-            .replace("(", "")
-            .replace(")", "")
-            .replace(" ", "")
-        )
-
-
-def default_author() -> Person:
+def default_author():
     return Person(
         name="Sheikh Saad Abdullah",
         address="Halifax, Nova Scotia B3J 2K9",
@@ -211,7 +70,7 @@ def default_author() -> Person:
                 start="Jan 2022",
                 end="Apr 2022",
                 address="https://search.cybar.dev",
-                attributes=[""],
+                attributes=["TODO: description"],
             ),
             Experience(
                 name="Accessible Blog with CMS",
@@ -254,6 +113,138 @@ def default_author() -> Person:
             )
         ],
     )
+
+
+@dataclass(kw_only=True)
+class Education:
+    school: str
+    location: str
+    program: str
+    major: str
+    minor: str
+    start: str
+    end: str
+    courses: list[str]
+
+    def __str__(self) -> str:
+        return (
+            "## <u>Education</u>\n\n"
+            + f"**{self.program}** ({self.start} - {self.end})  \n"
+            + f"**{self.school}**, {self.location}  \n"
+            + f"**Major**: {self.major}, **Minor**: {self.minor}  \n"
+            + f"**Courses**: "
+            + ",".join(self.courses)
+            + ", etc."
+        )
+
+
+@dataclass(kw_only=True)
+class Skill:
+    name: str
+    attributes: list[str]
+
+    def __str__(self):
+        return f"**{self.name}**: " + ", ".join(self.attributes)
+
+
+@dataclass(kw_only=True)
+class Experience:
+    name: str
+    start: str
+    end: str
+    address: str
+    attributes: list[str]
+
+    def __str__(self):
+        return (
+            f"**{self.name}** ({self.start} - {self.end})  \n"
+            + f"_{self.address}_  \n\n"
+            + "\n".join([f"- {info}" for info in self.attributes])
+        )
+
+
+@dataclass(kw_only=True)
+class Person:
+    name: str
+    address: str
+    phone: str
+    email: str
+    website: str
+    social: str
+    education: Education
+    skills: list[Skill]
+    projects: list[Experience]
+    experiences: list[Experience]
+
+    def __repr__(self):
+        return (
+            f"# {self.name}\n\n"
+            + "<header>\n"
+            + f"<p>{self.address}</p>\n"
+            + "<section style='display: flex; justify-content: space-around; margin-top: 1.1em;'>\n"
+            + f"<a href='tel:{self.__phone_format(self.phone)}'>{self.phone}</a>\n"
+            + f"<a href='mailto:{self.email}'>{self.email}</a>\n"
+            + f"<a href='https://{self.website}'>{self.website}</a>\n"
+            + f"<a href='https://github.com/{self.social}'>github.com/{self.social}</a>\n"
+            + f"<a href='https://www.linkedin.com/in/{self.social}'>linkedin.com/in/{self.social}</a>\n"
+            + "</section>\n"
+            + "</header>\n\n"
+            + "---"
+        )
+
+    def __phone_format(self, number) -> str:
+        return (
+            number.replace("-", "")
+            .replace("(", "")
+            .replace(")", "")
+            .replace(" ", "")
+        )
+
+
+class Resume:
+    def __init__(self, author: Person):
+        self.author = author
+
+    def build(self, filename: str, output_dir: str):
+        with open(output_dir + filename, "w") as file:
+            file.write(str(self))
+
+    def __str__(self) -> str:
+        return "\n\n".join(
+            [
+                self.header,
+                self.education,
+                self.skills,
+                self.projects,
+                self.experience,
+            ]
+        )
+
+    @property
+    def header(self) -> str:
+        return repr(self.author)
+
+    @property
+    def education(self) -> str:
+        return str(self.author.education)
+
+    @property
+    def skills(self) -> str:
+        return "## <u>Technical Skills</u>\n\n" + "  \n".join(
+            [str(skill) for skill in self.author.skills]
+        )
+
+    @property
+    def projects(self) -> str:
+        return "## <u>Projects</u>\n\n" + "\n\n".join(
+            [str(project) for project in self.author.projects]
+        )
+
+    @property
+    def experience(self) -> str:
+        return "## <u>Experience</u>\n\n" + "\n\n".join(
+            [str(experience) for experience in self.author.experiences]
+        )
 
 
 if __name__ == "__main__":
