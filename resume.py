@@ -2,10 +2,8 @@
 
 from dataclasses import dataclass
 
-PATH: str = "./"
 
-
-def generate_resume(output_dir: str = PATH + "assets/"):
+def generate_resume(output_dir: str = "./assets/"):
     # instantiate an author object with default properties
     author: Person = default_author()
 
@@ -128,8 +126,7 @@ class Education:
 
     def __str__(self) -> str:
         return (
-            "## <u>Education</u>\n\n"
-            + f"**{self.program}** ({self.start} - {self.end})  \n"
+            f"**{self.program}** ({self.start} - {self.end})  \n"
             + f"**{self.school}**, {self.location}  \n"
             + f"**Major**: {self.major}, **Minor**: {self.minor}  \n"
             + f"**Courses**: "
@@ -226,7 +223,7 @@ class Resume:
 
     @property
     def education(self) -> str:
-        return str(self.author.education)
+        return "## <u>Education</u>\n\n" + str(self.author.education)
 
     @property
     def skills(self) -> str:
