@@ -63,14 +63,18 @@ def default_author():
             ),
         ],
         projects=[
-            Experience(
+            Project(
                 name="Cy | Search - Search Engine Frontend",
                 start="Jan 2022",
                 end="Apr 2022",
                 address="https://search.cybar.dev",
-                attributes=["TODO: description"],
+                attributes=[
+                    "Designed a search engine frontend with minimalistic aesthetics",
+                    "Implemented using modern web technologies such as Bootstrap, AlpineJS",
+                    "Utilized API calls to request and fetch search results and display them to the user",
+                ],
             ),
-            Experience(
+            Project(
                 name="Accessible Blog with CMS",
                 start="Jan 2022",
                 end="Apr 2022",
@@ -84,7 +88,7 @@ def default_author():
                     "Enforced CRUD standards to efficiently handle database operations",
                 ],
             ),
-            Experience(
+            Project(
                 name="K'we - Language Learning Game",
                 start="Sep 2021",
                 end="Jan 2022",
@@ -161,6 +165,11 @@ class Experience:
 
 
 @dataclass(kw_only=True)
+class Project(Experience):
+    pass
+
+
+@dataclass(kw_only=True)
 class Person:
     name: str
     address: str
@@ -170,7 +179,7 @@ class Person:
     social: str
     education: Education
     skills: list[Skill]
-    projects: list[Experience]
+    projects: list[Project]
     experiences: list[Experience]
 
     def __repr__(self):

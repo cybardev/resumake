@@ -30,7 +30,9 @@
 **Cy | Search - Search Engine Frontend** (Jan 2022 - Apr 2022)  
 _https://search.cybar.dev_  
 
-- TODO: description
+- Designed a search engine frontend with minimalistic aesthetics
+- Implemented using modern web technologies such as Bootstrap, AlpineJS
+- Utilized API calls to request and fetch search results and display them to the user
 
 **Accessible Blog with CMS** (Jan 2022 - Apr 2022)  
 _Northwood Care, Halifax, Nova Scotia_  
