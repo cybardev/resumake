@@ -69,9 +69,10 @@ def default_author():
                 end="Apr 2022",
                 address="https://search.cybar.dev",
                 attributes=[
-                    "Designed a search engine frontend with minimalistic aesthetics",
-                    "Implemented using modern web technologies such as Bootstrap, AlpineJS",
-                    "Utilized API calls to request and fetch search results and display them to the user",
+                    "Designed a search engine frontend with minimalistic aesthetics to ensure clarity",
+                    "Utilized NodeJS calls to request and fetch search results from API endpoints",
+                    "Displayed results to user using modern web technologies such as Bootstrap, AlpineJS",
+                    "Obfuscated API keys using repository secrets to prevent leaking and misuse",
                 ],
             ),
             Project(
