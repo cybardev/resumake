@@ -30,28 +30,27 @@
 **Cy | Search - Search Engine Frontend** (Jan 2022 - Apr 2022)  
 _https://search.cybar.dev_  
 
-- Designed a search engine frontend with minimalistic aesthetics to ensure clarity
-- Utilized NodeJS calls to request and fetch search results from API endpoints
-- Displayed results to user using modern web technologies such as Bootstrap, AlpineJS
-- Obfuscated API keys using repository secrets to prevent leaking and misuse
+- Designed a search engine frontend that uses NodeJS functions to request and fetch search results from an API.
+- Successfully displayed the fetched results in a clear and concise format.
+- Secured the API key by encrypting it as a repository secret and using code obfuscation techniques.
+- Implemented progressive web app functionality to allow users to install it as an app.
 
 **Accessible Blog with CMS** (Jan 2022 - Apr 2022)  
 _Northwood Care, Halifax, Nova Scotia_  
 
-- Served as the project manager in a team of 4 peers for our Mobile App Development course
-- Designed a workflow for continuous integration and deployment using GitHub Actions to automate releases
-- Built a 3-page blog website as well as a custom CMS (content management system) admin page
-- Created an accessible on-screen keyboard to accommodate client's typing difficulties caused by Cerebral Palsy
-- Implemented the blog as a full-stack webapp using Bootstrap, jQuery, AlpineJS, Node, Express, and MongoDB
-- Enforced CRUD standards to efficiently handle database operations
+- Collaborated with a team of 4 developers to create an accessible blog website with custom CMS and an on-screen keyboard for a client with cerebral palsy.
+- Created a custom CMS that was easy to use for the client, allowing them to update their blog independently.
+- Implemented using modern web technologies such as Bootstrap, jQuery, NodeJS, ExpressJS, and MongoDB.
+- Designed a workflow for continuous integration and deployment using GitHub Actions to automate releases.
+- Successfully led the project's development and completion within 4 months, meeting all deadlines and specifications.
 
-**K'we - Language Learning Game** (Sep 2021 - Jan 2022)  
+**K'we - Mi'kmaq Language Learning Game** (Sep 2021 - Jan 2022)  
 _Eskasoni Immersion School, Halifax, Nova Scotia_  
 
-- Teamed up with 5 peers as part of our Software Engineering course
-- Managed the codebase in an organizational GitHub repository created for the project for continuous integration
-- Built a game using Ren'Py and Unity that children from grades 2 to 5 played at school
-- Enhanced the children's experience with learning the Mi'kmaq language
+- Collaborated with a team of 5 to design and develop an open-source educational video game for kids in grades 2-5, helping them learn the Mi'kmaq language.
+- Successfully created engaging and age-appropriate content that was well-received by the target audience.
+- Built the game using the Ren'Py game engine and hosted it on university servers using NodeJS.
+- Managed the development process from start to finish, ensuring all deadlines were met.
 
 ## <u>Experience</u>
 
