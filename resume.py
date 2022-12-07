@@ -8,25 +8,6 @@ def generate_resume(output_dir: str = "./assets/"):
     author: Person = default_author()
 
     # TODO: make any changes to author properties here
-    author.projects[0].attributes = [
-        "Designed a search engine frontend that uses NodeJS functions to request and fetch search results from an API.",
-        "Successfully displayed the fetched results in a clear and concise format.",
-        "Secured the API key by encrypting it as a repository secret and using code obfuscation techniques.",
-        "Implemented progressive web app functionality to allow users to install it as an app.",
-    ]
-    author.projects[1].attributes = [
-        "Collaborated with a team of 4 developers to create an accessible blog website with custom CMS and an on-screen keyboard for a client with cerebral palsy.",
-        "Created a custom CMS that was easy to use for the client, allowing them to update their blog independently.",
-        "Implemented using modern web technologies such as Bootstrap, jQuery, NodeJS, ExpressJS, and MongoDB.",
-        "Designed a workflow for continuous integration and deployment using GitHub Actions to automate releases.",
-        "Successfully led the project's development and completion within 4 months, meeting all deadlines and specifications.",
-    ]
-    author.projects[2].attributes = [
-        "Collaborated with a team of 5 to design and develop an open-source educational video game for kids in grades 2-5, helping them learn the Mi'kmaq language.",
-        "Successfully created engaging and age-appropriate content that was well-received by the target audience.",
-        "Built the game using the Ren'Py game engine and hosted it on university servers using NodeJS.",
-        "Managed the development process from start to finish, ensuring all deadlines were met.",
-    ]
 
     # instantiate resume and output to file and standard output
     resume: Resume = Resume(author)
@@ -240,9 +221,9 @@ class Resume:
             [
                 self.header,
                 self.education,
-                self.skills,
                 self.projects,
                 self.experience,
+                self.skills,
             ]
         )
 
