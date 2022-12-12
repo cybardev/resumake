@@ -125,16 +125,12 @@ class Address:
     province: str = "NS"
     province_full: str = "Nova Scotia"
     country: str = "Canada"
-    
-    @property
-    def full_address(self):
-        return f"{self.street}, {self}"
 
     def __str__(self) -> str:
         return f"{self.city}, {self.province} {self.postal_code}"
 
     def __repr__(self) -> str:
-        return f"{self.street},  \n" + str(self)
+        return f"{self.street}, {self}"
 
 
 @dataclass(kw_only=True)
