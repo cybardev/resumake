@@ -26,7 +26,7 @@ def default_author():
         education=Education(
             school="Saint Mary's University",
             location="Halifax, Nova Scotia",
-            program="Bachelor of Science (B.Sc.) with Co-op",
+            program="Bachelor of Science",
             major="Computing Science",
             minor="Psychology",
             start="Sep 2020",
@@ -39,85 +39,112 @@ def default_author():
         ),
         skills=[
             Skill(
-                name="Programming Languages",
+                name="Skills",
                 attributes=[
+                    "Microsoft Office (Word, Excel, PowerPoint)",
+                    "Git",
                     "Python",
-                    "Shell Script",
                     "HTML",
                     "CSS",
                     "JavaScript",
                     "Java",
-                    "C",
-                    "C++",
+                    "MongoDB",
                 ],
             ),
             Skill(
-                name="Technologies",
+                name="Interests",
                 attributes=[
-                    "Microsoft Office (Word, Excel, PowerPoint)",
                     "Linux",
-                    "Git",
-                    "jQuery",
-                    "Bootstrap",
+                    "Shell Scripting and Automation",
+                    "Front-end Web Development",
+                    "Data Analytics",
                 ],
             ),
         ],
         projects=[
             Project(
                 name="Cy | Search - Search Engine Frontend",
+                address="https://search.cybar.dev",
+                role="Front-end Developer",
                 start="Jan 2022",
                 end="Apr 2022",
-                address="https://search.cybar.dev",
                 attributes=[
-                    "Designed a search engine frontend with minimalistic aesthetics to ensure clarity",
-                    "Utilized NodeJS calls to request and fetch search results from API endpoints",
-                    "Displayed results to user using modern web technologies such as Bootstrap, AlpineJS",
-                    "Obfuscated API keys using repository secrets to prevent leaking and misuse",
+                    "Designed a search engine frontend that uses NodeJS functions to request and fetch search results from an API",
+                    "Successfully displayed the fetched results in a clear and concise format",
+                    "Secured the API key by encrypting it as a repository secret and using code obfuscation techniques",
+                    "Implemented progressive web app functionality to allow users to install it as an app",
                 ],
             ),
             Project(
                 name="Accessible Blog with CMS",
+                address="Northwood Care, Halifax, Nova Scotia",
+                role="Full-stack Developer",
                 start="Jan 2022",
                 end="Apr 2022",
-                address="Northwood Care, Halifax, Nova Scotia",
                 attributes=[
-                    "Served as the project manager in a team of 4 peers for our Mobile App Development course",
+                    "Collaborated with a team of 4 developers to create an accessible blog website with custom CMS and an on-screen keyboard for a client with cerebral palsy",
+                    "Created a custom CMS that was easy to use for the client, allowing them to update their blog independently",
+                    "Implemented using modern web technologies such as Bootstrap, jQuery, NodeJS, ExpressJS, and MongoDB",
                     "Designed a workflow for continuous integration and deployment using GitHub Actions to automate releases",
-                    "Built a 3-page blog website as well as a custom CMS (content management system) admin page",
-                    "Created an accessible on-screen keyboard to accommodate client's typing difficulties caused by Cerebral Palsy",
-                    "Implemented the blog as a full-stack webapp using Bootstrap, jQuery, AlpineJS, Node, Express, and MongoDB",
-                    "Enforced CRUD standards to efficiently handle database operations",
+                    "Successfully led the project's development and completion within 4 months, meeting all deadlines and specifications",
                 ],
             ),
             Project(
                 name="K'we - Mi'kmaq Language Learning Game",
+                address="Eskasoni Immersion School, Halifax, Nova Scotia",
+                role="Game Designer, Developer",
                 start="Sep 2021",
                 end="Jan 2022",
-                address="Eskasoni Immersion School, Halifax, Nova Scotia",
                 attributes=[
-                    "Teamed up with 5 peers as part of our Software Engineering course",
-                    "Managed the codebase in an organizational GitHub repository created for the project for continuous integration",
-                    "Built a game using Ren'Py and Unity that children from grades 2 to 5 played at school",
-                    "Enhanced the children's experience with learning the Mi'kmaq language",
+                    "Collaborated with a team of 5 to design and develop an open-source educational video game for kids in grades 2-5, helping them learn the Mi'kmaq language",
+                    "Successfully created engaging and age-appropriate content that was well-received by the target audience.",
+                    "Built the game using the Ren'Py game engine and hosted it on university servers using NodeJS",
+                    "Managed the development process from start to finish, ensuring all deadlines were met",
                 ],
             ),
         ],
         experiences=[
             Experience(
-                name="Computer Science Tutor",
+                name="Saint Mary's University",
+                address="Halifax, Nova Scotia",
+                role="Computing Science Marker",
+                start="Oct 2022",
+                end="Dec 2022",
+                attributes=[
+                    "Tested and graded Java code assignments submitted by students for performance and accuracy",
+                    "Analyzed errors and suggested corrections to students as feedback",
+                    "Successfully marked over 100 student assignments per semester",
+                ],
+            ),
+            Experience(
+                name="Saint Mary's University Students' Association",
+                address="Halifax, Nova Scotia",
+                role="Computer Science Tutor",
                 start="Oct 2021",
                 end="Sep 2022",
-                address="Halifax, Nova Scotia",
                 attributes=[
-                    "Explained fundamentals of programming and web development in Python, Java, HTML, CSS, JavaScript, SQL, etc.",
-                    "Assisted in understanding core technical concepts and web development principles",
-                    "Helped achieve an increase of over 40% in assigned coursework scores",
+                    "Tutored students in computing science fundamentals, increasing assigned coursework scores by over 40%",
+                    "Helped achieve a better understanding of technical concepts and principles of web development in Python, Java, HTML, CSS, and JavaScript",
                 ],
-            )
+            ),
         ],
     )
 
 
+def xp_fmt(name, address, spec, date):
+    return (
+        "<p class='xp-h'>"
+        + f"<b>{name}</b>"
+        + f"<b>{address}</b>"
+        + "</p>\n"
+        + "<p class='xp-s'>"
+        + f"<i>{spec}</i>"
+        + f"<i>{date}</i>"
+        + "</p>"
+    )
+
+
+@dataclass
 class Address:
     street: str
     postal_code: str
@@ -146,11 +173,15 @@ class Education:
 
     def __str__(self) -> str:
         return (
-            f"**{self.program}** ({self.start} - {self.end})  \n"
-            + f"**{self.school}**, {self.location}  \n"
-            + f"**Major**: {self.major}, **Minor**: {self.minor}  \n"
+            xp_fmt(
+                self.school,
+                self.location,
+                f"{self.program} in {self.major}",
+                f"Expected Graduation Date: {self.end}",
+            )
+            + "\n\n"
             + f"**Courses**: "
-            + ",".join(self.courses)
+            + ", ".join(self.courses)
             + ", etc."
         )
 
@@ -167,15 +198,18 @@ class Skill:
 @dataclass(kw_only=True)
 class Experience:
     name: str
+    address: str
+    role: str
     start: str
     end: str
-    address: str
     attributes: list[str]
 
     def __str__(self):
         return (
-            f"**{self.name}** ({self.start} - {self.end})  \n"
-            + f"_{self.address}_  \n\n"
+            xp_fmt(
+                self.name, self.address, self.role, f"{self.start} - {self.end}"
+            )
+            + "\n\n"
             + "\n".join([f"- {info}" for info in self.attributes])
         )
 
@@ -202,8 +236,8 @@ class Person:
         return (
             f"# {self.name}\n\n"
             + "<header>\n"
-            + f"<p>{self.address}</p>\n"
-            + "<section style='display: flex; justify-content: space-around; margin-top: 1.1em;'>\n"
+            + f"<p>{repr(self.address)}</p>\n"
+            + "<section>\n"
             + f"<a href='tel:{self.__phone_fmt(self.phone)}'>{self.phone}</a>\n"
             + f"<a href='mailto:{self.email}'>{self.email}</a>\n"
             + f"<a href='https://{self.website}'>{self.website}</a>\n"
@@ -235,10 +269,10 @@ class Resume:
         return "\n\n".join(
             [
                 self.header,
-                self.education,
+                self.skills,
                 self.projects,
                 self.experience,
-                self.skills,
+                self.education,
             ]
         )
 
@@ -247,26 +281,26 @@ class Resume:
         return repr(self.author)
 
     @property
-    def education(self) -> str:
-        return "## <u>Education</u>\n\n" + str(self.author.education)
-
-    @property
     def skills(self) -> str:
-        return "## <u>Technical Skills</u>\n\n" + "  \n".join(
+        return "## <u>Skills & Interests</u>\n\n" + "  \n".join(
             [str(skill) for skill in self.author.skills]
         )
 
     @property
     def projects(self) -> str:
-        return "## <u>Projects</u>\n\n" + "\n\n".join(
+        return "## <u>Project Experience</u>\n\n" + "\n\n".join(
             [str(project) for project in self.author.projects]
         )
 
     @property
     def experience(self) -> str:
-        return "## <u>Experience</u>\n\n" + "\n\n".join(
+        return "## <u>Work Experience</u>\n\n" + "\n\n".join(
             [str(experience) for experience in self.author.experiences]
         )
+
+    @property
+    def education(self) -> str:
+        return f"## <u>Education</u>\n\n{self.author.education}"
 
 
 if __name__ == "__main__":
