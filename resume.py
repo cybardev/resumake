@@ -18,7 +18,7 @@ def generate_resume(output_dir: str = "./assets/"):
 def default_author():
     return Person(
         name="Sheikh Saad Abdullah",
-        address="Halifax, Nova Scotia B3J 2K9",
+        address=Address("1333 South Park St", "B3J 2K9"),
         phone="+1 (902) 818-0048",
         email="sheikh@cybar.dev",
         website="www.cybar.dev",
@@ -188,7 +188,7 @@ class Project(Experience):
 @dataclass(kw_only=True)
 class Person:
     name: str
-    address: str
+    address: Address
     phone: str
     email: str
     website: str
