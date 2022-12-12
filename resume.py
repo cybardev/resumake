@@ -180,9 +180,8 @@ class Education:
                 f"Expected Graduation Date: {self.end}",
             )
             + "\n\n"
-            + f"**Courses**: "
+            + f"**Major Courses**: "
             + ", ".join(self.courses)
-            + ", etc."
         )
 
 
