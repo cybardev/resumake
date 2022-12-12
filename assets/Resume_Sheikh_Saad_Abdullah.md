@@ -37,7 +37,7 @@
 - Designed a workflow for continuous integration and deployment using GitHub Actions to automate releases
 - Successfully led the project's development and completion within 4 months, meeting all deadlines and specifications
 
-<p class='xp-h'><b>K'we - Mi'kmaq Language Learning Game</b><b>Eskasoni Immersion School, Halifax, Nova Scotia</b></p>
+<p class='xp-h'><b>K'we - Mi'kmaq Language Learning Game</b><b>Eskasoni Immersion School, Eskasoni, Nova Scotia</b></p>
 <p class='xp-s'><i>Game Designer, Developer</i><i>Sep 2021 - Jan 2022</i></p>
 
 - Collaborated with a team of 5 to design and develop an open-source educational video game for kids in grades 2-5, helping them learn the Mi'kmaq language

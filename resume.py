@@ -91,7 +91,7 @@ def default_author():
             ),
             Project(
                 name="K'we - Mi'kmaq Language Learning Game",
-                address="Eskasoni Immersion School, Halifax, Nova Scotia",
+                address="Eskasoni Immersion School, Eskasoni, Nova Scotia",
                 role="Game Designer, Developer",
                 start="Sep 2021",
                 end="Jan 2022",
