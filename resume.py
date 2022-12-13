@@ -133,14 +133,14 @@ def default_author():
 
 def xp_fmt(name, address, spec, date):
     return (
-        "<p class='xp-h'>"
-        + f"<b>{name}</b>"
-        + f"<b>{address}</b>"
-        + "</p>\n"
-        + "<p class='xp-s'>"
-        + f"<i>{spec}</i>"
-        + f"<i>{date}</i>"
-        + "</p>"
+        "<div class='xp-h'>"
+        + f"<span>{name}</span>"
+        + f"<span>{address}</span>"
+        + "</div>\n"
+        + "<div class='xp-s'>"
+        + f"<span>{spec}</span>"
+        + f"<span>{date}</span>"
+        + "</div>"
     )
 
 
