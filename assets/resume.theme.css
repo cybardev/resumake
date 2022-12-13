@@ -61,6 +61,7 @@
 }
 .markdown-body h2 {
     font-size: 1.4em;
+    text-decoration: underline;
 }
 .markdown-body h3 {
     font-size: 1.3em;
