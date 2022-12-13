@@ -281,25 +281,25 @@ class Resume:
 
     @property
     def skills(self) -> str:
-        return "## <u>Skills & Interests</u>\n\n" + "  \n".join(
+        return "## Skills & Interests\n\n" + "  \n".join(
             [str(skill) for skill in self.author.skills]
         )
 
     @property
     def projects(self) -> str:
-        return "## <u>Project Experience</u>\n\n" + "\n\n".join(
+        return "## Project Experience\n\n" + "\n\n".join(
             [str(project) for project in self.author.projects]
         )
 
     @property
     def experience(self) -> str:
-        return "## <u>Work Experience</u>\n\n" + "\n\n".join(
+        return "## Work Experience\n\n" + "\n\n".join(
             [str(experience) for experience in self.author.experiences]
         )
 
     @property
     def education(self) -> str:
-        return f"## <u>Education</u>\n\n{self.author.education}"
+        return f"## Education\n\n{self.author.education}"
 
 
 if __name__ == "__main__":
