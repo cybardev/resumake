@@ -43,7 +43,7 @@
 - Successfully created engaging and age-appropriate content that was well-received by the target audience
 - Built the game using the Free and Open-source Ren'Py game engine and hosted it on university servers using NodeJS
 - Enforced the Waterfall model of SDLC, ensuring high quality, thorough documentation, and debugging at every step
-- Managed the development process from start to finish, meeting all deadlines without fail
+- Managed the development process from start to finish, delivering the completed product within strict deadlines
 
 ## Work Experience
 
