@@ -8,6 +8,7 @@ def generate_resume(output_dir: str = "./assets/"):
     author: Person = default_author()
 
     # TODO: make any changes to author properties here
+    author.experiences.pop()
 
     # instantiate resume and output to file and standard output
     resume: Resume = Resume(author)
@@ -32,9 +33,9 @@ def default_author():
             start="Sep 2020",
             end="Dec 2024",
             courses=[
+                "Data Structures and Algorithms",
                 "Software Engineering",
-                "Mobile App Development",
-                "Data Structure and Algorithms",
+                "Operating Systems",
             ],
         ),
         skills=[
@@ -42,19 +43,20 @@ def default_author():
                 name="Skills",
                 attributes=[
                     "Microsoft Office (Word, Excel, PowerPoint)",
-                    "Git",
                     "Python",
                     "HTML",
                     "CSS",
                     "JavaScript",
+                    "NodeJS",
                     "Java",
-                    "MongoDB",
+                    "C/C++",
+                    "Git",
                 ],
             ),
             Skill(
                 name="Interests",
                 attributes=[
-                    "Linux",
+                    "Linux and Open-source Software",
                     "Shell Scripting and Automation",
                     "Front-end Web Development",
                     "Data Analytics",
@@ -65,11 +67,11 @@ def default_author():
             Project(
                 name="Cy | Search - Search Engine Frontend",
                 address="https://search.cybar.dev",
-                role="Front-end Developer",
+                role="Full-stack Developer",
                 start="Jan 2022",
                 end="Apr 2022",
                 attributes=[
-                    "Designed a search engine frontend that uses NodeJS functions to request and fetch search results from an API",
+                    "Designed a search engine frontend that uses NodeJS functions to request and fetch search results from a public API",
                     "Successfully displayed the fetched results in a clear and concise format",
                     "Secured the API key by encrypting it as a repository secret and using code obfuscation techniques",
                     "Implemented progressive web app functionality to allow users to install it as an app",
@@ -83,8 +85,7 @@ def default_author():
                 end="Apr 2022",
                 attributes=[
                     "Collaborated with a team of 4 developers to create an accessible blog website with custom CMS and an on-screen keyboard for a client with cerebral palsy",
-                    "Created a custom CMS that was easy to use for the client, allowing them to update their blog independently",
-                    "Implemented using modern web technologies such as Bootstrap, jQuery, NodeJS, ExpressJS, and MongoDB",
+                    "Implemented both the front-end and the back-end using modern web technologies such as Bootstrap, jQuery, AlpineJS, NodeJS, ExpressJS, and MongoDB",
                     "Designed a workflow for continuous integration and deployment using GitHub Actions to automate releases",
                     "Successfully led the project's development and completion within 4 months, meeting all deadlines and specifications",
                 ],
@@ -96,10 +97,11 @@ def default_author():
                 start="Sep 2021",
                 end="Jan 2022",
                 attributes=[
-                    "Collaborated with a team of 5 to design and develop an open-source educational video game for kids in grades 2-5, helping them learn the Mi'kmaq language",
-                    "Successfully created engaging and age-appropriate content that was well-received by the target audience.",
-                    "Built the game using the Ren'Py game engine and hosted it on university servers using NodeJS",
-                    "Managed the development process from start to finish, ensuring all deadlines were met",
+                    "Collaborated with a team of 5 developers to design and develop an open-source educational video game for kids in grades 2-5, helping them learn the Mi'kmaq language",
+                    "Successfully created engaging and age-appropriate content that was well-received by the target audience",
+                    "Built the game using the Free and Open-source Ren'Py game engine and hosted it on university servers using NodeJS",
+                    "Enforced the Waterfall model of SDLC, ensuring high quality, thorough documentation, and debugging at every step",
+                    "Managed the development process from start to finish, meeting all deadlines without fail",
                 ],
             ),
         ],
@@ -109,11 +111,11 @@ def default_author():
                 address="Halifax, Nova Scotia",
                 role="Computing Science Marker",
                 start="Oct 2022",
-                end="Dec 2022",
+                end="Apr 2023",
                 attributes=[
-                    "Tested and graded Java code assignments submitted by students for performance and accuracy",
+                    "Tested and graded Java and Python code assignments submitted by students for performance and accuracy",
                     "Analyzed errors and suggested corrections to students as feedback",
-                    "Successfully marked over 100 student assignments per semester",
+                    "Successfully marked over 150 student assignments per semester",
                 ],
             ),
             Experience(
