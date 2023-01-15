@@ -35,7 +35,8 @@ def default_author():
             courses=[
                 "Data Structures and Algorithms",
                 "Software Engineering",
-                "Operating Systems",
+                # "Operating Systems",
+                "Systems Security",
                 "Artificial Intelligence",
             ],
         ),
