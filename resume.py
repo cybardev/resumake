@@ -48,6 +48,7 @@ def default_author():
                     "CSS",
                     "JavaScript",
                     "NodeJS",
+                    "MongoDB",
                     "Java",
                     "C/C++",
                     "Git",

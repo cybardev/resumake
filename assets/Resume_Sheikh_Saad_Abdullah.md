@@ -15,7 +15,7 @@
 
 ## Skills & Interests
 
-**Skills**: Microsoft Office (Word, Excel, PowerPoint), Python, HTML, CSS, JavaScript, NodeJS, Java, C/C++, Git  
+**Skills**: Microsoft Office (Word, Excel, PowerPoint), Python, HTML, CSS, JavaScript, NodeJS, MongoDB, Java, C/C++, Git  
 **Interests**: Linux and Open-source Software, Shell Scripting and Automation, Front-end Web Development, Data Analytics
 
 ## Project Experience
