@@ -59,4 +59,4 @@
 <div class='xp-h'><span>Saint Mary's University</span><span>Halifax, Nova Scotia</span></div>
 <div class='xp-s'><span>Bachelor of Science in Computing Science</span><span>Expected Graduation Date: Dec 2024</span></div>
 
-**Major Courses**: Data Structures and Algorithms, Software Engineering, Operating Systems
+**Major Courses**: Data Structures and Algorithms, Software Engineering, Operating Systems, Artificial Intelligence

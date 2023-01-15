@@ -36,6 +36,7 @@ def default_author():
                 "Data Structures and Algorithms",
                 "Software Engineering",
                 "Operating Systems",
+                "Artificial Intelligence",
             ],
         ),
         skills=[
