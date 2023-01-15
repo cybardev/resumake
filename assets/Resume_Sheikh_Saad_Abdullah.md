@@ -1,7 +1,7 @@
 # Sheikh Saad Abdullah
 
 <header>
-<p>1333 South Park St, Halifax, NS B3J 2K9</p>
+<p>Halifax, NS, B3J 2K9</p>
 <section>
 <a href='tel:+19028180048'>+1 (902) 818-0048</a>
 <a href='mailto:sheikh@cybar.dev'>sheikh@cybar.dev</a>

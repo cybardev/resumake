@@ -156,7 +156,7 @@ class Address:
     country: str = "Canada"
 
     def __str__(self) -> str:
-        return f"{self.city}, {self.province} {self.postal_code}"
+        return f"{self.city}, {self.province}, {self.postal_code}"
 
     def __repr__(self) -> str:
         return f"{self.street}, {self}"
@@ -237,7 +237,7 @@ class Person:
         return (
             f"# {self.name}\n\n"
             + "<header>\n"
-            + f"<p>{repr(self.address)}</p>\n"
+            + f"<p>{str(self.address)}</p>\n"
             + "<section>\n"
             + f"<a href='tel:{self.__phone_fmt(self.phone)}'>{self.phone}</a>\n"
             + f"<a href='mailto:{self.email}'>{self.email}</a>\n"
