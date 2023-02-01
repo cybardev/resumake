@@ -9,6 +9,7 @@ def generate_resume(output_dir: str = "./assets/"):
 
     # TODO: make any changes to author properties here
     author.experiences.pop()
+    author.skills[0].attributes.pop(0)
 
     # instantiate resume and output to file and standard output
     resume: Resume = Resume(author)
@@ -48,8 +49,12 @@ def default_author():
                     "Python",
                     "HTML",
                     "CSS",
+                    "Bootstrap",
                     "JavaScript",
+                    "jQuery",
+                    "ReactJS",
                     "NodeJS",
+                    "ExpressJS",
                     "MongoDB",
                     "Java",
                     "C/C++",
@@ -59,8 +64,11 @@ def default_author():
             Skill(
                 name="Interests",
                 attributes=[
-                    "Linux and Open-source Software",
-                    "Shell Scripting and Automation",
+                    "Linux",
+                    "Open-source",
+                    "Shell Scripting",
+                    "Automation",
+                    "Cloud",
                     "Front-end Web Development",
                     "Data Analytics",
                 ],
@@ -275,8 +283,8 @@ class Resume:
                 self.header,
                 self.skills,
                 self.projects,
-                self.experience,
                 self.education,
+                self.experience,
             ]
         )
 

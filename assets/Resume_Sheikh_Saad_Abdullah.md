@@ -15,8 +15,8 @@
 
 ## Skills & Interests
 
-**Skills**: Microsoft Office (Word, Excel, PowerPoint), Python, HTML, CSS, JavaScript, NodeJS, MongoDB, Java, C/C++, Git  
-**Interests**: Linux and Open-source Software, Shell Scripting and Automation, Front-end Web Development, Data Analytics
+**Skills**: Python, HTML, CSS, Bootstrap, JavaScript, jQuery, ReactJS, NodeJS, ExpressJS, MongoDB, Java, C/C++, Git  
+**Interests**: Linux, Open-source, Shell Scripting, Automation, Cloud, Front-end Web Development, Data Analytics
 
 ## Project Experience
 
@@ -45,6 +45,13 @@
 - Enforced the Waterfall model of SDLC, ensuring high quality, thorough documentation, and debugging at every step
 - Managed the development process from start to finish, delivering the completed product within strict deadlines
 
+## Education
+
+<div class='xp-h'><span>Saint Mary's University</span><span>Halifax, Nova Scotia</span></div>
+<div class='xp-s'><span>Bachelor of Science in Computing Science</span><span>Expected Graduation Date: Dec 2024</span></div>
+
+**Major Courses**: Data Structures and Algorithms, Software Engineering, Systems Security, Artificial Intelligence
+
 ## Work Experience
 
 <div class='xp-h'><span>Saint Mary's University</span><span>Halifax, Nova Scotia</span></div>
@@ -53,10 +60,3 @@
 - Tested and graded Java and Python code assignments submitted by students for performance and accuracy
 - Analyzed errors and suggested corrections to students as feedback
 - Successfully marked over 150 student assignments per semester
-
-## Education
-
-<div class='xp-h'><span>Saint Mary's University</span><span>Halifax, Nova Scotia</span></div>
-<div class='xp-s'><span>Bachelor of Science in Computing Science</span><span>Expected Graduation Date: Dec 2024</span></div>
-
-**Major Courses**: Data Structures and Algorithms, Software Engineering, Systems Security, Artificial Intelligence
