@@ -20,7 +20,7 @@ def generate_resume(output_dir: str = "./assets/"):
 def default_author():
     return Person(
         name="Sheikh Saad Abdullah",
-        address=Address("1333 South Park St", "B3J 2K9"),
+        address=Address("2060 Quingate Place", "B3L 4P7"),
         phone="+1 (902) 818-0048",
         email="sheikh@cybar.dev",
         website="www.cybar.dev",
