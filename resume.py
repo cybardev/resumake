@@ -35,11 +35,11 @@ def default_author():
             start="Sep 2020",
             end="Dec 2024",
             courses=[
-                "Data Structures and Algorithms",
-                "Software Engineering",
-                # "Operating Systems",
-                "Systems Security",
                 "Artificial Intelligence",
+                "Data Structures and Algorithms",
+                # "Operating Systems",
+                "Software Engineering",
+                "Systems Security",
             ],
         ),
         skills=[
@@ -97,7 +97,7 @@ def default_author():
                 end="Apr 2022",
                 attributes=[
                     "Collaborated with a team of 4 developers to create an accessible blog website with custom CMS and an on-screen keyboard for a client with cerebral palsy",
-                    "Implemented both the front-end and the back-end using modern web technologies such as Bootstrap, jQuery, AlpineJS, NodeJS, ExpressJS, and MongoDB",
+                    "Implemented both front-end and back-end using modern web technologies like Bootstrap, Alpine, Express, Mongo",
                     "Designed a workflow for continuous integration and deployment using GitHub Actions to automate releases",
                     "Successfully led the project's development and completion within 4 months, meeting all deadlines and specifications",
                 ],
@@ -125,9 +125,13 @@ def default_author():
                 start="May 2023",
                 end="Aug 2023",
                 attributes=[
-                    "Successfully set up Raspberry Pi devices with OpenPlotter for testing and deployment",
-                    "Designed and implemented a robust server-client API network, ensuring seamless communication",
-                    "Developed a comprehensive database and logging system to efficiently store and retrieve data, facilitating data-driven decision-making",
+                    "Configured Raspberry Pi SBCs with OpenPlotter Marine OS for the purpose of developing and testing the Acoustic Projector Control and Logging System",
+                    "Developed Python script for generation and playback of audio files from given wavelength and duration",
+                    "Implemented Python module to connect to private Signal K server and utilize its API to effectively retrieve sensor data",
+                    "Created a script for logging data from sensors, consuming it via API calls, and storing it in an SQLite database",
+                    # "Successfully set up Raspberry Pi units with OpenPlotter for testing and deployment of acoustic projectors",
+                    # "Implemented a robust server-client API network, ensuring seamless communication between controller and logger units",
+                    # "Developed a comprehensive database and logging system to efficiently store and retrieve data, facilitating data-driven decision-making",
                 ],
             ),
             Experience(
@@ -295,8 +299,8 @@ class Resume:
             [
                 self.header,
                 self.skills,
-                self.projects,
                 self.experience,
+                self.projects,
                 self.education,
             ]
         )

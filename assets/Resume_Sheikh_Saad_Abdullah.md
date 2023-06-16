@@ -18,6 +18,16 @@
 **Skills**: Python, HTML, CSS, Bootstrap, JavaScript, jQuery, ReactJS, NodeJS, ExpressJS, MongoDB, Java, C/C++, Git  
 **Interests**: Linux, Open-source, Shell Scripting, Automation, Cloud, Front-end Web Development, Data Analytics
 
+## Work Experience
+
+<div class='xp-h'><span>Sensor Technology LTD (COVE)</span><span>Dartmouth, Nova Scotia</span></div>
+<div class='xp-s'><span>Research Intern</span><span>May 2023 - Aug 2023</span></div>
+
+- Configured Raspberry Pi SBCs with OpenPlotter Marine OS for the purpose of developing and testing the Acoustic Projector Control and Logging System
+- Developed Python script for generation and playback of audio files from given wavelength and duration
+- Implemented Python module to connect to private Signal K server and utilize its API to effectively retrieve sensor data
+- Created a script for logging data from sensors, consuming it via API calls, and storing it in an SQLite database
+
 ## Project Experience
 
 <div class='xp-h'><span>Cy | Search - Search Engine Frontend</span><span>https://search.cybar.dev</span></div>
@@ -32,7 +42,7 @@
 <div class='xp-s'><span>Full-stack Developer</span><span>Jan 2022 - Apr 2022</span></div>
 
 - Collaborated with a team of 4 developers to create an accessible blog website with custom CMS and an on-screen keyboard for a client with cerebral palsy
-- Implemented both the front-end and the back-end using modern web technologies such as Bootstrap, jQuery, AlpineJS, NodeJS, ExpressJS, and MongoDB
+- Implemented both front-end and back-end using modern web technologies like Bootstrap, Alpine, Express, Mongo
 - Designed a workflow for continuous integration and deployment using GitHub Actions to automate releases
 - Successfully led the project's development and completion within 4 months, meeting all deadlines and specifications
 
@@ -44,18 +54,9 @@
 - Enforced the Waterfall model of SDLC, ensuring high quality, thorough documentation, and debugging at every step
 - Managed the development process from start to finish, delivering the completed product within strict deadlines
 
-## Work Experience
-
-<div class='xp-h'><span>Sensor Technology LTD (COVE)</span><span>Dartmouth, Nova Scotia</span></div>
-<div class='xp-s'><span>Research Intern</span><span>May 2023 - Aug 2023</span></div>
-
-- Successfully set up Raspberry Pi devices with OpenPlotter for testing and deployment
-- Designed and implemented a robust server-client API network, ensuring seamless communication
-- Developed a comprehensive database and logging system to efficiently store and retrieve data, facilitating data-driven decision-making
-
 ## Education
 
 <div class='xp-h'><span>Saint Mary's University</span><span>Halifax, Nova Scotia</span></div>
 <div class='xp-s'><span>Bachelor of Science in Computing Science</span><span>Expected Graduation Date: Dec 2024</span></div>
 
-**Major Courses**: Data Structures and Algorithms, Software Engineering, Systems Security, Artificial Intelligence
+**Major Courses**: Artificial Intelligence, Data Structures and Algorithms, Software Engineering, Systems Security
