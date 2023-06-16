@@ -9,6 +9,7 @@ def generate_resume(output_dir: str = "./assets/"):
 
     # TODO: make any changes to author properties here
     author.experiences.pop()
+    author.experiences.pop()
     author.skills[0].attributes.pop(0)
 
     # instantiate resume and output to file and standard output
@@ -110,13 +111,25 @@ def default_author():
                 attributes=[
                     "Collaborated with a team of 5 developers to design and develop an open-source educational video game for kids in grades 2-5, helping them learn the Mi'kmaq language",
                     "Successfully created engaging and age-appropriate content that was well-received by the target audience",
-                    "Built the game using the Free and Open-source Ren'Py game engine and hosted it on university servers using NodeJS",
+                    # "Built the game using the Free and Open-source Ren'Py game engine and hosted it on university servers using NodeJS",
                     "Enforced the Waterfall model of SDLC, ensuring high quality, thorough documentation, and debugging at every step",
                     "Managed the development process from start to finish, delivering the completed product within strict deadlines",
                 ],
             ),
         ],
         experiences=[
+            Experience(
+                name="Sensor Technology LTD (COVE)",
+                address="Dartmouth, Nova Scotia",
+                role="Research Intern",
+                start="May 2023",
+                end="Aug 2023",
+                attributes=[
+                    "Successfully set up Raspberry Pi devices with OpenPlotter for testing and deployment",
+                    "Designed and implemented a robust server-client API network, ensuring seamless communication",
+                    "Developed a comprehensive database and logging system to efficiently store and retrieve data, facilitating data-driven decision-making",
+                ],
+            ),
             Experience(
                 name="Saint Mary's University",
                 address="Halifax, Nova Scotia",
@@ -283,8 +296,8 @@ class Resume:
                 self.header,
                 self.skills,
                 self.projects,
-                self.education,
                 self.experience,
+                self.education,
             ]
         )
 

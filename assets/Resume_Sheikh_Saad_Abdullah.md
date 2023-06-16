@@ -1,7 +1,7 @@
 # Sheikh Saad Abdullah
 
 <header>
-<p>Halifax, NS, B3J 2K9</p>
+<p>Halifax, NS, B3L 4P7</p>
 <section>
 <a href='tel:+19028180048'>+1 (902) 818-0048</a>
 <a href='mailto:sheikh@cybar.dev'>sheikh@cybar.dev</a>
@@ -41,9 +41,17 @@
 
 - Collaborated with a team of 5 developers to design and develop an open-source educational video game for kids in grades 2-5, helping them learn the Mi'kmaq language
 - Successfully created engaging and age-appropriate content that was well-received by the target audience
-- Built the game using the Free and Open-source Ren'Py game engine and hosted it on university servers using NodeJS
 - Enforced the Waterfall model of SDLC, ensuring high quality, thorough documentation, and debugging at every step
 - Managed the development process from start to finish, delivering the completed product within strict deadlines
+
+## Work Experience
+
+<div class='xp-h'><span>Sensor Technology LTD (COVE)</span><span>Dartmouth, Nova Scotia</span></div>
+<div class='xp-s'><span>Research Intern</span><span>May 2023 - Aug 2023</span></div>
+
+- Successfully set up Raspberry Pi devices with OpenPlotter for testing and deployment
+- Designed and implemented a robust server-client API network, ensuring seamless communication
+- Developed a comprehensive database and logging system to efficiently store and retrieve data, facilitating data-driven decision-making
 
 ## Education
 
@@ -51,12 +59,3 @@
 <div class='xp-s'><span>Bachelor of Science in Computing Science</span><span>Expected Graduation Date: Dec 2024</span></div>
 
 **Major Courses**: Data Structures and Algorithms, Software Engineering, Systems Security, Artificial Intelligence
-
-## Work Experience
-
-<div class='xp-h'><span>Saint Mary's University</span><span>Halifax, Nova Scotia</span></div>
-<div class='xp-s'><span>Computing Science Marker</span><span>Oct 2022 - Apr 2023</span></div>
-
-- Tested and graded Java and Python code assignments submitted by students for performance and accuracy
-- Analyzed errors and suggested corrections to students as feedback
-- Successfully marked over 150 student assignments per semester
