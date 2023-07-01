@@ -30,6 +30,22 @@
 
 ## Project Experience
 
+<div class='xp-h'><span>yt.py - YouTube Media Player</span><span>https://github.com/cybardev/ytpy</span></div>
+<div class='xp-s'><span>Software Developer</span><span>Feb 2021 - Present</span></div>
+
+- Translated the open-source shell script "ytfzf" into Python, improving cross-platform compatibility
+- Fetched YouTube search results by requesting resources via built-in Python modules, thus avoiding API calls, reducing dependencies, and simplifying end-user experience
+- Used a compiled regular expression to efficiently filter and gather media URL strings from raw JSON data retrieved
+- Ensured smooth media playback by delegating handling of media data to media player customizable by the user
+
+<div class='xp-h'><span>Cy | Pass - Secure Password Generator</span><span>https://pypi.org/project/cybarpass</span></div>
+<div class='xp-s'><span>Software Developer</span><span>Apr 2022 - Present</span></div>
+
+- Modularized code by splitting up project into multiple scripts and using proper object-oriented techniques to ensure separation of concerns
+- Designed and implemented simple and elegant tkinter GUI and robust CLI for convenience and ease of access
+- Packaged and published project to Python Package Index (PyPI), making it easy and convenient for users to install
+- Created companion tool [CheckPass](https://checkpass.cybar.dev) to allow users to test the security of generated passphrase
+
 <div class='xp-h'><span>Cy | Search - Search Engine Frontend</span><span>https://search.cybar.dev</span></div>
 <div class='xp-s'><span>Full-stack Developer</span><span>Jan 2022 - Apr 2022</span></div>
 
@@ -37,22 +53,6 @@
 - Successfully displayed the fetched results in a clear and concise format
 - Secured the API key by encrypting it as a repository secret and using code obfuscation techniques
 - Implemented progressive web app functionality to allow users to install it as an app
-
-<div class='xp-h'><span>Accessible Blog with CMS</span><span>Northwood Care, Halifax, Nova Scotia</span></div>
-<div class='xp-s'><span>Full-stack Developer</span><span>Jan 2022 - Apr 2022</span></div>
-
-- Collaborated with a team of 4 developers to create an accessible blog website with custom CMS and an on-screen keyboard for a client with cerebral palsy
-- Implemented both front-end and back-end using modern web technologies like Bootstrap, Alpine, Express, Mongo
-- Designed a workflow for continuous integration and deployment using GitHub Actions to automate releases
-- Successfully led the project's development and completion within 4 months, meeting all deadlines and specifications
-
-<div class='xp-h'><span>K'we - Mi'kmaq Language Learning Game</span><span>Eskasoni Immersion School, Eskasoni, Nova Scotia</span></div>
-<div class='xp-s'><span>Game Designer, Developer</span><span>Sep 2021 - Jan 2022</span></div>
-
-- Collaborated with a team of 5 developers to design and develop an open-source educational video game for kids in grades 2-5, helping them learn the Mi'kmaq language
-- Successfully created engaging and age-appropriate content that was well-received by the target audience
-- Enforced the Waterfall model of SDLC, ensuring high quality, thorough documentation, and debugging at every step
-- Managed the development process from start to finish, delivering the completed product within strict deadlines
 
 ## Education
 

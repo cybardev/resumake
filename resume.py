@@ -8,6 +8,8 @@ def generate_resume(output_dir: str = "./assets/"):
     author: Person = default_author()
 
     # TODO: make any changes to author properties here
+    author.projects.pop()
+    author.projects.pop()
     author.experiences.pop()
     author.experiences.pop()
     author.skills[0].attributes.pop(0)
@@ -76,6 +78,32 @@ def default_author():
             ),
         ],
         projects=[
+            Project(
+                name="yt.py - YouTube Media Player",
+                address="https://github.com/cybardev/ytpy",
+                role="Software Developer",
+                start="Feb 2021",
+                end="Present",
+                attributes=[
+                    'Translated the open-source shell script "ytfzf" into Python, improving cross-platform compatibility',
+                    "Fetched YouTube search results by requesting resources via built-in Python modules, thus avoiding API calls, reducing dependencies, and simplifying end-user experience",
+                    "Used a compiled regular expression to efficiently filter and gather media URL strings from raw JSON data retrieved",
+                    "Ensured smooth media playback by delegating handling of media data to media player customizable by the user",
+                ],
+            ),
+            Project(
+                name="Cy | Pass - Secure Password Generator",
+                address="https://pypi.org/project/cybarpass",
+                role="Software Developer",
+                start="Apr 2022",
+                end="Present",
+                attributes=[
+                    "Modularized code by splitting up project into multiple scripts and using proper object-oriented techniques to ensure separation of concerns",
+                    "Designed and implemented simple and elegant tkinter GUI and robust CLI for convenience and ease of access",
+                    "Packaged and published project to Python Package Index (PyPI), making it easy and convenient for users to install",
+                    "Created companion tool [CheckPass](https://checkpass.cybar.dev) to allow users to test the security of generated passphrase",
+                ],
+            ),
             Project(
                 name="Cy | Search - Search Engine Frontend",
                 address="https://search.cybar.dev",
