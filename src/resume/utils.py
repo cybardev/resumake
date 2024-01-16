@@ -1,3 +1,5 @@
+import subprocess
+
 from src.resume.components.author import Author
 from src.resume.components.resume import Resume
 
@@ -13,6 +15,10 @@ def xp_fmt(name, address, spec, date):
         + f"<span>{date}</span>"
         + "</div>"
     )
+
+
+def md_to_pdf(md_file: str, pdf_file: str):
+    subprocess.run(["pandoc", md_file, "-o", pdf_file])
 
 
 def generate_resume(author: Author, output_dir: str):
