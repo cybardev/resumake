@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 
-from src.resume.address import Address
-from src.resume.education import Education
-from src.resume.experience import Experience
-from src.resume.project import Project
-from src.resume.skill import Skill
+from src.resume.components.address import Address
+from src.resume.components.education import Education
+from src.resume.components.experience import Experience
+from src.resume.components.project import Project
+from src.resume.components.skill import Skill
 
 
 @dataclass(kw_only=True)

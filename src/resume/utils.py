@@ -1,5 +1,5 @@
-from src.resume.author import Author
-from src.resume.resume import Resume
+from src.resume.components.author import Author
+from src.resume.components.resume import Resume
 
 
 def xp_fmt(name, address, spec, date):

@@ -1,4 +1,4 @@
-from src.resume.author import Author
+from src.resume.components.author import Author
 
 
 class Resume:
