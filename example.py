@@ -70,16 +70,13 @@ me: Author = Author(
     ],
     projects=[
         Project(
-            name="yt.py - YouTube Media Player",
-            address="https://github.com/cybardev/ytpy",
+            name="Prayers - Islamic Prayer API and Front-end",
+            address="https://github.com/cybardev/prayers",
             role="Software Developer",
-            start="Feb 2021",
+            start="Nov 2023",
             end="Present",
             attributes=[
-                'Translated the open-source shell script "ytfzf" into Python, improving cross-platform compatibility',
-                "Fetched YouTube search results by requesting resources via built-in Python modules, thus avoiding API calls, reducing dependencies, and simplifying end-user experience",
-                "Used a compiled regular expression to efficiently filter and gather media URL strings from raw JSON data retrieved",
-                "Ensured smooth media playback by delegating handling of media data to media player customizable by the user",
+                "",
             ],
         ),
         Project(
