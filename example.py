@@ -4,6 +4,7 @@
 from src.resume import *
 
 
+# TODO: edit author object as required
 me: Author = Author(
     name="Sheikh Saad Abdullah",
     address=Address("2060 Quingate Place", "B3L 4P7"),
