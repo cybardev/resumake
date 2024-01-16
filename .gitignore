@@ -1,6 +1,9 @@
+# boilerplate
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
 .DS_Store
 
+# custom resume files
+*_resume.py
