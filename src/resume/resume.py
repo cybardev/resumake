@@ -31,15 +31,15 @@ class Resume:
         )
 
     @property
-    def projects(self) -> str:
-        return "## Project Experience\n\n" + "\n\n".join(
-            [str(project) for project in self.author.projects]
-        )
-
-    @property
     def experience(self) -> str:
         return "## Work Experience\n\n" + "\n\n".join(
             [str(experience) for experience in self.author.experiences]
+        )
+
+    @property
+    def projects(self) -> str:
+        return "## Project Experience\n\n" + "\n\n".join(
+            [str(project) for project in self.author.projects]
         )
 
     @property
