@@ -45,6 +45,16 @@ me: Author = Author(
     ],
     experiences=[
         Experience(
+            name="ReelData AI",
+            address="Halifax, Nova Scotia",
+            role="Junior Software Developer",
+            start="Sept 2023",
+            end="Dec 2023",
+            attributes=[
+                "",
+            ],
+        ),
+        Experience(
             name="Sensor Technology LTD (COVE)",
             address="Dartmouth, Nova Scotia",
             role="Research Intern",
