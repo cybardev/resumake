@@ -1,3 +1,4 @@
+from src.resume.author import Author
 from src.resume.resume import Resume
 
 
@@ -14,7 +15,8 @@ def xp_fmt(name, address, spec, date):
     )
 
 
-def generate_resume(resume: Resume, output_dir: str):
+def generate_resume(author: Author, output_dir: str):
     # generate resume and output to file and standard output
+    resume: Resume = Resume(author)
     resume.build(f"Resume_{resume.author.name.replace(' ', '_')}.md", output_dir)
     print(resume)
