@@ -1,0 +1,28 @@
+name: Resume Builder
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - "example.py"
+
+jobs:
+    generate-resume:
+        name: Generate Resume
+        if: github.repository == 'cybardev/resume'
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Run resume generation script
+              run: python3 example.py
+            - name: Commit changes
+              run: |
+                  git config --local user.name "github-actions[bot]"
+                  git config --local user.email "github-actions[bot]@users.noreply.github.com"
+                  git commit -a -m "pipeline: update resume"
+            - name: Upload resume files
+              uses: ad-m/github-push-action@master
+              with:
+                  branch: main
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
