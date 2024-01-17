@@ -1,8 +1,5 @@
-from src.resume.components.author import Author
-
-
 class Resume:
-    def __init__(self, author: Author):
+    def __init__(self, author):
         self.author = author
 
     def build(self, filename: str, output_dir: str):

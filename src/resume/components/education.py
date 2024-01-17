@@ -9,7 +9,6 @@ class Education:
     location: str
     program: str
     major: str
-    minor: str
     start: str
     end: str
     courses: list[str]

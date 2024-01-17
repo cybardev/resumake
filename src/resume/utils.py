@@ -1,10 +1,9 @@
 import subprocess
 
-from src.resume.components.author import Author
 from src.resume.components.resume import Resume
 
 
-def xp_fmt(name, address, spec, date):
+def xp_fmt(name: str, address: str, spec: str, date: str) -> str:
     return (
         "<div class='xp-h'>"
         + f"<span>{name}</span>"
@@ -22,7 +21,7 @@ def md_to_pdf(
     pdf_file: str,
     html_template: str = "./src/template/resume.html",
     css_template: str = "./src/template/resume.css",
-):
+) -> None:
     subprocess.run(
         [
             "pandoc",
@@ -49,7 +48,7 @@ def md_to_pdf(
     )
 
 
-def generate_resume(author: Author, output_dir: str):
+def generate_resume(author, output_dir: str) -> Resume:
     # generate resume and output to file and standard output
     resume: Resume = Resume(author)
     filename = f"Resume_{resume.author.name.replace(' ', '_')}"
@@ -58,4 +57,4 @@ def generate_resume(author: Author, output_dir: str):
         f"{output_dir.rstrip('/')}/{filename}.md",
         f"{output_dir.rstrip('/')}/{filename}.pdf",
     )
-    print(resume)
+    return resume
