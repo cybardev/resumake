@@ -11,4 +11,4 @@ from src.resume.components.experience import Experience
 from src.resume.components.project import Project
 from src.resume.components.resume import Resume
 from src.resume.components.skill import Skill
-from src.resume.utils import generate_resume
+from src.resume.utils import generate_resume, md_to_pdf
