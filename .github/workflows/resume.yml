@@ -7,6 +7,8 @@ on:
         paths:
             - "example.py"
             - ".github/workflows/resume.yml"
+            - "src/resume/utils.py"
+            - "src/template/*.*"
 
 jobs:
     generate-resume:
