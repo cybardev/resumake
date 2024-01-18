@@ -15,11 +15,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Install dependencies
-              run: sudo apt install -y pandoc wkhtmltopdf
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y pandoc wkhtmltopdf
             - name: Checkout repository
               uses: actions/checkout@v4
             - name: Run resume generation script
-              run: python3 example.py
+              run: |
+                  python3 example.py
             - name: Check for resume changes
               id: check_updates
               run: |
