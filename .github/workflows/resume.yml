@@ -6,6 +6,7 @@ on:
             - main
         paths:
             - "example.py"
+            - ".github/workflows/resume.yml"
 
 jobs:
     generate-resume:
@@ -13,6 +14,8 @@ jobs:
         if: github.repository == 'cybardev/resume'
         runs-on: ubuntu-latest
         steps:
+            - name: Install dependencies
+              run: sudo apt install -y pandoc wkhtmltopdf
             - uses: actions/checkout@v4
             - name: Run resume generation script
               run: python3 example.py
