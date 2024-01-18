@@ -17,15 +17,14 @@ def xp_fmt(name: str, address: str, spec: str, date: str) -> str:
 
 
 def md_to_pdf(
-    md_file: str,
-    pdf_file: str,
+    filename: str,
     html_template: str = "./src/template/resume.html",
     css_template: str = "./src/template/resume.css",
 ) -> None:
     subprocess.run(
         [
             "pandoc",
-            md_file,
+            f"{filename}.md",
             "-t",
             "html",
             f"--template={html_template}",
@@ -43,18 +42,31 @@ def md_to_pdf(
             "margin-left=0",
             "--pdf-engine-opt=--enable-local-file-access",
             "-o",
-            pdf_file,
+            f"{filename}.pdf",
         ]
     )
 
 
-def generate_resume(author, output_dir: str) -> Resume:
-    # generate resume and output to file and standard output
-    resume: Resume = Resume(author)
-    filename = f"Resume_{resume.author.name.replace(' ', '_')}"
-    resume.build(f"{filename}.md", output_dir)
-    md_to_pdf(
-        f"{output_dir.rstrip('/')}/{filename}.md",
-        f"{output_dir.rstrip('/')}/{filename}.pdf",
+def pdf_to_png(
+    filename: str,
+) -> None:
+    subprocess.run(
+        ["pdftoppm", "-png", "-singlefile", f"{filename}.pdf", filename]
     )
+
+
+def generate_resume(author, output_dir: str) -> Resume:
+    # generate resume and output to markdown file
+    resume: Resume = Resume(author)
+    filename = (
+        output_dir.rstrip("/")
+        + "/"
+        + f"Resume_{resume.author.name.replace(' ', '_')}"
+    )
+    resume.build(f"{filename}.md")
+
+    # convert markdown to pdf and generate png image
+    md_to_pdf(filename)
+    pdf_to_png(filename)
+
     return resume

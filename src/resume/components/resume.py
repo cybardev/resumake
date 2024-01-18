@@ -2,8 +2,8 @@ class Resume:
     def __init__(self, author):
         self.author = author
 
-    def build(self, filename: str, output_dir: str):
-        with open(output_dir + filename, "w") as file:
+    def build(self, filename: str):
+        with open(filename, "w") as file:
             file.write(str(self))
 
     def __str__(self) -> str:
