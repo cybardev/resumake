@@ -16,7 +16,8 @@ jobs:
         steps:
             - name: Install dependencies
               run: sudo apt install -y pandoc wkhtmltopdf
-            - uses: actions/checkout@v4
+            - name: Checkout repository
+              uses: actions/checkout@v4
             - name: Run resume generation script
               run: python3 example.py
             - name: Commit changes
