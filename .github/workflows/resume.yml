@@ -19,7 +19,7 @@ jobs:
             - name: Install dependencies
               uses: awalsh128/cache-apt-pkgs-action@latest
               with:
-                  packages: pandoc wkhtmltopdf
+                  packages: pandoc wkhtmltopdf poppler-utils
                   version: 1.0
             - name: Checkout repository
               uses: actions/checkout@v4
