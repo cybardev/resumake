@@ -20,26 +20,28 @@
 
 ## Work Experience
 
+<div class='xp-h'><span>ReelData AI</span><span>Halifax, Nova Scotia</span></div>
+<div class='xp-s'><span>Junior Software Developer</span><span>Sept 2023 - Dec 2023</span></div>
+
+- Worked in a fast-paced Agile team
+
 <div class='xp-h'><span>Sensor Technology LTD (COVE)</span><span>Dartmouth, Nova Scotia</span></div>
 <div class='xp-s'><span>Research Intern</span><span>May 2023 - Aug 2023</span></div>
 
 - Configured Raspberry Pi SBCs with OpenPlotter Marine OS for the purpose of developing and testing the Acoustic Projector Control and Logging System
 - Developed Python script for generation and playback of audio files from given wavelength and duration
-- Implemented Python module to connect to private Signal K server and utilize its API to effectively retrieve sensor data
+- Implemented module to connect to private Signal K server and utilize its API to effectively retrieve sensor data
 - Created a script for logging data from sensors, consuming it via API calls, and storing it in an SQLite database
 
 ## Project Experience
 
-<div class='xp-h'><span>yt.py - YouTube Media Player</span><span>https://github.com/cybardev/ytpy</span></div>
-<div class='xp-s'><span>Software Developer</span><span>Feb 2021 - Present</span></div>
+<div class='xp-h'><span>Prayers - Islamic Prayer API and Front-end</span><span>https://github.com/cybardev/prayers</span></div>
+<div class='xp-s'><span>Software Developer</span><span>Nov 2023 - Dec 2023</span></div>
 
-- Translated the open-source shell script "ytfzf" into Python, improving cross-platform compatibility
-- Fetched YouTube search results by requesting resources via built-in Python modules, thus avoiding API calls, reducing dependencies, and simplifying end-user experience
-- Used a compiled regular expression to efficiently filter and gather media URL strings from raw JSON data retrieved
-- Ensured smooth media playback by delegating handling of media data to media player customizable by the user
+- Created an API using serverless edge functions
 
 <div class='xp-h'><span>Cy | Pass - Secure Password Generator</span><span>https://pypi.org/project/cybarpass</span></div>
-<div class='xp-s'><span>Software Developer</span><span>Apr 2022 - Present</span></div>
+<div class='xp-s'><span>Software Developer</span><span>Apr 2022 - Apr 2023</span></div>
 
 - Modularized code by splitting up project into multiple scripts and using proper object-oriented techniques to ensure separation of concerns
 - Designed and implemented simple and elegant tkinter GUI and robust CLI for convenience and ease of access
