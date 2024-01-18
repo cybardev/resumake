@@ -52,7 +52,7 @@ me: Author = Author(
             start="Sept 2023",
             end="Dec 2023",
             attributes=[
-                "",
+                "Worked in a fast-paced Agile team",
             ],
         ),
         Experience(
@@ -77,7 +77,7 @@ me: Author = Author(
             start="Nov 2023",
             end="Dec 2023",
             attributes=[
-                "",
+                "Created an API using serverless edge functions",
             ],
         ),
         Project(
