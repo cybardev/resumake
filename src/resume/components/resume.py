@@ -1,8 +1,16 @@
+import os
+from pathlib import Path
+
+
 class Resume:
     def __init__(self, author):
         self.author = author
 
     def build(self, filename: str):
+        # ensure path exists and file can be created
+        path = Path(os.path.abspath(filename))
+        path.parent.mkdir(parents=True, exist_ok=True)
+
         with open(filename, "w") as file:
             file.write(str(self))
 
