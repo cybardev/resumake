@@ -7,22 +7,23 @@ import sys
 from importlib.machinery import SourceFileLoader
 from importlib.util import spec_from_loader, module_from_spec
 
-from ..components.resume import Resume
 from ..utils import generate_resume
 
 
 def main(args: argparse.Namespace):
+    # set paths to resume file
     full_path = os.path.abspath(args.resume)
     filename = os.path.basename(full_path)
     sys.path.append(os.path.dirname(full_path))
 
+    # import resume file as module
     loader = SourceFileLoader(filename, full_path)
     spec = spec_from_loader(filename, loader)
     resume_info = module_from_spec(spec)
     loader.exec_module(resume_info)
 
-    resume_obj = Resume(resume_info.main())
-    generate_resume(resume_obj, args.output)
+    # use author info from resume module to generate resume
+    generate_resume(resume_info.main(), args.output)
 
 
 def parse_args() -> argparse.Namespace:

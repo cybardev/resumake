@@ -58,8 +58,9 @@ def pdf_to_png(
     )
 
 
-def generate_resume(resume, output_dir: str):
+def generate_resume(author, output_dir: str) -> Resume:
     # generate resume and output to markdown file
+    resume = Resume(author)
     filename = (
         output_dir.rstrip("/")
         + "/"
