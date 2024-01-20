@@ -36,13 +36,13 @@ jobs:
                   FILE_CHANGED=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} ./site/assets/Resume_*.md)
                   echo "changed=${FILE_CHANGED}" >> "${GITHUB_OUTPUT}"
             - name: Commit changes
-              # FIXME: if: endsWith(steps.check_updates.outputs.changed, '.md')
+              if: endsWith(steps.check_updates.outputs.changed, '.md')
               run: |
                   git config --local user.name "github-actions[bot]"
                   git config --local user.email "github-actions[bot]@users.noreply.github.com"
                   git commit -a -m "pipeline: update resume"
             - name: Upload resume files
-              # FIXME: if: endsWith(steps.check_updates.outputs.changed, '.md')
+              if: endsWith(steps.check_updates.outputs.changed, '.md')
               uses: ad-m/github-push-action@master
               with:
                   branch: main
