@@ -10,6 +10,9 @@ on:
             - "src/resume/utils.py"
             - "src/template/*.*"
 
+    # Allows running this workflow manually from the Actions tab
+    workflow_dispatch:
+
 jobs:
     generate-resume:
         name: Generate Resume
@@ -25,9 +28,8 @@ jobs:
               uses: actions/checkout@v4
             - name: Run resume generation script
               run: |
-                  cd ./src/
-                  python3 -m resume.builder ../example.py -o ../assets
-                  cd ../
+                  export PYTHONPATH=$PYTHONPATH:$PWD/src/
+                  python3 -m resume.builder ../example.py -o ../site/assets
             - name: Check for resume changes
               id: check_updates
               run: |
