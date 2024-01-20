@@ -1,8 +1,6 @@
 import os
 import subprocess
 
-from .components.resume import Resume
-
 
 def xp_fmt(name: str, address: str, spec: str, date: str) -> str:
     return (
@@ -58,9 +56,8 @@ def pdf_to_png(
     )
 
 
-def generate_resume(author, output_dir: str) -> Resume:
-    # generate resume and output to markdown file
-    resume = Resume(author)
+def generate_resume(resume, output_dir: str):
+    # generate markdown from python resume script
     filename = (
         output_dir.rstrip("/")
         + "/"

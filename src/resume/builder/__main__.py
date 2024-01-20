@@ -6,6 +6,7 @@ import sys
 from importlib.machinery import SourceFileLoader
 from importlib.util import module_from_spec, spec_from_loader
 
+from ..components.resume import Resume
 from ..utils import generate_resume
 
 
@@ -22,7 +23,8 @@ def main(args: argparse.Namespace):
     loader.exec_module(resume_info)
 
     # use author info from resume module to generate resume
-    generate_resume(resume_info.main(), args.output)
+    resume_obj = Resume(resume_info.main())
+    generate_resume(resume_obj, args.output)
 
 
 def parse_args() -> argparse.Namespace:
