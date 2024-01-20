@@ -24,7 +24,9 @@ def main(args: argparse.Namespace):
 
     # use author info from resume module to generate resume
     resume_obj = Resume(resume_info.main())
-    generate_resume(resume_obj, args.output)
+    generate_resume(
+        resume_obj, args.output, args.html_template, args.css_template
+    )
 
 
 def parse_args() -> argparse.Namespace:
@@ -46,6 +48,24 @@ def parse_args() -> argparse.Namespace:
         type=str,
         help="path to the output directory",
         default="./",
+    )
+    parser.add_argument(
+        "-t",
+        "--template",
+        metavar="HTML",
+        dest="html_template",
+        type=str,
+        help="path to the HTML template file",
+        default="./template/resume.html",
+    )
+    parser.add_argument(
+        "-c",
+        "--css",
+        metavar="CSS",
+        dest="css_template",
+        type=str,
+        help="path to the CSS template file",
+        default="./template/resume.css",
     )
     return parser.parse_args()
 

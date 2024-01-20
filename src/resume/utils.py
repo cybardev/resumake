@@ -15,11 +15,7 @@ def xp_fmt(name: str, address: str, spec: str, date: str) -> str:
     )
 
 
-def md_to_pdf(
-    filename: str,
-    html_template: str = "./template/resume.html",
-    css_template: str = "./template/resume.css",
-) -> None:
+def md_to_pdf(filename: str, html_template: str, css_template: str) -> None:
     html_template = os.path.abspath(html_template)
     css_template = os.path.abspath(css_template)
     subprocess.run(
@@ -56,7 +52,9 @@ def pdf_to_png(
     )
 
 
-def generate_resume(resume, output_dir: str):
+def generate_resume(
+    resume, output_dir: str, html_template: str, css_template: str
+):
     # generate markdown from python resume script
     filename = (
         output_dir.rstrip("/")
@@ -66,7 +64,7 @@ def generate_resume(resume, output_dir: str):
     resume.build(f"{filename}.md")
 
     # convert markdown to pdf and generate png image
-    md_to_pdf(filename)
+    md_to_pdf(filename, html_template, css_template)
     pdf_to_png(filename)
 
     return resume
