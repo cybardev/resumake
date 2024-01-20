@@ -31,7 +31,7 @@ def main(args: argparse.Namespace):
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        prog="resume",
+        prog="resume.builder",
         description="Generate a resume from a given python file",
         allow_abbrev=False,
     )
