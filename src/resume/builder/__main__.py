@@ -23,7 +23,7 @@ def main(args: argparse.Namespace):
     loader.exec_module(resume_info)
 
     # use author info from resume module to generate resume
-    resume_obj = Resume(resume_info.main())
+    resume_obj = Resume(resume_info.author)
     generate_resume(
         resume_obj, args.output, args.html_template, args.css_template
     )
