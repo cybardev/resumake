@@ -25,7 +25,9 @@ jobs:
               uses: actions/checkout@v4
             - name: Run resume generation script
               run: |
-                  python3 example.py
+                  cd ./src/
+                  python3 -m resume.builder ../example.py -o ../assets
+                  cd ../
             - name: Check for resume changes
               id: check_updates
               run: |
