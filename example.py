@@ -37,6 +37,7 @@ author = Author(
                 "Cloud",
                 "Front-end Web Development",
                 "Data Analytics",
+                "DevOps",
             ],
         ),
     ],
