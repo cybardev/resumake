@@ -52,7 +52,10 @@ me: Author = Author(
             start="Sept 2023",
             end="Dec 2023",
             attributes=[
-                "Worked in a fast-paced Agile team",
+                "Collaborated with a dynamic Agile team on ReelAppetite, a key product, demonstrating strong teamwork and interpersonal skills",
+                "Successfully integrated into a large existing codebase, showcasing adaptability and quick learning",
+                "Implemented features using test-driven development and containerization, contributing to the software’s robustness",
+                "Experienced the deployment of code to production, highlighting practical application and impact of contributions",
             ],
         ),
         Experience(
