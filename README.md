@@ -76,4 +76,4 @@ options:
 
 **Source**: [example.py](example.py)
 
-![resume](assets/Resume_Sheikh_Saad_Abdullah.png)
+![resume](site/assets/Resume_Sheikh_Saad_Abdullah.png)
