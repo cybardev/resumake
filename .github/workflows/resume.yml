@@ -29,10 +29,8 @@ jobs:
             - name: Check for resume changes
               id: check_updates
               run: |
-                  SHA_ID=$(git rev-parse --verify HEAD)
-                  FILE_CHANGED=$(git diff-tree --no-commit-id --name-only -r ${SHA_ID} ./assets/Resume_*.md)
+                  FILE_CHANGED=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} ./assets/Resume_*.md)
                   echo "changed=${FILE_CHANGED}" >> "${GITHUB_OUTPUT}"
-                  echo "${FILE_CHANGED}"
             - name: Commit changes
               if: endsWith(steps.check_updates.outputs.changed, '.md')
               run: |
