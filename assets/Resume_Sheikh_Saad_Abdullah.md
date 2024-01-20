@@ -25,7 +25,7 @@
 
 - Collaborated with a dynamic Agile team on ReelAppetite, a key product, demonstrating strong teamwork and interpersonal skills
 - Successfully integrated into a large existing codebase, showcasing adaptability and quick learning
-- Implemented features using test-driven development and containerization, contributing to the software’s robustness
+- Implemented features using test-driven development and containerization, contributing to the software's robustness
 - Experienced the deployment of code to production, highlighting practical application and impact of contributions
 
 <div class='xp-h'><span>Sensor Technology LTD (COVE)</span><span>Dartmouth, Nova Scotia</span></div>
