@@ -74,16 +74,6 @@ me: Author = Author(
     ],
     projects=[
         Project(
-            name="Prayers - Islamic Prayer API and Front-end",
-            address="https://github.com/cybardev/prayers",
-            role="Software Developer",
-            start="Nov 2023",
-            end="Dec 2023",
-            attributes=[
-                "Created an API using serverless edge functions",
-            ],
-        ),
-        Project(
             name="Cy | Pass - Secure Password Generator",
             address="https://pypi.org/project/cybarpass",
             role="Software Developer",
