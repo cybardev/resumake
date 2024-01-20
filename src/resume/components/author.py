@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 
-from src.resume.components.address import Address
-from src.resume.components.education import Education
-from src.resume.components.experience import Experience
-from src.resume.components.project import Project
-from src.resume.components.skill import Skill
+from .address import Address
+from .education import Education
+from .experience import Experience
+from .project import Project
+from .skill import Skill
 
 
 @dataclass(kw_only=True)
@@ -38,5 +38,8 @@ class Author:
 
     def __phone_fmt(self, number) -> str:
         return (
-            number.replace("-", "").replace("(", "").replace(")", "").replace(" ", "")
+            number.replace("-", "")
+            .replace("(", "")
+            .replace(")", "")
+            .replace(" ", "")
         )

@@ -1,6 +1,7 @@
+import os
 import subprocess
 
-from src.resume.components.resume import Resume
+from .components.resume import Resume
 
 
 def xp_fmt(name: str, address: str, spec: str, date: str) -> str:
@@ -18,9 +19,11 @@ def xp_fmt(name: str, address: str, spec: str, date: str) -> str:
 
 def md_to_pdf(
     filename: str,
-    html_template: str = "./src/template/resume.html",
-    css_template: str = "./src/template/resume.css",
+    html_template: str = "./template/resume.html",
+    css_template: str = "./template/resume.css",
 ) -> None:
+    html_template = os.path.abspath(html_template)
+    css_template = os.path.abspath(css_template)
     subprocess.run(
         [
             "pandoc",

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from src.resume.utils import xp_fmt
+from ..utils import xp_fmt
 
 
 @dataclass(kw_only=True)

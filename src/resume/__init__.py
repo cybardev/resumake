@@ -4,11 +4,11 @@
 __version__ = "1.0.0"
 
 # import everything needed for a resume
-from src.resume.components.address import Address
-from src.resume.components.author import Author
-from src.resume.components.education import Education
-from src.resume.components.experience import Experience
-from src.resume.components.project import Project
-from src.resume.components.resume import Resume
-from src.resume.components.skill import Skill
-from src.resume.utils import generate_resume, md_to_pdf
+from .components.address import Address
+from .components.author import Author
+from .components.education import Education
+from .components.experience import Experience
+from .components.project import Project
+from .components.resume import Resume
+from .components.skill import Skill
+from .utils import generate_resume, md_to_pdf
