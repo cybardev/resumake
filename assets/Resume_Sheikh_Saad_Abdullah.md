@@ -23,7 +23,10 @@
 <div class='xp-h'><span>ReelData AI</span><span>Halifax, Nova Scotia</span></div>
 <div class='xp-s'><span>Junior Software Developer</span><span>Sept 2023 - Dec 2023</span></div>
 
-- Worked in a fast-paced Agile team
+- Collaborated with a dynamic Agile team on ReelAppetite, a key product, demonstrating strong teamwork and interpersonal skills
+- Successfully integrated into a large existing codebase, showcasing adaptability and quick learning
+- Implemented features using test-driven development and containerization, contributing to the software’s robustness
+- Experienced the deployment of code to production, highlighting practical application and impact of contributions
 
 <div class='xp-h'><span>Sensor Technology LTD (COVE)</span><span>Dartmouth, Nova Scotia</span></div>
 <div class='xp-s'><span>Research Intern</span><span>May 2023 - Aug 2023</span></div>
