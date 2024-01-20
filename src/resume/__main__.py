@@ -4,7 +4,7 @@ import json
 
 
 def main():
-    # TODO: read in JSON file and output PDF and PNG
+    # TODO: read in Python resume file and output PDF and PNG
     pass
 
 
