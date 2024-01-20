@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
+import argparse
 import json
+
+from src.utils import generate_resume
 
 
 def main():
