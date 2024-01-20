@@ -30,6 +30,13 @@ def main(args: argparse.Namespace):
 
 
 def parse_args() -> argparse.Namespace:
+    # resolve path to default template
+    template_dir = os.path.realpath(
+        os.path.join(
+            os.path.dirname(os.path.realpath(__file__)), "../../template"
+        )
+    )
+
     parser = argparse.ArgumentParser(
         prog="resume.builder",
         description="Generate a resume from a given Python file containing data representation objects",
@@ -56,7 +63,7 @@ def parse_args() -> argparse.Namespace:
         dest="html_template",
         type=str,
         help="path to the HTML template file",
-        default="./template/resume.html",
+        default=f"{template_dir}/resume.html",
     )
     parser.add_argument(
         "-c",
@@ -65,7 +72,7 @@ def parse_args() -> argparse.Namespace:
         dest="css_template",
         type=str,
         help="path to the CSS template file",
-        default="./template/resume.css",
+        default=f"{template_dir}/resume.css",
     )
     return parser.parse_args()
 
