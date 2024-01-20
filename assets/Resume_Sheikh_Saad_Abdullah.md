@@ -38,11 +38,6 @@
 
 ## Project Experience
 
-<div class='xp-h'><span>Prayers - Islamic Prayer API and Front-end</span><span>https://github.com/cybardev/prayers</span></div>
-<div class='xp-s'><span>Software Developer</span><span>Nov 2023 - Dec 2023</span></div>
-
-- Created an API using serverless edge functions
-
 <div class='xp-h'><span>Cy | Pass - Secure Password Generator</span><span>https://pypi.org/project/cybarpass</span></div>
 <div class='xp-s'><span>Software Developer</span><span>Apr 2022 - Apr 2023</span></div>
 
