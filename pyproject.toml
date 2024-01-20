@@ -1,0 +1,24 @@
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[project]
+name = "resume"
+version = "1.0"
+authors = [
+  { name="cybardev", email="sheikh@cybar.dev" },
+]
+description = "Build resume using Python objects"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+homepage = "https://github.com/cybardev/resume"
+repository = "https://github.com/cybardev/resume.git"
+documentation = "https://github.com/cybardev/resume/blob/main/README.md"
+
