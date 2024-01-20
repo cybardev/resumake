@@ -16,7 +16,7 @@
 ## Skills & Interests
 
 **Skills**: Python, HTML, CSS, Bootstrap, JavaScript, jQuery, ReactJS, NodeJS, ExpressJS, MongoDB, Java, C/C++, Git  
-**Interests**: Linux, Open-source, Shell Scripting, Automation, Cloud, Front-end Web Development, Data Analytics
+**Interests**: Linux, Open-source, Shell Scripting, Automation, Cloud, Front-end Web Development, Data Analytics, DevOps
 
 ## Work Experience
 
