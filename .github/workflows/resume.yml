@@ -29,7 +29,7 @@ jobs:
             - name: Run resume generation script
               run: |
                   export PYTHONPATH=$PYTHONPATH:$PWD/src/
-                  python3 -m resume.builder ../example.py -o ../site/assets
+                  python3 -m resume.builder example.py -o ../site/assets
             - name: Check for resume changes
               id: check_updates
               run: |
