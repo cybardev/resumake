@@ -31,6 +31,7 @@ jobs:
               run: |
                   FILE_CHANGED=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} ./assets/Resume_*.md)
                   echo "changed=${FILE_CHANGED}" >> "${GITHUB_OUTPUT}"
+                  echo "${FILE_CHANGED}"
             - name: Commit changes
               if: endsWith(steps.check_updates.outputs.changed, '.md')
               run: |
