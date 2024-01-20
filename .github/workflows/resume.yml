@@ -29,11 +29,11 @@ jobs:
             - name: Run resume generation script
               run: |
                   export PYTHONPATH=$PYTHONPATH:$PWD/src/
-                  python3 -m resume.builder example.py -o ../site/assets
+                  python3 -m resume.builder example.py -o ./site/assets
             - name: Check for resume changes
               id: check_updates
               run: |
-                  FILE_CHANGED=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} ./site/assets/Resume_*.md)
+                  FILE_CHANGED=$(git diff ./site/assets | grep md | head -n 1)
                   echo "changed=${FILE_CHANGED}" >> "${GITHUB_OUTPUT}"
             - name: Commit changes
               if: endsWith(steps.check_updates.outputs.changed, '.md')
