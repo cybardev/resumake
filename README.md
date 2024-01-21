@@ -74,14 +74,16 @@ options:
 
 ### Using GitHub Actions
 
-Automatically generate your resume and publish it as a website:
+#### Automatically generate your resume and publish it as a website
 
 -   fork this repo
 -   navigate to your fork
--   empty the `static/assets/` directory
 -   rename `resume_cybardev.py` to have your GitHub username instead of `cybardev`
 -   modify the renamed Python file to include your resume info
 -   push changes to your fork
+
+#### Extras
+
 -   check `Actions` tab of your fork for workflow run details
 -   configure custom domain (if desired) from `Settings > Pages`
 
