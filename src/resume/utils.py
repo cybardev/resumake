@@ -26,7 +26,7 @@ def md_to_pdf(filename: str, html_template: str, css_template: str) -> None:
             "html",
             f"--template={html_template}",
             f"--css={css_template}",
-            "--metadata=title:Resume",
+            f"--metadata=title:{filename}",
             "--variable",
             "papersize=letter",
             "--variable",

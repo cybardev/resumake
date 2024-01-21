@@ -72,6 +72,19 @@ options:
     python3 -m resume.builder example.py -o ./build -t custom.html -c custom.css
     ```
 
+### Using GitHub Actions
+
+Automatically generate your resume and publish it as a website:
+
+-   fork this repo
+-   navigate to your fork
+-   empty the `static/assets/` directory
+-   rename `resume_cybardev.py` to have your GitHub username instead of `cybardev`
+-   modify the renamed Python file to include your resume info
+-   push changes to your fork
+-   check `Actions` tab of your fork for workflow run details
+-   configure custom domain (if desired) from `Settings > Pages`
+
 ### Sample Output
 
 **Source**: [resume_cybardev.py][resume_py]
