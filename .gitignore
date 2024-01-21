@@ -8,4 +8,5 @@ _site/
 
 # custom resume files
 *test.*
+*_part.py
 *_partial.py
