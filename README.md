@@ -12,7 +12,7 @@
 ### Installation
 
 -   clone this repo
--   add full path of `src/` directory to `PYTHONPATH`
+-   add full path of `src/` directory to `PYTHONPATH` environment variable
 
 > **TODO**: publish it on PyPI for easy installation
 
