@@ -47,9 +47,17 @@ def md_to_pdf(filename: str, html_template: str, css_template: str) -> None:
 def pdf_to_png(
     filename: str,
 ) -> None:
-    subprocess.run(
-        ["pdftoppm", "-png", "-singlefile", f"{filename}.pdf", filename]
-    )
+    # check number of pages in pdf
+    pdfinfo = subprocess.check_output(("pdfinfo", f"{filename}.pdf"))
+    pages = int(pdfinfo.decode("utf-8").split("Pages: ")[1].split("\n")[0])
+
+    conversion_cmd = ["pdftoppm", "-png", f"{filename}.pdf", filename]
+
+    if pages == 1:
+        # output a single image without page number in name
+        conversion_cmd.insert(2, "-singlefile")
+
+    subprocess.run(conversion_cmd)
 
 
 def generate_resume(
