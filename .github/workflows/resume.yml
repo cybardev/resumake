@@ -8,7 +8,8 @@ on:
             - "example.py"
             - ".github/workflows/resume.yml"
             - "src/resume/utils.py"
-            - "src/template/*.*"
+            - "src/template/resume.css"
+            - "src/template/resume.html"
 
     # Allows running this workflow manually from the Actions tab
     workflow_dispatch:
