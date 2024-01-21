@@ -18,6 +18,8 @@ jobs:
         name: Generate Resume
         if: github.repository == 'cybardev/resume'
         runs-on: ubuntu-latest
+        outputs:
+            files_changed: ${{ steps.check_updates.outputs.changed }}
         steps:
             - name: Install dependencies
               uses: awalsh128/cache-apt-pkgs-action@latest
@@ -34,16 +36,21 @@ jobs:
               id: check_updates
               run: |
                   FILE_CHANGED=$(git diff ./site/assets | grep md | head -n 1)
-                  echo "changed=${FILE_CHANGED}" >> "${GITHUB_OUTPUT}"
+                  python3 -c "print('changed=' + str('${FILE_CHANGED}'.endswith('.md')).lower())" >> "${GITHUB_OUTPUT}"
             - name: Commit changes
-              if: endsWith(steps.check_updates.outputs.changed, '.md')
+              if: steps.check_updates.outputs.changed
               run: |
                   git config --local user.name "github-actions[bot]"
                   git config --local user.email "github-actions[bot]@users.noreply.github.com"
                   git commit -a -m "pipeline: update resume"
             - name: Upload resume files
-              if: endsWith(steps.check_updates.outputs.changed, '.md')
+              if: steps.check_updates.outputs.changed
               uses: ad-m/github-push-action@master
               with:
                   branch: main
                   github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    publish-site:
+        needs: generate-resume
+        if: needs.generate-resume.outputs.files_changed
+        uses: ./.github/workflows/website.yml
