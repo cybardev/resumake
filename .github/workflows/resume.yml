@@ -36,15 +36,17 @@ jobs:
               id: check_updates
               run: |
                   FILE_CHANGED=$(git diff ./site/assets | grep md | head -n 1)
-                  python3 -c "print('changed=' + str('${FILE_CHANGED}'.endswith('.md')).lower())" >> "${GITHUB_OUTPUT}"
+                  UPDATE=$(python3 -c "print(str('${FILE_CHANGED}'.endswith('.md')).lower())")
+                  echo "Re-upload resume: ${UPDATE}"
+                  echo "changed=${UPDATE}" >> "${GITHUB_OUTPUT}"
             - name: Commit changes
-              if: steps.check_updates.outputs.changed
+              if: steps.check_updates.outputs.changed == 'true'
               run: |
                   git config --local user.name "github-actions[bot]"
                   git config --local user.email "github-actions[bot]@users.noreply.github.com"
                   git commit -a -m "pipeline: update resume"
             - name: Upload resume files
-              if: steps.check_updates.outputs.changed
+              if: steps.check_updates.outputs.changed == 'true'
               uses: ad-m/github-push-action@master
               with:
                   branch: main
@@ -52,5 +54,5 @@ jobs:
 
     publish-site:
         needs: generate-resume
-        if: needs.generate-resume.outputs.files_changed
+        if: needs.generate-resume.outputs.files_changed == 'true'
         uses: ./.github/workflows/website.yml
