@@ -7,5 +7,4 @@ _site/
 .DS_Store
 
 # custom resume files
-*_resume.py
 *test.*

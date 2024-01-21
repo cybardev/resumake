@@ -5,10 +5,10 @@ on:
         branches:
             - main
         paths:
-            - "example.py"
+            - "resume_*.py"
             - ".github/workflows/resume.yml"
             - "src/resume/utils.py"
-            - "src/template/*.*"
+            - "src/template/*"
 
     # Allows running this workflow manually from the Actions tab
     workflow_dispatch:
@@ -16,10 +16,10 @@ on:
 jobs:
     generate-resume:
         name: Generate Resume
-        if: github.repository == 'cybardev/resume'
         runs-on: ubuntu-latest
         outputs:
             files_changed: ${{ steps.check_updates.outputs.changed }}
+            skip: ${{ steps.generate.outputs.skip }}
         steps:
             - name: Install dependencies
               uses: awalsh128/cache-apt-pkgs-action@latest
@@ -29,24 +29,32 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
             - name: Run resume generation script
+              id: generate
               run: |
-                  export PYTHONPATH=$PYTHONPATH:$PWD/src/
-                  python3 -m resume.builder example.py -o ./site/assets
+                  if [[ -f "resume_${{ github.repository_owner }}.py" ]]; then
+                      export PYTHONPATH=$PYTHONPATH:$PWD/src/
+                      python3 -m resume.builder resume_${{ github.repository_owner }}.py -o ./static/assets
+                      echo "skip=false" >> "${GITHUB_OUTPUT}"
+                  else
+                      echo "File 'resume_${{ github.repository_owner }}.py' not found. Couldn't build resume."
+                      echo "skip=true" >> "${GITHUB_OUTPUT}"
+                  fi
             - name: Check for resume changes
               id: check_updates
+              if: steps.generate.outputs.skip == 'false'
               run: |
-                  FILE_CHANGED=$(git diff ./site/assets | grep md | head -n 1)
+                  FILE_CHANGED=$(git diff ./static/assets | grep md | head -n 1)
                   UPDATE=$(python3 -c "print(str('${FILE_CHANGED}'.endswith('.md')).lower())")
                   echo "Re-upload resume: ${UPDATE}"
                   echo "changed=${UPDATE}" >> "${GITHUB_OUTPUT}"
             - name: Commit changes
-              if: steps.check_updates.outputs.changed == 'true'
+              if: steps.generate.outputs.skip == 'false' && steps.check_updates.outputs.changed == 'true'
               run: |
                   git config --local user.name "github-actions[bot]"
                   git config --local user.email "github-actions[bot]@users.noreply.github.com"
                   git commit -a -m "pipeline: update resume"
             - name: Upload resume files
-              if: steps.check_updates.outputs.changed == 'true'
+              if: steps.generate.outputs.skip == 'false' && steps.check_updates.outputs.changed == 'true'
               uses: ad-m/github-push-action@master
               with:
                   branch: main
@@ -54,5 +62,5 @@ jobs:
 
     publish-site:
         needs: generate-resume
-        if: needs.generate-resume.outputs.files_changed == 'true'
+        if: needs.generate-resume.outputs.skip == 'false' && needs.generate-resume.outputs.files_changed == 'true'
         uses: ./.github/workflows/website.yml

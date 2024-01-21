@@ -24,7 +24,7 @@
     from resume.components import *
     ```
 -   create `author` variable and assign it an `Author` object
--   fill `Author` object parameters with info (see [example.py](example.py))
+-   fill `Author` object parameters with info (see [resume_cybardev.py][resume_py])
 -   run `resume.builder` following examples below
 
 Output of `python3 -m resume.builder -h`:
@@ -74,6 +74,11 @@ options:
 
 ### Sample Output
 
-**Source**: [example.py](example.py)
+**Source**: [resume_cybardev.py][resume_py]
 
-![resume](site/assets/Resume_Sheikh_Saad_Abdullah.png)
+![resume][resume_png]
+
+<!-- links -->
+
+[resume_py]: resume_cybardev.py
+[resume_png]: static/assets/Resume_Sheikh_Saad_Abdullah.png "Resume - Sheikh Saad Abdullah"
