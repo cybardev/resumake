@@ -44,9 +44,7 @@ def md_to_pdf(filename: str, html_template: str, css_template: str) -> None:
     )
 
 
-def pdf_to_png(
-    filename: str,
-) -> None:
+def pdf_to_png(filename: str) -> None:
     # check number of pages in pdf
     pdfinfo = subprocess.check_output(("pdfinfo", f"{filename}.pdf"))
     pages = int(pdfinfo.decode("utf-8").split("Pages: ")[1].split("\n")[0])
