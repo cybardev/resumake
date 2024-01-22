@@ -30,15 +30,17 @@
 Output of `python3 -m resume.builder -h`:
 
 ```
-usage: resume.builder [-h] [-o OUTPUT] [-t HTML] [-c CSS] RESUME
+usage: resume.builder [-h] [-s SCHEMA] [-o OUTPUT] [-t HTML] [-c CSS] RESUME
 
-Generate a resume from a given python file
+Generate a resume from a given Python file containing data representation objects
 
 positional arguments:
   RESUME                path to the Python file containing the resume data
 
 options:
   -h, --help            show this help message and exit
+  -s SCHEMA, --schema SCHEMA
+                        order of sections to display in the resume
   -o OUTPUT, --output OUTPUT
                         path to the output directory
   -t HTML, --template HTML
