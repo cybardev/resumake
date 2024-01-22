@@ -23,7 +23,7 @@ def main(args: argparse.Namespace):
     loader.exec_module(resume_info)
 
     # use author info from resume module to generate resume
-    resume_obj = Resume(resume_info.author)
+    resume_obj = Resume(resume_info.author, args.schema)
     generate_resume(
         resume_obj, args.output, args.html_template, args.css_template
     )
@@ -47,6 +47,14 @@ def parse_args() -> argparse.Namespace:
         metavar="RESUME",
         type=str,
         help="path to the Python file containing the resume data",
+    )
+    parser.add_argument(
+        "-s",
+        "--schema",
+        dest="schema",
+        type=str,
+        help="order of sections to display in the resume",
+        default="skills, experience, projects, education",
     )
     parser.add_argument(
         "-o",

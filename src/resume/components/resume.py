@@ -3,8 +3,19 @@ from pathlib import Path
 
 
 class Resume:
-    def __init__(self, author):
+    def __init__(self, author, schema: str):
         self.author = author
+
+        # set up schema
+        full_schema = {
+            "skills": self.skills,
+            "experience": self.experience,
+            "projects": self.projects,
+            "education": self.education,
+        }
+        self._schema = [
+            full_schema[section.strip()] for section in schema.split(",")
+        ]
 
     def build(self, filename: str):
         # ensure path exists and file can be created
@@ -15,15 +26,7 @@ class Resume:
             file.write(str(self))
 
     def __str__(self) -> str:
-        return "\n\n".join(
-            [
-                self.header,
-                self.skills,
-                self.experience,
-                self.projects,
-                self.education,
-            ]
-        )
+        return "\n\n".join([self.header, *self._schema])
 
     @property
     def header(self) -> str:
