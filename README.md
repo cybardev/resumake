@@ -72,6 +72,12 @@ options:
     python3 -m resume.builder example.py -o ./build -t custom.html -c custom.css
     ```
 
+-   generate resume from `example.py` with custom section order and omitting a default section (projects)
+
+    ```sh
+    python3 -m resume.builder example.py -s "education, experience, skills"
+    ```
+
 ### Using GitHub Actions
 
 #### Automatically generate your resume and publish it as a website
