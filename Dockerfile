@@ -1,0 +1,11 @@
+# AUTHOR: cybardev
+# Prepare environment for resume generator
+
+# use Ubuntu LTS environment
+FROM ubuntu:22.04
+WORKDIR /app
+ENV PYTHONPATH $PYTHONPATH:/app/src
+
+# install dependencies
+RUN apt-get update
+RUN apt install -y git python3 pandoc wkhtmltopdf poppler-utils
