@@ -3,6 +3,17 @@ import subprocess
 
 
 def xp_fmt(name: str, address: str, spec: str, date: str) -> str:
+    """Format experience information for output
+
+    Args:
+        name (str): name of experience provider
+        address (str): location or link
+        spec (str): experience role
+        date (str): when experience was gained
+
+    Returns:
+        str: html formatted experience info
+    """
     return (
         "<div class='xp-h'>"
         + f"<span>{name}</span>"
@@ -16,6 +27,13 @@ def xp_fmt(name: str, address: str, spec: str, date: str) -> str:
 
 
 def md_to_pdf(filename: str, html_template: str, css_template: str) -> None:
+    """Convert markdown to pdf using pandoc and custom templates
+
+    Args:
+        filename (str): name of markdown file to convert to pdf
+        html_template (str): html template file for pandoc
+        css_template (str): css template file for pandoc
+    """
     html_template = os.path.abspath(html_template)
     css_template = os.path.abspath(css_template)
     subprocess.run(
@@ -45,6 +63,11 @@ def md_to_pdf(filename: str, html_template: str, css_template: str) -> None:
 
 
 def pdf_to_png(filename: str) -> None:
+    """Convert pdf to png using poppler utility
+
+    Args:
+        filename (str): name of pdf file to convert to png
+    """
     # check number of pages in pdf
     pdfinfo = subprocess.check_output(("pdfinfo", f"{filename}.pdf"))
     pages = int(pdfinfo.decode("utf-8").split("Pages: ")[1].split("\n")[0])
@@ -61,6 +84,17 @@ def pdf_to_png(filename: str) -> None:
 def generate_resume(
     resume, output_dir: str, html_template: str, css_template: str
 ):
+    """Generate resume as markdown, pdf, and png from python script
+
+    Args:
+        resume (Resume): resume object generated from python script
+        output_dir (str): directory to place .md, .pdf, and .png files in
+        html_template (str): html template file for pandoc
+        css_template (str): css template file for pandoc
+
+    Returns:
+        Resume: resume object is passed through (for printing to console)
+    """
     # generate markdown from python resume script
     filename = (
         output_dir.rstrip("/")
