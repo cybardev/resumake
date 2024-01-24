@@ -4,7 +4,6 @@
 # use Ubuntu LTS environment
 FROM ubuntu:22.04
 WORKDIR /app
-ENV PYTHONPATH $PYTHONPATH:/app/src
 ENV TZ=America/Halifax
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
