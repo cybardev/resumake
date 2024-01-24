@@ -24,7 +24,7 @@
     from resume.components import *
     ```
 -   create `author` variable and assign it an `Author` object
--   fill `Author` object parameters with info (see [resume_cybardev.py][resume_py])
+-   fill `Author` object parameters with info (see [resume/cybardev.py][resume_py])
 -   run `resume.builder` following examples below
 
 Output of `python3 -m resume.builder -h`:
@@ -86,7 +86,7 @@ options:
 
 -   fork this repo
 -   navigate to your fork
--   rename `resume_cybardev.py` to have your GitHub username instead of `cybardev`
+-   rename [`resume/cybardev.py`][resume_py] to have your GitHub username instead of `cybardev`
 -   modify the renamed Python file to include your resume info
 -   push changes to your fork
 
@@ -110,21 +110,27 @@ docker pull cybardev/resume
 
 #### Usage
 
-```sh
-docker run --rm -v $PWD/static:/app/static cybardev/resume [args]
-```
+-   make a `resume` directory at a suitable location
+-   place resume `.py` script file in the `resume` directory
+-   run the containerized application from within the `resume` directory as such:
+    ```sh
+    docker run --rm -v $PWD:/app/resume cybardev/resume [args] <resume.py>
+    ```
+    -   replace `<resume.py>` with the name of your resume `.py` script
+    -   for available `[args]`, see main Usage and Examples sections above, or run it with the `-h` flag
+        -   **NOTE**: the `-o` flag shouldn't be used for the containerized application as it controls where the files are generated inside the container, not on your computer (move them manually after generation)
+        -   for template files, place them alongside the `.py` resume script and refer to them by their basename
+-   resume `.md`, `.pdf`, and `.png` files will be generated adjacent to the `.py` file
 
-> **PS**: for available `[args]`, see main Usage and Examples sections above, or run it with the `-h` flag
-
-Since the command is so tedious to type, I suggest setting up a shell alias or function for ease of use.
+> **PS**: Since the command is so tedious to type, I suggest setting up a shell alias or function for ease of use. Make sure to replace `$PWD` with absolute path to the `resume` directory.
 
 ### Sample Output
 
-**Source**: [resume_cybardev.py][resume_py]
+**Source**: [resume/cybardev.py][resume_py]
 
 ![resume][resume_png]
 
 <!-- links -->
 
-[resume_py]: resume_cybardev.py
+[resume_py]: resume/cybardev.py
 [resume_png]: static/assets/Resume_Sheikh_Saad_Abdullah.png "Resume - Sheikh Saad Abdullah"
