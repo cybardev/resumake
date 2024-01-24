@@ -1,4 +1,4 @@
-# Resume
+# Resumake
 
 ## Generate resume using data representation objects in Python
 
@@ -19,18 +19,18 @@
 ### Usage
 
 -   create `.py` file
--   import all from `resume.components`:
+-   import all from `resumake.components`:
     ```py
-    from resume.components import *
+    from resumake.components import *
     ```
 -   create `author` variable and assign it an `Author` object
 -   fill `Author` object parameters with info (see [resume/cybardev.py][resume_py])
--   run `resume.builder` following examples below
+-   run `resumake.builder` following examples below
 
-Output of `python3 -m resume.builder -h`:
+Output of `python3 -m resumake.builder -h`:
 
 ```
-usage: resume.builder [-h] [-s SCHEMA] [-o OUTPUT] [-t HTML] [-c CSS] RESUME
+usage: resumake.builder [-h] [-s SCHEMA] [-o OUTPUT] [-t HTML] [-c CSS] RESUME
 
 Generate a resume from a given Python file containing data representation objects
 
@@ -53,31 +53,31 @@ options:
 -   see default help message
 
     ```sh
-    python3 -m resume.builder -h
+    python3 -m resumake.builder -h
     ```
 
 -   generate resume from `example.py` to current directory
 
     ```sh
-    python3 -m resume.builder example.py
+    python3 -m resumake.builder example.py
     ```
 
 -   generate resume from `example.py` to `build/` directory
 
     ```sh
-    python3 -m resume.builder example.py -o ./build
+    python3 -m resumake.builder example.py -o ./build
     ```
 
 -   generate resume from `example.py` to `build/` directory using custom `html` and `css` templates
 
     ```sh
-    python3 -m resume.builder example.py -o ./build -t custom.html -c custom.css
+    python3 -m resumake.builder example.py -o ./build -t custom.html -c custom.css
     ```
 
 -   generate resume from `example.py` with custom section order and omitting a default section (projects)
 
     ```sh
-    python3 -m resume.builder example.py -s "education, experience, skills"
+    python3 -m resumake.builder example.py -s "education, experience, skills"
     ```
 
 ### Using GitHub Actions
@@ -105,7 +105,7 @@ options:
 #### Installation
 
 ```sh
-docker pull cybardev/resume:main
+docker pull cybardev/resumake:main
 ```
 
 #### Usage
@@ -114,7 +114,7 @@ docker pull cybardev/resume:main
 -   place resume `.py` script file in the `resume` directory
 -   run the containerized application from within the `resume` directory as such:
     ```sh
-    docker run --rm -v $PWD:/app/resume cybardev/resume:main [args] <resume.py>
+    docker run --rm -v $PWD:/app/resume cybardev/resumake:main [args] <resume.py>
     ```
     -   replace `<resume.py>` with the name of your resume `.py` script
     -   for available `[args]`, see main Usage and Examples sections above, or run it with the `-h` flag
