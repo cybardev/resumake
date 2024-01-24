@@ -2,12 +2,8 @@ name: Publish Docker images
 
 on:
     push:
-        branches:
-            - main
-        paths:
-            - ".github/workflows/docker.yml"
-            - "*Dockerfile"
-            - "src/resumake/**"
+        tags:
+            - "v*"
 
     # Allows running this workflow manually from the Actions tab
     workflow_dispatch:
