@@ -33,7 +33,7 @@ def parse_args() -> argparse.Namespace:
     # resolve path to default template
     template_dir = os.path.realpath(
         os.path.join(
-            os.path.dirname(os.path.realpath(__file__)), "../../template"
+            os.path.dirname(os.path.realpath(__file__)), "../template"
         )
     )
 

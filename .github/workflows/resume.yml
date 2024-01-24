@@ -8,9 +8,9 @@ on:
             - "resume/*.py"
             - ".github/workflows/resume.yml"
             - "src/resumake/utils.py"
-            - "src/template/resume.css"
-            - "src/template/resume.html"
-            - "src/template/index.html"
+            - "src/resumake/template/resume.css"
+            - "src/resumake/template/resume.html"
+            - "src/resumake/template/index.html"
 
     # Allows running this workflow manually from the Actions tab
     workflow_dispatch:
@@ -34,7 +34,7 @@ jobs:
                       export PYTHONPATH=$PYTHONPATH:$PWD/src/
                       python3 -m resumake.builder ${RESUME_SCRIPT} -o ./static/assets
                       FILENAME=$(basename $(ls ./static/assets/Resume_*.pdf) .pdf)
-                      echo | pandoc -t html --template=./src/template/index.html --metadata title="${FILENAME}" --variable filename="${FILENAME}" -o ./static/index.html
+                      echo | pandoc -t html --template=./src/resumake/template/index.html --metadata title="${FILENAME}" --variable filename="${FILENAME}" -o ./static/index.html
                       echo "skip=false" >> "${GITHUB_OUTPUT}"
                   else
                       echo "File '${RESUME_SCRIPT}' not found. Couldn't build resume."
