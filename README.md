@@ -95,6 +95,29 @@ options:
 -   check `Actions` tab of your fork for workflow run details
 -   configure custom domain (if desired) from `Settings > Pages`
 
+### Using Docker Container
+
+#### Dependencies
+
+-   `docker`
+    -   Docker Engine, at least; Docker Desktop optional
+
+#### Installation
+
+```sh
+docker pull cybardev/resume
+```
+
+#### Usage
+
+```sh
+docker run --rm -v $PWD/static:/app/static cybardev/resume [args]
+```
+
+> **PS**: for available `[args]`, see main Usage and Examples sections above, or run it with the `-h` flag
+
+Since the command is so tedious to type, I suggest setting up a shell alias or function for ease of use.
+
 ### Sample Output
 
 **Source**: [resume_cybardev.py][resume_py]
