@@ -1,4 +1,4 @@
-from resume.components import *
+from resumake.components import *
 
 # TODO: edit author object as required
 author = Author(

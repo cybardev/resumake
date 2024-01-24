@@ -5,9 +5,9 @@ on:
         branches:
             - main
         paths:
-            - "resume_*.py"
+            - "resume/*.py"
             - ".github/workflows/resume.yml"
-            - "src/resume/utils.py"
+            - "src/resumake/utils.py"
             - "src/template/resume.css"
             - "src/template/resume.html"
             - "src/template/index.html"
@@ -32,7 +32,7 @@ jobs:
                   RESUME_SCRIPT="./resume/${{ github.repository_owner }}.py"
                   if [[ -f "${RESUME_SCRIPT}" ]]; then
                       export PYTHONPATH=$PYTHONPATH:$PWD/src/
-                      python3 -m resume.builder ${RESUME_SCRIPT} -o ./static/assets
+                      python3 -m resumake.builder ${RESUME_SCRIPT} -o ./static/assets
                       FILENAME=$(basename $(ls ./static/assets/Resume_*.pdf) .pdf)
                       echo | pandoc -t html --template=./src/template/index.html --metadata title="${FILENAME}" --variable filename="${FILENAME}" -o ./static/index.html
                       echo "skip=false" >> "${GITHUB_OUTPUT}"

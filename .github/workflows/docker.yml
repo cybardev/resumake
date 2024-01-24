@@ -7,7 +7,7 @@ on:
         paths:
             - ".github/workflows/docker.yml"
             - "*Dockerfile"
-            - "src/**"
+            - "src/resumake/**"
 
     # Allows running this workflow manually from the Actions tab
     workflow_dispatch:
@@ -42,8 +42,8 @@ jobs:
               uses: docker/metadata-action@v5
               with:
                   images: |
-                      cybardev/resume-env
-                      ghcr.io/cybardev/resume-env
+                      cybardev/resumake-env
+                      ghcr.io/cybardev/resumake-env
 
             - name: Build and push Docker environment image
               uses: docker/build-push-action@v5
@@ -59,14 +59,14 @@ jobs:
               uses: docker/metadata-action@v5
               with:
                   images: |
-                      cybardev/resume
-                      ghcr.io/cybardev/resume
+                      cybardev/resumake
+                      ghcr.io/cybardev/resumake
 
             - name: Build and push Docker application image
               uses: docker/build-push-action@v5
               with:
                   context: .
-                  file: ./resume.Dockerfile
+                  file: ./resumake.Dockerfile
                   push: true
                   tags: ${{ steps.meta-app.outputs.tags }}
                   labels: ${{ steps.meta-app.outputs.labels }}
