@@ -18,29 +18,26 @@ on:
 jobs:
     generate-resume:
         name: Generate Resume
+        container: cybardev/resume-env
         runs-on: ubuntu-latest
         outputs:
             changed: ${{ steps.check_updates.outputs.changed }}
             skip: ${{ steps.generate.outputs.skip }}
         steps:
-            - name: Install dependencies
-              uses: awalsh128/cache-apt-pkgs-action@latest
-              with:
-                  packages: pandoc wkhtmltopdf poppler-utils
-                  version: 1.0
             - name: Checkout repository
               uses: actions/checkout@v4
             - name: Run resume generation script
               id: generate
               run: |
-                  if [[ -f "resume_${{ github.repository_owner }}.py" ]]; then
+                  RESUME_SCRIPT="./resume_${{ github.repository_owner }}.py"
+                  if [[ -f "${RESUME_SCRIPT}" ]]; then
                       export PYTHONPATH=$PYTHONPATH:$PWD/src/
-                      python3 -m resume.builder resume_${{ github.repository_owner }}.py -o ./static/assets
+                      python3 -m resume.builder ${RESUME_SCRIPT} -o ./static/assets
                       FILENAME=$(basename $(ls ./static/assets/Resume_*.pdf) .pdf)
                       echo | pandoc -t html --template=./src/template/index.html --metadata title="${FILENAME}" --variable filename="${FILENAME}" -o ./static/index.html
                       echo "skip=false" >> "${GITHUB_OUTPUT}"
                   else
-                      echo "File 'resume_${{ github.repository_owner }}.py' not found. Couldn't build resume."
+                      echo "File '${RESUME_SCRIPT}' not found. Couldn't build resume."
                       echo "skip=true" >> "${GITHUB_OUTPUT}"
                   fi
             - name: Check for resume changes
