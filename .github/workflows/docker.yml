@@ -51,7 +51,7 @@ jobs:
                   context: .
                   file: ./Dockerfile
                   push: true
-                  tags: cybardev/resume-env:latest
+                  tags: ${{ steps.meta-env.outputs.tags }}
                   labels: ${{ steps.meta-env.outputs.labels }}
 
             - name: Extract metadata (tags, labels) for Docker [app img]
@@ -68,5 +68,5 @@ jobs:
                   context: .
                   file: ./resume.Dockerfile
                   push: true
-                  tags: cybardev/resume:latest
+                  tags: ${{ steps.meta-app.outputs.tags }}
                   labels: ${{ steps.meta-app.outputs.labels }}

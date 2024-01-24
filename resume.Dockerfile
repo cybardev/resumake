@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:labs
 
 # use preset environment image
-FROM cybardev/resume-env
+FROM cybardev/resume-env:main
 
 # add git repo and set up directories
 ADD --keep-git-dir=true https://github.com/cybardev/resume.git /app
