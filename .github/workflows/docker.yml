@@ -15,6 +15,7 @@ on:
 jobs:
     push_to_registry:
         name: Push Docker images to Docker Hub
+        if: github.repository == 'cybardev/resume'
         runs-on: ubuntu-latest
         steps:
             - name: Check out the repo
