@@ -11,7 +11,7 @@ on:
 jobs:
     push_to_registry:
         name: Push Docker images to Docker Hub
-        if: github.repository == 'cybardev/resume'
+        if: github.repository == 'cybardev/resumake'
         runs-on: ubuntu-latest
         environment:
             name: dockerhub
