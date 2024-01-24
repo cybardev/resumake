@@ -1,2 +1,2 @@
 # ignore CSS template file from language statistics
-src/templates/resume.css linguist-vendored=false
+src/template/resume.css linguist-vendored=false
