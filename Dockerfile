@@ -3,7 +3,6 @@
 
 # use Ubuntu LTS environment
 FROM ubuntu:22.04
-WORKDIR /app
 ENV TZ=America/Halifax
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
