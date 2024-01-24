@@ -18,7 +18,7 @@ on:
 jobs:
     generate-resume:
         name: Generate Resume
-        container: cybardev/resume-env
+        container: cybardev/resumake-env:main
         runs-on: ubuntu-latest
         outputs:
             changed: ${{ steps.check_updates.outputs.changed }}
