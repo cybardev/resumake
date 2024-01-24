@@ -1,2 +1,2 @@
-# ignore CSS template file from language statistics
+# ignore template files from language statistics
 src/template/* linguist-vendored
