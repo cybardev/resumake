@@ -29,8 +29,7 @@ jobs:
             - name: Run resume generation script
               id: generate
               run: |
-                  sudo apt install -y tree
-                  tree
+                  ls
                   RESUME_SCRIPT="./resume/${{ github.repository_owner }}.py"
                   if [[ -f "${RESUME_SCRIPT}" ]]; then
                       export PYTHONPATH=$PYTHONPATH:$PWD/src/
