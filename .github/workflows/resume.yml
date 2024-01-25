@@ -31,6 +31,8 @@ jobs:
               run: |
                   RESUME_SCRIPT="./resume/${{ github.repository_owner }}.py"
                   if [ -f "${RESUME_SCRIPT}" ]; then
+                      cp -r ./static/assets ./static/assets.old
+                      cp ./static/index.html ./static/assets.old/
                       export PYTHONPATH=$PYTHONPATH:$PWD/src/
                       python3 -m resumake.builder ${RESUME_SCRIPT} -o ./static/assets
                       FILENAME=$(basename $(ls ./static/assets/Resume_*.pdf) .pdf)
@@ -44,9 +46,8 @@ jobs:
               id: check_updates
               if: steps.generate.outputs.skip == 'false'
               run: |
-                  ls -la
-                  RESUME_CHANGED=$(git diff ./static/assets | grep md | head -n 1)
-                  INDEX_CHANGED=$(git diff ./static | grep index.html | head -n 1)
+                  RESUME_CHANGED=$(git diff --no-index ./static/assets ./static/assets.old | grep md | head -n 1)
+                  INDEX_CHANGED=$(git diff --no-index ./static/assets ./static/assets.old | grep index.html | head -n 1)
                   UPDATE=$(python3 -c "print(str('${RESUME_CHANGED}'.endswith('.md') or '${INDEX_CHANGED}'.endswith('html')).lower())")
                   echo "Re-upload resume: ${UPDATE}"
                   echo "changed=${UPDATE}" >> "${GITHUB_OUTPUT}"

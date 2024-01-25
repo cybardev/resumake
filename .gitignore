@@ -9,6 +9,7 @@ dist/
 .DS_Store
 
 # custom resume files
+*.old
 *test.*
 *_part.py
 *_partial.py
