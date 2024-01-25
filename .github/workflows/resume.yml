@@ -29,6 +29,8 @@ jobs:
             - name: Run resume generation script
               id: generate
               run: |
+                  sudo apt install -y tree
+                  tree
                   RESUME_SCRIPT="./resume/${{ github.repository_owner }}.py"
                   if [[ -f "${RESUME_SCRIPT}" ]]; then
                       export PYTHONPATH=$PYTHONPATH:$PWD/src/
@@ -44,8 +46,6 @@ jobs:
               id: check_updates
               if: steps.generate.outputs.skip == 'false'
               run: |
-                  sudo apt install -y tree
-                  tree
                   RESUME_CHANGED=$(git diff ./static/assets | grep md | head -n 1)
                   INDEX_CHANGED=$(git diff ./static | grep index.html | head -n 1)
                   UPDATE=$(python3 -c "print(str('${RESUME_CHANGED}'.endswith('.md') or '${INDEX_CHANGED}'.endswith('html')).lower())")
