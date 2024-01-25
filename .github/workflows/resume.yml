@@ -44,6 +44,7 @@ jobs:
               id: check_updates
               if: steps.generate.outputs.skip == 'false'
               run: |
+                  ls -la
                   RESUME_CHANGED=$(git diff ./static/assets | grep md | head -n 1)
                   INDEX_CHANGED=$(git diff ./static | grep index.html | head -n 1)
                   UPDATE=$(python3 -c "print(str('${RESUME_CHANGED}'.endswith('.md') or '${INDEX_CHANGED}'.endswith('html')).lower())")
