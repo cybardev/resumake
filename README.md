@@ -11,10 +11,11 @@
 
 ### Installation
 
--   clone this repo
--   add full path of `src/` directory to `PYTHONPATH` environment variable
+Install package `resumake` from PyPI:
 
-> **TODO**: publish it on PyPI for easy installation
+```sh
+python3 -m pip install resumake
+```
 
 ### Usage
 
