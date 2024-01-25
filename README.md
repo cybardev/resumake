@@ -105,7 +105,7 @@ options:
 #### Installation
 
 ```sh
-docker pull cybardev/resumake:main
+docker pull cybardev/resumake
 ```
 
 #### Usage
@@ -114,7 +114,7 @@ docker pull cybardev/resumake:main
 -   place resume `.py` script file in the `resume` directory
 -   run the containerized application from within the `resume` directory as such:
     ```sh
-    docker run --rm -v $PWD:/app/resume cybardev/resumake:main [args] <resume.py>
+    docker run --rm -v $PWD:/app/resume cybardev/resumake [args] <resume.py>
     ```
     -   replace `<resume.py>` with the name of your resume `.py` script
     -   for available `[args]`, see main Usage and Examples sections above, or run it with the `-h` flag
