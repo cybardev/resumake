@@ -8,4 +8,4 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # install dependencies
 RUN apt-get update
-RUN apt install -y git python3 pandoc wkhtmltopdf poppler-utils
+RUN apt install -y bash git python3 pandoc wkhtmltopdf poppler-utils
