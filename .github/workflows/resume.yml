@@ -18,21 +18,24 @@ on:
 jobs:
     generate-resume:
         name: Generate Resume
-        container: cybardev/resumake-env
         runs-on: ubuntu-latest
         outputs:
             changed: ${{ steps.check_updates.outputs.changed }}
             skip: ${{ steps.generate.outputs.skip }}
         steps:
+            - name: Install dependencies
+              uses: awalsh128/cache-apt-pkgs-action@latest
+              with:
+                  packages: pandoc wkhtmltopdf poppler-utils
+                  version: 1.0
+
             - name: Checkout repository
               uses: actions/checkout@v4
             - name: Run resume generation script
               id: generate
               run: |
                   RESUME_SCRIPT="./resume/${{ github.repository_owner }}.py"
-                  if [ -f "${RESUME_SCRIPT}" ]; then
-                      cp -r ./static/assets ./static/assets.old
-                      cp ./static/index.html ./static/assets.old/
+                  if [[ -f "${RESUME_SCRIPT}" ]]; then
                       export PYTHONPATH=$PYTHONPATH:$PWD/src/
                       python3 -m resumake.builder ${RESUME_SCRIPT} -o ./static/assets
                       FILENAME=$(basename $(ls ./static/assets/Resume_*.pdf) .pdf)
@@ -46,8 +49,8 @@ jobs:
               id: check_updates
               if: steps.generate.outputs.skip == 'false'
               run: |
-                  RESUME_CHANGED=$(git diff --no-index ./static/assets ./static/assets.old | grep md | head -n 1)
-                  INDEX_CHANGED=$(git diff --no-index ./static/assets ./static/assets.old | grep index.html | head -n 1)
+                  RESUME_CHANGED=$(git diff ./static/assets | grep md | head -n 1)
+                  INDEX_CHANGED=$(git diff ./static | grep index.html | head -n 1)
                   UPDATE=$(python3 -c "print(str('${RESUME_CHANGED}'.endswith('.md') or '${INDEX_CHANGED}'.endswith('html')).lower())")
                   echo "Re-upload resume: ${UPDATE}"
                   echo "changed=${UPDATE}" >> "${GITHUB_OUTPUT}"
