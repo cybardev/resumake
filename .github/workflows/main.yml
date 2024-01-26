@@ -1,0 +1,26 @@
+name: GitHub Pipeline
+
+# run only on new tag push
+on:
+    push:
+        tags:
+            - "v*"
+
+jobs:
+    publish-package:
+        name: Publish to PyPI
+        uses: ./.github/workflows/pypi.yml
+  
+    publish-docker:
+        name: Publish Docker image
+        needs: publish-package
+        uses: ./.github/workflows/docker.yml
+        
+    generate-resume:
+        name: Generate Resume
+        uses: ./.github/workflows/resume.yml
+
+    publish-site:
+        name: Publish Site
+        needs: generate-resume
+        uses: ./.github/workflows/website.yml

@@ -2,13 +2,6 @@
 name: Deploy static content to Pages
 
 on:
-    # Runs on pushes targeting the default branch
-    push:
-        branches:
-            - main
-        paths:
-            - "static/**"
-
     # Allows running this workflow from other workflows
     workflow_call:
 
