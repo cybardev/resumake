@@ -1,21 +1,14 @@
-name: GitHub Pipeline
+name: Build and Publish Pipeline
 
-# run only on new tag push
 on:
-    push:
-        tags:
-            - "v*"
+    push: 
+        # TODO: uncomment the following line on forks 
+        # branches: main
+ 
+        # TODO: remove the following line on forks
+        tags: "v*"
 
 jobs:
-    publish-package:
-        name: Publish to PyPI
-        uses: ./.github/workflows/pypi.yml
-  
-    publish-docker:
-        name: Publish Docker image
-        needs: publish-package
-        uses: ./.github/workflows/docker.yml
-        
     generate-resume:
         name: Generate Resume
         uses: ./.github/workflows/resume.yml
@@ -24,3 +17,15 @@ jobs:
         name: Publish Site
         needs: generate-resume
         uses: ./.github/workflows/website.yml
+
+    # TODO: remove the following two workflow calls on forks
+
+    publish-package:
+        name: Publish to PyPI
+        if: github.repository == 'cybardev/resumake'
+        uses: ./.github/workflows/pypi.yml
+
+    publish-docker:
+        name: Publish Docker image
+        needs: publish-package
+        uses: ./.github/workflows/docker.yml
