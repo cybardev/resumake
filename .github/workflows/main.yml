@@ -16,6 +16,7 @@ jobs:
     publish-site:
         name: Publish Site
         needs: generate-resume
+        if: needs.generate-resume.outputs.skip == 'false'
         uses: ./.github/workflows/website.yml
 
     # TODO: remove the following two workflow calls on forks
