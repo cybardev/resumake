@@ -4,8 +4,9 @@ on:
     # Allows running this workflow from other workflows
     workflow_call:
         outputs:
-            description: tells downstream jobs if they should be skipped
-            value: ${{ jobs.generate-resume.outputs.skip || ! jobs.generate-resume.outputs.changed }}
+            skip:
+                description: "tells downstream jobs if they should be skipped"
+                value: ${{ jobs.generate-resume.outputs.skip || ! jobs.generate-resume.outputs.changed }}
 
 jobs:
     generate-resume:
