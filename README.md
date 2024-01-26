@@ -135,5 +135,5 @@ docker pull cybardev/resumake
 <!-- links -->
 
 [main_yml]: .github/workflows/main.yml
-[resume_py]: https://github.com/cybardev/resume/blob/main/resume/cybardev.py
-[resume_png]: https://raw.githubusercontent.com/cybardev/resume/main/static/assets/Resume_Sheikh_Saad_Abdullah.png "Resume - Sheikh Saad Abdullah"
+[resume_py]: https://github.com/cybardev/resumake/blob/main/resume/cybardev.py
+[resume_png]: https://raw.githubusercontent.com/cybardev/resumake/main/static/assets/Resume_Sheikh_Saad_Abdullah.png "Resume - Sheikh Saad Abdullah"
