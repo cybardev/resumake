@@ -5,7 +5,7 @@ on:
     workflow_call:
         outputs:
             description: tells downstream jobs if they should be skipped
-            value: ${{ jobs.generate-resume.outputs.skip }} == 'true' || ${{ jobs.generate-resume.outputs.changed }} == 'false'
+            value: ${{ jobs.generate-resume.outputs.skip || ! jobs.generate-resume.outputs.changed }}
 
 jobs:
     generate-resume:
