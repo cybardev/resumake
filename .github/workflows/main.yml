@@ -1,10 +1,10 @@
 name: Build and Publish Pipeline
 
 on:
-    push: 
-        # TODO: uncomment the following line on forks 
+    push:
+        # TODO: uncomment the following line on forks
         # branches: main
- 
+
         # TODO: remove the following line on forks
         tags: "v*"
 
@@ -30,3 +30,4 @@ jobs:
         name: Publish Docker image
         needs: publish-package
         uses: ./.github/workflows/docker.yml
+        secrets: inherit
