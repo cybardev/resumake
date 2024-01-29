@@ -8,6 +8,9 @@ on:
                 description: "tells downstream jobs if they should be skipped"
                 value: ${{ jobs.generate-resume.outputs.skip || ! jobs.generate-resume.outputs.changed }}
 
+    # Allows running this workflow from GitHub Actions tab
+    workflow_dispatch:
+
 jobs:
     generate-resume:
         name: Generate Resume
