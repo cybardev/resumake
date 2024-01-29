@@ -2,24 +2,13 @@ name: Build and Publish Pipeline
 
 on:
     push:
-        # TODO: uncomment the following line on forks
-        # branches: main
-
-        # TODO: remove the following line on forks
         tags: "v*"
 
 jobs:
-    generate-resume:
-        name: Generate Resume
-        uses: ./.github/workflows/resume.yml
-
-    publish-site:
-        name: Publish Site
-        needs: generate-resume
-        if: needs.generate-resume.outputs.skip == 'false'
-        uses: ./.github/workflows/website.yml
-
-    # TODO: remove the following two workflow calls on forks
+    update-resume:
+        name: Update Resume
+        if: github.repository == 'cybardev/resumake'
+        uses: ./.github/workflows/update-resume.yml
 
     publish-package:
         name: Publish to PyPI
