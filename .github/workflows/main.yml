@@ -1,0 +1,22 @@
+name: Build and Publish Pipeline
+
+on:
+    push:
+        tags: "v*"
+
+jobs:
+    update-resume:
+        name: Update Resume
+        if: github.repository == 'cybardev/resumake'
+        uses: ./.github/workflows/update-resume.yml
+
+    publish-package:
+        name: Publish to PyPI
+        if: github.repository == 'cybardev/resumake'
+        uses: ./.github/workflows/pypi.yml
+
+    publish-docker:
+        name: Publish Docker image
+        needs: publish-package
+        uses: ./.github/workflows/docker.yml
+        secrets: inherit

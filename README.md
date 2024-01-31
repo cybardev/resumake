@@ -87,6 +87,7 @@ options:
 
 -   fork this repo
 -   navigate to your fork
+-   edit [`.github/workflows/update-resume.yml`][workflow_yml] according to the `TODO` comments inside the file
 -   rename [`resume/cybardev.py`][resume_py] to have your GitHub username instead of `cybardev`
 -   modify the renamed Python file to include your resume info
 -   push changes to your fork
@@ -133,5 +134,6 @@ docker pull cybardev/resumake
 
 <!-- links -->
 
-[resume_py]: https://github.com/cybardev/resume/blob/main/resume/cybardev.py
-[resume_png]: https://raw.githubusercontent.com/cybardev/resume/main/static/assets/Resume_Sheikh_Saad_Abdullah.png "Resume - Sheikh Saad Abdullah"
+[workflow_yml]: .github/workflows/update-resume.yml
+[resume_py]: https://github.com/cybardev/resumake/blob/main/resume/cybardev.py
+[resume_png]: https://raw.githubusercontent.com/cybardev/resumake/main/static/assets/Resume_Sheikh_Saad_Abdullah.png "Resume - Sheikh Saad Abdullah"

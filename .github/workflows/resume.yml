@@ -1,18 +1,14 @@
 name: Resume Builder
 
 on:
-    push:
-        branches:
-            - main
-        paths:
-            - "resume/*.py"
-            - ".github/workflows/resume.yml"
-            - "src/resumake/utils.py"
-            - "src/resumake/template/resume.css"
-            - "src/resumake/template/resume.html"
-            - "src/resumake/template/index.html"
+    # Allows running this workflow from other workflows
+    workflow_call:
+        outputs:
+            skip:
+                description: "tells downstream jobs if they should be skipped"
+                value: ${{ jobs.generate-resume.outputs.skip || ! jobs.generate-resume.outputs.changed }}
 
-    # Allows running this workflow manually from the Actions tab
+    # Allows running this workflow from GitHub Actions tab
     workflow_dispatch:
 
 jobs:
@@ -39,7 +35,7 @@ jobs:
                       export PYTHONPATH=$PYTHONPATH:$PWD/src/
                       python3 -m resumake.builder ${RESUME_SCRIPT} -o ./static/assets
                       FILENAME=$(basename $(ls ./static/assets/Resume_*.pdf) .pdf)
-                      echo | pandoc -t html --template=./src/resumake/template/index.html --metadata title="${FILENAME}" --variable filename="${FILENAME}" -o ./static/index.html
+                      echo | pandoc -t html --template=./src/resources/index.html --metadata title="${FILENAME}" --variable filename="${FILENAME}" -o ./static/index.html
                       echo "skip=false" >> "${GITHUB_OUTPUT}"
                   else
                       echo "File '${RESUME_SCRIPT}' not found. Couldn't build resume."
@@ -66,9 +62,3 @@ jobs:
               with:
                   branch: main
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-
-    publish-site:
-        name: Publish Site
-        needs: generate-resume
-        if: needs.generate-resume.outputs.skip == 'false' && needs.generate-resume.outputs.changed == 'true'
-        uses: ./.github/workflows/website.yml

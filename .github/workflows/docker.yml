@@ -1,17 +1,12 @@
-name: Publish Docker images
+name: Publish Docker image
 
 on:
-    push:
-        tags:
-            - "v*"
-
-    # Allows running this workflow manually from the Actions tab
-    workflow_dispatch:
+    # Allows running this workflow from other workflows
+    workflow_call:
 
 jobs:
     push_to_registry:
-        name: Push Docker images to Docker Hub
-        if: github.repository == 'cybardev/resumake'
+        name: Push Docker image to Docker Hub and GitHub Packages
         runs-on: ubuntu-latest
         environment:
             name: dockerhub
@@ -36,25 +31,8 @@ jobs:
                   username: ${{ github.actor }}
                   password: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Extract metadata (tags, labels) for Docker [env img]
-              id: meta-env
-              uses: docker/metadata-action@v5
-              with:
-                  images: |
-                      cybardev/resumake-env
-                      ghcr.io/cybardev/resumake-env
-
-            - name: Build and push Docker environment image
-              uses: docker/build-push-action@v5
-              with:
-                  context: .
-                  file: ./Dockerfile
-                  push: true
-                  tags: ${{ steps.meta-env.outputs.tags }}
-                  labels: ${{ steps.meta-env.outputs.labels }}
-
             - name: Extract metadata (tags, labels) for Docker [app img]
-              id: meta-app
+              id: meta
               uses: docker/metadata-action@v5
               with:
                   images: |
@@ -65,7 +43,7 @@ jobs:
               uses: docker/build-push-action@v5
               with:
                   context: .
-                  file: ./resumake.Dockerfile
+                  file: ./Dockerfile
                   push: true
-                  tags: ${{ steps.meta-app.outputs.tags }}
-                  labels: ${{ steps.meta-app.outputs.labels }}
+                  tags: ${{ steps.meta.outputs.tags }}
+                  labels: ${{ steps.meta.outputs.labels }}
