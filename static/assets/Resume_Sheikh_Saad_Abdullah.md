@@ -16,7 +16,7 @@
 ## Skills & Interests
 
 **Skills**: Python, HTML, CSS, Bootstrap, JavaScript, jQuery, ReactJS, NodeJS, ExpressJS, MongoDB, Java, C/C++, Git  
-**Interests**: Linux, Open-source, Shell Scripting, Automation, Cloud, DevOps, Agile Development, Data Analytics
+**Interests**: Linux, Open-source, Shell Scripting, Automation, Cloud, CI/CD, DevOps, Agile Development, Data Analytics
 
 ## Work Experience
 
@@ -38,21 +38,21 @@
 
 ## Project Experience
 
-<div class='xp-h'><span>Cy | Pass - Secure Password Generator</span><span>https://pypi.org/project/cybarpass</span></div>
-<div class='xp-s'><span>Software Developer</span><span>Apr 2022 - Apr 2023</span></div>
+<div class='xp-h'><span>Resumake - Programmatic Resume Generator</span><span>https://github.com/cybardev/resumake</span></div>
+<div class='xp-s'><span>Software Developer</span><span>Jun 2022 - Present</span></div>
 
-- Modularized code by splitting up project into multiple scripts and using proper object-oriented techniques to ensure separation of concerns
-- Designed and implemented simple and elegant tkinter GUI and robust CLI for convenience and ease of access
-- Packaged and published project to Python Package Index (PyPI), making it easy and convenient for users to install
-- Created companion tool [CheckPass](https://checkpass.cybar.dev) to allow users to test the security of generated passphrase
+- Modularized code by splitting up project into multiple component files and using proper object-oriented techniques to ensure separation of concerns
+- Containerized application in a Docker image via Dockerfile configuration to create self-contained package with proper dependency resolution
+- Packaged and published project to Python Package Index (PyPI), DockerHub, and GitHub Packages registries, making it easy and convenient for users to install
+- Created GitHub Actions workflows for CI/CD, to automatically build and deploy to package registries on tagged pushes, as well as re-generating personal resume and publishing to static website (https://resume.cybar.dev)
 
-<div class='xp-h'><span>Cy | Search - Search Engine Frontend</span><span>https://search.cybar.dev</span></div>
+<div class='xp-h'><span>Accessible Blog with CMS</span><span>https://github.com/SMU-Code-C/blog</span></div>
 <div class='xp-s'><span>Full-stack Developer</span><span>Jan 2022 - Apr 2022</span></div>
 
-- Designed a search engine frontend that uses NodeJS functions to request and fetch search results from a public API
-- Successfully displayed the fetched results in a clear and concise format
-- Secured the API key by encrypting it as a repository secret and using code obfuscation techniques
-- Implemented progressive web app functionality to allow users to install it as an app
+- Built a 3-page blog website as well as a custom CMS (content management system) admin page
+- Created an accessible on-screen keyboard to accommodate client's typing difficulties caused by Cerebral Palsy
+- Implemented the blog as a full-stack webapp using Bootstrap, jQuery, AlpineJS, Node, Express, and MongoDB
+- Enforced CRUD standards to efficiently handle database operations
 
 ## Education
 
