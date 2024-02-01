@@ -48,7 +48,7 @@ def md_to_pdf(filename: str, html_template: str, css_template: str) -> None:
             "--variable",
             "papersize=letter",
             "--variable",
-            "margin-top=0",
+            "margin-top=4",
             "--variable",
             "margin-right=0",
             "--variable",
