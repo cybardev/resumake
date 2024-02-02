@@ -17,6 +17,13 @@
 
 Adaptable and enthusiastic Computer Science major with expertise in Python, JavaScript, Git, Linux, and various standard tools and technologies. Completed two co-op internships in the software development industry and proactively engaged in creating open-source software projects, showcasing a commitment to continuous learning and creative problem-solving. 
 
+## Education
+
+<div class='xp-h'><span>Saint Mary's University</span><span>Halifax, Nova Scotia</span></div>
+<div class='xp-s'><span>Bachelor of Science in Computing Science</span><span>Expected Graduation Date: Dec 2024</span></div>
+
+**Major Courses**: Artificial Intelligence, Data Structures and Algorithms, Software Engineering, Systems Security
+
 ## Work Experience
 
 <div class='xp-h'><span>ReelData AI</span><span>Halifax, Nova Scotia</span></div>
@@ -45,16 +52,7 @@ Adaptable and enthusiastic Computer Science major with expertise in Python, Java
 - Packaged and published project to Python Package Index (PyPI), DockerHub, and GitHub Packages registries, making it easy and convenient for users to install
 - Created GitHub Actions workflows for CI/CD, to automatically build and deploy to package registries on tagged pushes, as well as re-generating personal resume and publishing to static website (https://resume.cybar.dev)
 
-<div class='xp-h'><span>Accessible Blog with CMS</span><span>https://github.com/SMU-Code-C/blog</span></div>
-<div class='xp-s'><span>Full-stack Developer</span><span>Jan 2022 - Apr 2022</span></div>
+## Skills & Interests
 
-- Built a 3-page blog website as well as a custom CMS (content management system) admin page
-- Created an accessible on-screen keyboard to accommodate client's typing difficulties caused by Cerebral Palsy
-- Implemented the blog as a full-stack webapp using Bootstrap, jQuery, AlpineJS, Node, Express, and MongoDB
-
-## Education
-
-<div class='xp-h'><span>Saint Mary's University</span><span>Halifax, Nova Scotia</span></div>
-<div class='xp-s'><span>Bachelor of Science in Computing Science</span><span>Expected Graduation Date: Dec 2024</span></div>
-
-**Major Courses**: Artificial Intelligence, Data Structures and Algorithms, Software Engineering, Systems Security
+**Skills**: Python, HTML, CSS, Bootstrap, JavaScript, jQuery, ReactJS, NodeJS, ExpressJS, MongoDB, Java, C/C++, Git  
+**Interests**: Linux, Open-source, Shell Scripting, Automation, Cloud, CI/CD, DevOps, Agile Development, Data Analytics
