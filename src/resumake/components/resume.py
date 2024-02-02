@@ -8,6 +8,7 @@ class Resume:
 
         # set up schema
         full_schema = {
+            "profile": self.profile,
             "skills": self.skills,
             "experience": self.experience,
             "projects": self.projects,
@@ -36,6 +37,14 @@ class Resume:
     @property
     def header(self) -> str:
         return repr(self.author)
+
+    @property
+    def profile(self) -> str:
+        return (
+            f"## Career Profile\n\n{self.author.profile}"
+            if self.author.profile is not None
+            else ""
+        )
 
     @property
     def skills(self) -> str:

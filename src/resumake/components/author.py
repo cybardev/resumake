@@ -19,6 +19,7 @@ class Author:
     skills: list[Skill]
     projects: list[Project]
     experiences: list[Experience]
+    profile: str = None
 
     def __repr__(self):
         return (
