@@ -86,18 +86,6 @@ author = Author(
                 "Created GitHub Actions workflows for CI/CD, to automatically build and deploy to package registries on tagged pushes, as well as re-generating personal resume and publishing to static website (https://resume.cybar.dev)",
             ],
         ),
-        Project(
-            name="Accessible Blog with CMS",
-            address="https://github.com/SMU-Code-C/blog",
-            role="Full-stack Developer",
-            start="Jan 2022",
-            end="Apr 2022",
-            attributes=[
-                "Built a 3-page blog website as well as a custom CMS (content management system) admin page",
-                "Created an accessible on-screen keyboard to accommodate client's typing difficulties caused by Cerebral Palsy",
-                "Implemented the blog as a full-stack webapp using Bootstrap, jQuery, AlpineJS, Node, Express, and MongoDB",
-            ],
-        ),
     ],
     education=Education(
         school="Saint Mary's University",
