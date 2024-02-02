@@ -94,7 +94,7 @@ author = Author(
                 "Built a 3-page blog website as well as a custom CMS (content management system) admin page",
                 "Created an accessible on-screen keyboard to accommodate client's typing difficulties caused by Cerebral Palsy",
                 "Implemented the blog as a full-stack webapp using Bootstrap, jQuery, AlpineJS, Node, Express, and MongoDB",
-                "Enforced CRUD standards to efficiently handle database operations",
+                "Enforced CRUD standards to effectively exchange blog post contents to and from NoSQL database",
             ],
         ),
     ],
