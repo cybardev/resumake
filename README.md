@@ -87,7 +87,7 @@ options:
 
 -   fork this repo
 -   navigate to your fork
--   edit [`.github/workflows/update-resume.yml`][workflow_yml] according to the `TODO` comments inside the file
+-   edit [`.github/workflows/update-resume.yml`][update_yml] according to the `TODO` comments inside the file
 -   rename [`resume/cybardev.py`][resume_py] to have your GitHub username instead of `cybardev`
 -   modify the renamed Python file to include your resume info
 -   push changes to your fork
@@ -96,6 +96,7 @@ options:
 
 -   check `Actions` tab of your fork for workflow run details
 -   configure custom domain (if desired) from `Settings > Pages`
+-   to change order of sections or show/hide sections in resume, edit [`.github/workflows/update-resume.yml`][resume_yml] according to the `TODO` comment inside the file
 
 ### Using Docker Container
 
@@ -134,6 +135,7 @@ docker pull cybardev/resumake
 
 <!-- links -->
 
-[workflow_yml]: .github/workflows/update-resume.yml
+[update_yml]: .github/workflows/update-resume.yml
+[resume_yml]: .github/workflows/resume.yml
 [resume_py]: https://github.com/cybardev/resumake/blob/main/resume/cybardev.py
 [resume_png]: https://raw.githubusercontent.com/cybardev/resumake/main/static/assets/Resume_Sheikh_Saad_Abdullah.png "Resume - Sheikh Saad Abdullah"

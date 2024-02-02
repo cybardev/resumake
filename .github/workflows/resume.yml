@@ -11,6 +11,10 @@ on:
     # Allows running this workflow from GitHub Actions tab
     workflow_dispatch:
 
+env:
+    # TODO: change the order of sections and show/hide sections here
+    RESUME_SCHEMA: "profile,education,experience,projects,skills"
+
 jobs:
     generate-resume:
         name: Generate Resume
@@ -33,7 +37,7 @@ jobs:
                   RESUME_SCRIPT="./resume/${{ github.repository_owner }}.py"
                   if [[ -f "${RESUME_SCRIPT}" ]]; then
                       export PYTHONPATH=$PYTHONPATH:$PWD/src/
-                      python3 -m resumake.builder ${RESUME_SCRIPT} -o ./static/assets -s profile,experience,projects,education
+                      python3 -m resumake.builder ${RESUME_SCRIPT} -o ./static/assets -s ${{ env.RESUME_SCHEMA }}
                       FILENAME=$(basename $(ls ./static/assets/Resume_*.pdf) .pdf)
                       echo | pandoc -t html --template=./src/resources/index.html --metadata title="${FILENAME}" --variable filename="${FILENAME}" -o ./static/index.html
                       echo "skip=false" >> "${GITHUB_OUTPUT}"
