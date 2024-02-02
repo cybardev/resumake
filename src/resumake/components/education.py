@@ -19,9 +19,9 @@ class Education:
                 self.school,
                 self.location,
                 f"{self.program} in {self.major}",
-                f"Expected Graduation Date: {self.end}",
+                f"Graduation: {self.end}",
             )
             + "\n\n"
-            + f"**Major Courses**: "
+            + f"**Notable Courses**: "
             + ", ".join(self.courses)
         )
