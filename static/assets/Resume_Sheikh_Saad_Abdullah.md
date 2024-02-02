@@ -20,9 +20,9 @@ Adaptable and enthusiastic Computer Science major with expertise in Python, Java
 ## Education
 
 <div class='xp-h'><span>Saint Mary's University</span><span>Halifax, Nova Scotia</span></div>
-<div class='xp-s'><span>Bachelor of Science in Computing Science</span><span>Expected Graduation Date: Dec 2024</span></div>
+<div class='xp-s'><span>Bachelor of Science in Computing Science</span><span>Graduation: Dec 2024</span></div>
 
-**Major Courses**: Artificial Intelligence, Data Structures and Algorithms, Software Engineering, Systems Security
+**Notable Courses**: Artificial Intelligence, Data Structures and Algorithms, Software Engineering, Systems Security
 
 ## Work Experience
 
