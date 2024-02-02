@@ -1,6 +1,5 @@
 from resumake.components import *
 
-# TODO: edit author object as required
 author = Author(
     name="Sheikh Saad Abdullah",
     address=Address("2060 Quingate Place", "B3L 4P7"),
@@ -8,6 +7,9 @@ author = Author(
     email="sheikh@cybar.dev",
     website="www.cybar.dev",
     social="cybardev",
+    profile="Adaptable and enthusiastic Computer Science major with expertise in Python, JavaScript, Git, Linux, and various standard tools and technologies. "
+    + "Completed two co-op internships in the software development industry and proactively engaged in creating open-source software projects, "
+    + "showcasing a commitment to continuous learning and creative problem-solving. ",
     skills=[
         Skill(
             name="Skills",
@@ -94,7 +96,6 @@ author = Author(
                 "Built a 3-page blog website as well as a custom CMS (content management system) admin page",
                 "Created an accessible on-screen keyboard to accommodate client's typing difficulties caused by Cerebral Palsy",
                 "Implemented the blog as a full-stack webapp using Bootstrap, jQuery, AlpineJS, Node, Express, and MongoDB",
-                "Enforced CRUD standards to effectively exchange blog post contents to and from NoSQL database",
             ],
         ),
     ],
