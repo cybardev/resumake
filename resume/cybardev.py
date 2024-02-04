@@ -10,40 +10,6 @@ author = Author(
     profile="Adaptable and enthusiastic Computer Science major with expertise in Python, JavaScript, Git, Linux, and various standard tools and technologies. "
     + "Completed two co-op internships in the software development industry and proactively engaged in creating open-source software projects, "
     + "showcasing a commitment to continuous learning and creative problem-solving. ",
-    skills=[
-        Skill(
-            name="Skills",
-            attributes=[
-                "Python",
-                "HTML",
-                "CSS",
-                "Bootstrap",
-                "JavaScript",
-                "jQuery",
-                "ReactJS",
-                "NodeJS",
-                "ExpressJS",
-                "MongoDB",
-                "Java",
-                "C/C++",
-                "Git",
-            ],
-        ),
-        Skill(
-            name="Interests",
-            attributes=[
-                "Linux",
-                "Open-source",
-                "Shell Scripting",
-                "Automation",
-                "Cloud",
-                "CI/CD",
-                "DevOps",
-                "Agile Development",
-                "Data Analytics",
-            ],
-        ),
-    ],
     experiences=[
         Experience(
             name="ReelData AI",
@@ -93,7 +59,7 @@ author = Author(
         program="Bachelor of Science",
         major="Computing Science",
         start="Sep 2020",
-        end="Dec 2024",
+        end="Jan 2025",
         courses=[
             "Artificial Intelligence",
             "Data Structures and Algorithms",
@@ -101,4 +67,38 @@ author = Author(
             "Systems Security",
         ],
     ),
+    skills=[
+        Skill(
+            name="Skills",
+            attributes=[
+                "Python",
+                "HTML",
+                "CSS",
+                "Bootstrap",
+                "JavaScript",
+                "jQuery",
+                "ReactJS",
+                "NodeJS",
+                "ExpressJS",
+                "MongoDB",
+                "Java",
+                "C/C++",
+                "Git",
+            ],
+        ),
+        Skill(
+            name="Interests",
+            attributes=[
+                "Linux",
+                "Open-source",
+                "Shell Scripting",
+                "Automation",
+                "Cloud",
+                "CI/CD",
+                "DevOps",
+                "Agile Development",
+                "Data Analytics",
+            ],
+        ),
+    ],
 )
