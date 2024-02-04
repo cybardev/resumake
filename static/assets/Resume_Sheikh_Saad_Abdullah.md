@@ -15,12 +15,12 @@
 
 ## Career Profile
 
-Adaptable and enthusiastic Computer Science major with expertise in Python, JavaScript, Git, Linux, and various standard tools and technologies. Completed two co-op internships in the software development industry and proactively engaged in creating open-source software projects, showcasing a commitment to continuous learning and creative problem-solving. 
+Adaptable and enthusiastic Computer Science major with expertise in Python, JavaScript, Git, Linux, and various standard tools and technologies. Completed two co-op internships in the software development industry and proactively engaged in creating open-source software projects, showcasing a commitment to continuous learning and creative problem-solving. Highly interested in DevOps and Cloud computing, currently preparing for the AWS Cloud Practitioner certification exam.
 
 ## Education
 
 <div class='xp-h'><span>Saint Mary's University</span><span>Halifax, Nova Scotia</span></div>
-<div class='xp-s'><span>Bachelor of Science in Computing Science</span><span>Graduation: Dec 2024</span></div>
+<div class='xp-s'><span>Bachelor of Science in Computing Science</span><span>Graduation: Jan 2025</span></div>
 
 **Notable Courses**: Artificial Intelligence, Data Structures and Algorithms, Software Engineering, Systems Security
 
@@ -29,10 +29,9 @@ Adaptable and enthusiastic Computer Science major with expertise in Python, Java
 <div class='xp-h'><span>ReelData AI</span><span>Halifax, Nova Scotia</span></div>
 <div class='xp-s'><span>Junior Software Developer</span><span>Sept 2023 - Dec 2023</span></div>
 
-- Collaborated with a dynamic Agile team on ReelAppetite, a key product, demonstrating strong teamwork and interpersonal skills
+- Collaborated with a dynamic Agile team on ReelAppetite - a flagship product - implementing key features according to client requirements, demonstrating strong teamwork and interpersonal skills
 - Successfully integrated into a large existing codebase, showcasing adaptability and quick learning
 - Implemented features using test-driven development and containerization, contributing to the software's robustness
-- Experienced the deployment of code to production, highlighting practical application and impact of contributions
 
 <div class='xp-h'><span>Sensor Technology LTD (COVE)</span><span>Dartmouth, Nova Scotia</span></div>
 <div class='xp-s'><span>Research Intern</span><span>May 2023 - Aug 2023</span></div>
