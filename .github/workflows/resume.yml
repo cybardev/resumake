@@ -33,8 +33,9 @@ jobs:
               uses: actions/checkout@v4
             - name: Run resume generation script
               id: generate
+              env:
+                  RESUME_SCRIPT: "./resume/${{ github.repository_owner }}.py"
               run: |
-                  RESUME_SCRIPT="./resume/${{ github.repository_owner }}.py"
                   if [[ -f "${RESUME_SCRIPT}" ]]; then
                       export PYTHONPATH=$PYTHONPATH:$PWD/src/
                       python3 -m resumake.builder ${RESUME_SCRIPT} -o ./static/assets -s ${{ env.RESUME_SCHEMA }}
