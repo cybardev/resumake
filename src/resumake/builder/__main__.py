@@ -32,9 +32,7 @@ def main(args: argparse.Namespace):
 def parse_args() -> argparse.Namespace:
     # resolve path to default template
     template_dir = os.path.realpath(
-        os.path.join(
-            os.path.dirname(os.path.realpath(__file__)), "../template"
-        )
+        os.path.join(os.path.dirname(os.path.realpath(__file__)), "../template")
     )
 
     parser = argparse.ArgumentParser(
@@ -54,7 +52,7 @@ def parse_args() -> argparse.Namespace:
         dest="schema",
         type=str,
         help="order of sections to display in the resume",
-        default="skills, experience, projects, education",
+        default="profile, education, experience, projects, skills",
     )
     parser.add_argument(
         "-o",
