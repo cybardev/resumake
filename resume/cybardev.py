@@ -9,8 +9,7 @@ author = Author(
     social="cybardev",
     profile="Adaptable and enthusiastic Computer Science major with expertise in Python, JavaScript, Git, Linux, and various standard tools and technologies. "
     + "Completed two co-op internships in the software development industry and proactively engaged in creating open-source software projects, "
-    + "showcasing a commitment to continuous learning and creative problem-solving. Highly interested in DevOps and Cloud computing, "
-    + "currently preparing for the AWS Cloud Practitioner certification exam.",
+    + "showcasing a commitment to continuous learning and creative problem-solving.",
     experiences=[
         Experience(
             name="ReelData AI",
@@ -19,9 +18,9 @@ author = Author(
             start="Sept 2023",
             end="Dec 2023",
             attributes=[
-                "Collaborated with a dynamic Agile team on ReelAppetite - a flagship product - implementing key features according to client requirements, demonstrating strong teamwork and interpersonal skills",
-                "Successfully integrated into a large existing codebase, showcasing adaptability and quick learning",
-                "Implemented features using test-driven development and containerization, contributing to the software's robustness",
+                "Collaborated with a dynamic remote-first Agile team on ReelAppetite - a flagship product - implementing key features according to client requirements, boosting client satisfaction and trust",
+                "Implemented features using test-driven development by creating unit tests and containerized integration tests to be run in the CI/CD pipeline, contributing to the software's robustness and preventing bugs from reaching production",
+                "Developed Python module to annotate videos with metadata consumed from Kafka topics, using GStreamer pipelines, allowing farm operators to view video stream information via dashboard",
             ],
         ),
         Experience(
