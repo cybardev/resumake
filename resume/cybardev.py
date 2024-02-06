@@ -9,7 +9,8 @@ author = Author(
     social="cybardev",
     profile="Adaptable and enthusiastic Computer Science major with expertise in Python, JavaScript, Git, Linux, and various standard tools and technologies. "
     + "Completed two co-op internships in the software development industry and proactively engaged in creating open-source software projects, "
-    + "showcasing a commitment to continuous learning and creative problem-solving.",
+    + "showcasing a commitment to continuous learning and creative problem-solving. Highly interested in DevOps and Cloud computing, "
+    + "currently preparing for the AWS Cloud Practitioner certification exam.",
     experiences=[
         Experience(
             name="ReelData AI",
@@ -20,7 +21,7 @@ author = Author(
             attributes=[
                 "Collaborated with a dynamic remote-first Agile team on ReelAppetite - a flagship product - implementing key features according to client requirements, boosting client satisfaction and trust",
                 "Implemented features using test-driven development by creating unit tests and containerized integration tests to be run in the CI/CD pipeline, contributing to the software's robustness and preventing bugs from reaching production",
-                "Developed Python module to annotate videos with metadata consumed from Kafka topics, using GStreamer pipelines, allowing farm operators to view video stream information via dashboard",
+                "Developed Python module to annotate videos with metadata consumed from Apache Kafka topics using GStreamer pipelines, allowing farm operators to view video stream information via dashboard",
             ],
         ),
         Experience(
@@ -30,7 +31,7 @@ author = Author(
             start="May 2023",
             end="Aug 2023",
             attributes=[
-                "Configured Raspberry Pi SBCs with OpenPlotter Marine OS for the purpose of developing and testing the Acoustic Projector Control and Logging System",
+                "Configured Raspberry Pi SBCs with Linux to develop and test the Acoustic Projector Control and Logging System",
                 "Developed Python script for generation and playback of audio files from given wavelength and duration",
                 "Implemented module to connect to private Signal K server and utilize its API to effectively retrieve sensor data",
                 "Created a script for logging data from sensors, consuming it via API calls, and storing it in an SQLite database",
