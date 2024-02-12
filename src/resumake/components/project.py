@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from .experience import Experience
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Project(Experience):
     name: str
     url: str
