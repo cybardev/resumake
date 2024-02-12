@@ -39,18 +39,35 @@ author = Author(
         ),
     ],
     projects=[
-        Experience(
-            name="Resumake - Programmatic Resume Generator",
-            address="https://github.com/cybardev/resumake",
-            role="Software Developer",
-            start="Jun 2022",
-            end="Present",
-            attributes=[
-                "Modularized code by splitting up project into multiple component files and using proper object-oriented techniques to ensure separation of concerns",
-                "Containerized application in a Docker image via Dockerfile configuration to create self-contained package with proper dependency resolution",
-                "Packaged and published project to Python Package Index (PyPI), DockerHub, and GitHub Packages registries, making it easy and convenient for users to install",
-                "Created GitHub Actions workflows for CI/CD, to automatically build and deploy to package registries on tagged pushes, as well as re-generating personal resume and publishing to static website (https://resume.cybar.dev)",
-            ],
+        Project(
+            name="Resumake",
+            url="https://github.com/cybardev/resumake",
+            desc="Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage.",
+            skills=["Python", "Docker", "CI/CD"],
+        ),
+        Project(
+            name="Resumake",
+            url="https://github.com/cybardev/resumake",
+            desc="Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage.",
+            skills=["Python", "Docker", "CI/CD"],
+        ),
+        Project(
+            name="Resumake",
+            url="https://github.com/cybardev/resumake",
+            desc="Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage.",
+            skills=["Python", "Docker", "CI/CD"],
+        ),
+        Project(
+            name="Resumake",
+            url="https://github.com/cybardev/resumake",
+            desc="Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage.",
+            skills=["Python", "Docker", "CI/CD"],
+        ),
+        Project(
+            name="Resumake",
+            url="https://github.com/cybardev/resumake",
+            desc="Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage.",
+            skills=["Python", "Docker", "CI/CD"],
         ),
     ],
     education=Education(
