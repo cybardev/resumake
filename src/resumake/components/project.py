@@ -9,5 +9,4 @@ class Project:
     skills: list[str]
 
     def __str__(self) -> str:
-        skills = ", ".join((f"`{skill}`" for skill in self.skills))
-        return f"**{self.name}** _({self.url})_ {self.desc} [{skills}]"
+        return f"**{self.name}** ({self.url}) {self.desc} **[{', '.join(self.skills)}]**"
