@@ -9,4 +9,4 @@ class Project:
     skills: list[str]
 
     def __str__(self) -> str:
-        return f"**{self.name}** ({self.url}) {self.desc} **[{', '.join(self.skills)}]**"
+        return f"**{self.name}** ([{self.url}](https://{self.url})) {self.desc} **[{', '.join(self.skills)}]**"
