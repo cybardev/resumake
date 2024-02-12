@@ -43,13 +43,15 @@ Adaptable and enthusiastic Computer Science major with expertise in Python, Java
 
 ## Project Experience
 
-<div class='xp-h'><span>Resumake - Programmatic Resume Generator</span><span>https://github.com/cybardev/resumake</span></div>
-<div class='xp-s'><span>Software Developer</span><span>Jun 2022 - Present</span></div>
+**Resumake** ([github.com/cybardev/resumake](https://github.com/cybardev/resumake)) Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage. **[Python, Docker, CI/CD]**
 
-- Modularized code by splitting up project into multiple component files and using proper object-oriented techniques to ensure separation of concerns
-- Containerized application in a Docker image via Dockerfile configuration to create self-contained package with proper dependency resolution
-- Packaged and published project to Python Package Index (PyPI), DockerHub, and GitHub Packages registries, making it easy and convenient for users to install
-- Created GitHub Actions workflows for CI/CD, to automatically build and deploy to package registries on tagged pushes, as well as re-generating personal resume and publishing to static website (https://resume.cybar.dev)
+**CybarPass** ([github.com/cybardev/CybarPass](https://github.com/cybardev/CybarPass)) Secure passphrase generator with GUI and CLI, published to PyPI. Companion webapp CheckPass can be used to check security of passphrases. **[Python, Cybersecurity, GUI Development]**
+
+**Prayers** ([github.com/cybardev/prayers](https://github.com/cybardev/prayers)) API to retrieve Islamic prayer time for a given location and date. Uses serverless functions on the cloud for persistent service. **[JavaScript, API Development, Serverless Functions]**
+
+**Accessible Blog** ([github.com/cybardev/blog](https://github.com/cybardev/blog)) Full-stack webapp with custom CMS and accessible on-screen keyboard made for client with Cerebral Palsy. Group project as part of university course. **[JavaScript, MongoDB, ExpressJS]**
+
+**yt.py** ([github.com/cybardev/ytpy](https://github.com/cybardev/ytpy)) YouTube media player that uses web scraping techniques to retrieve and play media from YouTube without using the YouTube API. **[Python, Web Scraping, CLI Development]**
 
 ## Skills & Interests
 
