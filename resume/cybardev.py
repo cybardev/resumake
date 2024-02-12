@@ -41,31 +41,31 @@ author = Author(
     projects=[
         Project(
             name="Resumake",
-            url="https://github.com/cybardev/resumake",
+            url="github.com/cybardev/resumake",
             desc="Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage.",
             skills=["Python", "Docker", "CI/CD"],
         ),
         Project(
             name="Resumake",
-            url="https://github.com/cybardev/resumake",
+            url="github.com/cybardev/resumake",
             desc="Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage.",
             skills=["Python", "Docker", "CI/CD"],
         ),
         Project(
             name="Resumake",
-            url="https://github.com/cybardev/resumake",
+            url="github.com/cybardev/resumake",
             desc="Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage.",
             skills=["Python", "Docker", "CI/CD"],
         ),
         Project(
             name="Resumake",
-            url="https://github.com/cybardev/resumake",
+            url="github.com/cybardev/resumake",
             desc="Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage.",
             skills=["Python", "Docker", "CI/CD"],
         ),
         Project(
             name="Resumake",
-            url="https://github.com/cybardev/resumake",
+            url="github.com/cybardev/resumake",
             desc="Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage.",
             skills=["Python", "Docker", "CI/CD"],
         ),
