@@ -39,7 +39,7 @@ author = Author(
         ),
     ],
     projects=[
-        Project(
+        Experience(
             name="Resumake - Programmatic Resume Generator",
             address="https://github.com/cybardev/resumake",
             role="Software Developer",
