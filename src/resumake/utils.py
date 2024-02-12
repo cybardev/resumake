@@ -26,7 +26,9 @@ def xp_fmt(name: str, address: str, spec: str, date: str) -> str:
     )
 
 
-def md_to_pdf(filename: str, html_template: str, css_template: str) -> None:
+def md_to_pdf(
+    filename: str, html_template: str, css_template: str, top_margin: int
+) -> None:
     """Convert markdown to pdf using pandoc and custom templates
 
     Args:
@@ -48,7 +50,7 @@ def md_to_pdf(filename: str, html_template: str, css_template: str) -> None:
             "--variable",
             "papersize=letter",
             "--variable",
-            "margin-top=4",
+            f"margin-top={top_margin}",
             "--variable",
             "margin-right=0",
             "--variable",
@@ -82,7 +84,11 @@ def pdf_to_png(filename: str) -> None:
 
 
 def generate_resume(
-    resume, output_dir: str, html_template: str, css_template: str
+    resume,
+    output_dir: str,
+    html_template: str,
+    css_template: str,
+    top_margin: int,
 ):
     """Generate resume as markdown, pdf, and png from python script
 
@@ -104,7 +110,7 @@ def generate_resume(
     resume.build(f"{filename}.md")
 
     # convert markdown to pdf and generate png image
-    md_to_pdf(filename, html_template, css_template)
+    md_to_pdf(filename, html_template, css_template, top_margin)
     pdf_to_png(filename)
 
     return resume
