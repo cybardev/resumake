@@ -58,9 +58,9 @@ author = Author(
             skills=["JavaScript", "API Development", "Serverless Functions"],
         ),
         Project(
-            name="Accessible Blog with CMS",
+            name="Accessible Blog",
             url="github.com/cybardev/blog",
-            desc="Full-stack blog webapp with custom CMS and accessible on-screen keyboard made for client with Cerebral Palsy. Group project as part of school course.",
+            desc="Full-stack webapp with custom CMS and accessible on-screen keyboard made for client with Cerebral Palsy. Group project as part of university course.",
             skills=["JavaScript", "MongoDB", "ExpressJS"],
         ),
         Project(
