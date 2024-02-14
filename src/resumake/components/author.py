@@ -2,8 +2,8 @@ from dataclasses import dataclass
 
 from .address import Address
 from .education import Education
-from .experience import Experience
-from .project import Project
+from .experience import Experience, ExperienceSummary
+from .project import Project, ProjectSummary
 from .skill import Skill
 
 
@@ -17,8 +17,8 @@ class Author:
     social: str
     education: Education
     skills: list[Skill]
-    projects: list[Project]
-    experiences: list[Experience]
+    projects: list[Project | ProjectSummary]
+    experiences: list[Experience | ExperienceSummary]
     profile: str = None
 
     def __repr__(self):
