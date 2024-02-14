@@ -4,7 +4,7 @@
 from .address import Address
 from .author import Author
 from .education import Education
-from .experience import Experience
-from .project import Project
+from .experience import Experience, ExperienceSummary
+from .project import Project, ProjectSummary
 from .resume import Resume
 from .skill import Skill
