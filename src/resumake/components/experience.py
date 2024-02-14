@@ -20,3 +20,19 @@ class Experience:
             + "\n\n"
             + "\n".join([f"- {info}" for info in self.attributes])
         )
+
+
+@dataclass(kw_only=True)
+class ExperienceSummary:
+    name: str
+    role: str
+    start: str
+    end: str
+    desc: str
+    skills: list[str]
+
+    def __post_init__(self):
+        self.position = f"{self.role}, _{self.start} - {self.end}_"
+
+    def __str__(self) -> str:
+        return f"**{self.name}** ({self.position}) {self.desc} **[{', '.join(self.skills)}]**"
