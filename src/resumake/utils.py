@@ -2,6 +2,18 @@ import os
 import subprocess
 
 
+def url_fmt(url: str) -> str:
+    """Format url for output
+
+    Args:
+        url (str): url to format
+
+    Returns:
+        str: markdown-formatted url
+    """
+    return f"[{url}](https://{url})"
+
+
 def xp_fmt(name: str, address: str, spec: str, date: str) -> str:
     """Format experience information for output
 
