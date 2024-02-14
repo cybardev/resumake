@@ -37,33 +37,54 @@ author = Author(
                 "Created a script for logging data from sensors, consuming it via API calls, and storing it in an SQLite database",
             ],
         ),
+        # ExperienceSummary(
+        #     name="The Source (BELL)",
+        #     role="Seasonal Sales Associate",
+        #     start="Oct 2022",
+        #     end="Dec 2022",
+        #     desc="Assisted customers with finding the best electronic products for their purposes. Utilized effective marketing and communication techniques to promote products and services.",
+        #     skills=["Marketing", "Sales", "Customer Service", "Communication"],
+        # ),
     ],
     projects=[
-        Project(
+        # Project(
+        #     name="Resumake - Programmatic Resume Generator",
+        #     url="github.com/cybardev/resumake",
+        #     role="Software Developer",
+        #     start="Jun 2022",
+        #     end="Present",
+        #     attributes=[
+        #         "Modularized code by splitting up project into multiple component files and using proper object-oriented techniques to ensure separation of concerns",
+        #         "Containerized application in a Docker image via Dockerfile configuration to create self-contained package with proper dependency resolution",
+        #         "Packaged and published project to Python Package Index (PyPI), DockerHub, and GitHub Packages registries, making it easy and convenient for users to install",
+        #         "Created GitHub Actions workflows for CI/CD, to automatically build and deploy to package registries on tagged pushes, as well as re-generating personal resume and publishing to static website (https://resume.cybar.dev)",
+        #     ],
+        # ),
+        ProjectSummary(
             name="Resumake",
             url="github.com/cybardev/resumake",
             desc="Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage.",
             skills=["Python", "Docker", "CI/CD"],
         ),
-        Project(
+        ProjectSummary(
             name="CybarPass",
             url="github.com/cybardev/CybarPass",
             desc="Secure passphrase generator with GUI and CLI, published to PyPI. Companion webapp CheckPass can be used to check security of passphrases.",
             skills=["Python", "Cybersecurity", "GUI Development"],
         ),
-        Project(
+        ProjectSummary(
             name="Prayers",
             url="github.com/cybardev/prayers",
             desc="API to retrieve Islamic prayer time for a given location and date. Uses serverless functions on the cloud for persistent service.",
             skills=["JavaScript", "API Development", "Serverless Functions"],
         ),
-        Project(
+        ProjectSummary(
             name="Accessible Blog",
             url="github.com/cybardev/blog",
             desc="Full-stack webapp with custom CMS and accessible on-screen keyboard made for client with Cerebral Palsy. Group project as part of university course.",
             skills=["JavaScript", "MongoDB", "ExpressJS"],
         ),
-        Project(
+        ProjectSummary(
             name="yt.py",
             url="github.com/cybardev/ytpy",
             desc="YouTube media player that uses web scraping techniques to retrieve and play media from YouTube without using the YouTube API.",
