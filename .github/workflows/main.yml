@@ -10,8 +10,12 @@ jobs:
         if: github.repository == 'cybardev/resumake'
         uses: ./.github/workflows/update-resume.yml
 
+    update-readme:
+        name: Update README.md
+        uses: ./.github/workflows/readme.yml
     publish-package:
         name: Publish to PyPI
+        needs: update-readme
         if: github.repository == 'cybardev/resumake'
         uses: ./.github/workflows/pypi.yml
 
