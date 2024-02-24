@@ -2,16 +2,36 @@ name: Build and Publish Pipeline
 
 on:
     push:
-        tags: "v*"
+        branches: main
+        paths: pyproject.toml
 
 jobs:
+    create-tag:
+        runs-on: ubuntu-latest
+        if: "${{ startsWith(github.event.head_commit.message, 'update: new version') }}"
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Create Tag
+              run: |
+                  VERSION_STRING=$(cat pyproject.toml | grep 'version')
+                  TAG=$(python3 -c "print('v' + '${VERSION_STRING}'.split()[2].strip('\"'))")
+                  if [ $(git tag -l "${TAG}") ]; then
+                      git tag "${TAG}" main
+                      git push origin "${TAG}"
+                  else
+                      echo "Tag ${TAG} already exists. Skipping tag creation."
+                  fi
+
     update-resume:
         name: Update Resume
+        needs: create-tag
         if: github.repository == 'cybardev/resumake'
         uses: ./.github/workflows/update-resume.yml
 
     update-readme:
         name: Update README.md
+        needs: create-tag
         uses: ./.github/workflows/readme.yml
     publish-package:
         name: Publish to PyPI
