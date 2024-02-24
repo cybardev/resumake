@@ -25,10 +25,6 @@
     font-weight: 600;
 }
 
-.markdown-body h1 {
-    margin: 0.67em 0;
-}
-
 .markdown-body hr {
     box-sizing: content-box;
     background: 0 0;
@@ -112,6 +108,7 @@
 }
 
 .markdown-body h1 {
+    margin: 0.67em 0;
     font-size: 1.8em;
     text-align: center;
     margin-block: 8px;
