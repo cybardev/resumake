@@ -4,7 +4,7 @@
 
 ### Dependencies
 
--   `python >= 3.9`
+-   `python >= 3.10`
 -   `pandoc`
 -   `wkhtmltopdf`
 -   `poppler-utils`
