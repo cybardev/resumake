@@ -13,7 +13,7 @@
 
 ---
 
-## Career Profile
+## Profile
 
 Adaptable and enthusiastic Computer Science major with expertise in Python, JavaScript, Git, Linux, and various standard tools and technologies. Completed two co-op internships in the software development industry and proactively engaged in creating open-source software projects, showcasing a commitment to continuous learning and creative problem-solving. Highly interested in DevOps and Cloud computing, currently preparing for the AWS Cloud Practitioner certification exam.
 
@@ -24,7 +24,7 @@ Adaptable and enthusiastic Computer Science major with expertise in Python, Java
 
 **Notable Courses**: Artificial Intelligence, Data Structures and Algorithms, Software Engineering, Systems Security
 
-## Work Experience
+## Experience
 
 <div class='xp-h'><span>ReelData AI</span><span>Halifax, Nova Scotia</span></div>
 <div class='xp-s'><span>Junior Software Developer</span><span>Sept 2023 - Dec 2023</span></div>
@@ -41,7 +41,7 @@ Adaptable and enthusiastic Computer Science major with expertise in Python, Java
 - Implemented module to connect to private Signal K server and utilize its API to effectively retrieve sensor data
 - Created a script for logging data from sensors, consuming it via API calls, and storing it in an SQLite database
 
-## Project Experience
+## Projects
 
 **Resumake** ([github.com/cybardev/resumake](https://github.com/cybardev/resumake)) Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage. **[Python, Docker, CI/CD]**
 
@@ -53,7 +53,7 @@ Adaptable and enthusiastic Computer Science major with expertise in Python, Java
 
 **yt.py** ([github.com/cybardev/ytpy](https://github.com/cybardev/ytpy)) YouTube media player that uses web scraping techniques to retrieve and play media from YouTube without using the YouTube API. **[Python, Web Scraping, CLI Development]**
 
-## Skills & Interests
+## Skills
 
 **Skills**: Python, HTML, CSS, Bootstrap, JavaScript, jQuery, ReactJS, NodeJS, ExpressJS, MongoDB, Java, C/C++, Git  
 **Interests**: Linux, Open-source, Shell Scripting, Automation, Cloud, CI/CD, DevOps, Agile Development, Data Analytics
