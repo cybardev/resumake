@@ -1,4 +1,4 @@
-name: Build and Publish Pipeline
+name: Tag, Build and Publish Pipeline
 
 on:
     push:
@@ -8,7 +8,7 @@ on:
 jobs:
     create-tag:
         runs-on: ubuntu-latest
-        if: "${{ startsWith(github.event.head_commit.message, 'update: new version') }}"
+        if: "${{ github.repository == 'cybardev/resumake' && startsWith(github.event.head_commit.message, 'update: new version') }}"
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
@@ -26,7 +26,6 @@ jobs:
     update-resume:
         name: Update Resume
         needs: create-tag
-        if: github.repository == 'cybardev/resumake'
         uses: ./.github/workflows/update-resume.yml
 
     update-readme:
@@ -36,9 +35,7 @@ jobs:
     publish-package:
         name: Publish to PyPI
         needs: update-readme
-        if: github.repository == 'cybardev/resumake'
         uses: ./.github/workflows/pypi.yml
-
     publish-docker:
         name: Publish Docker image
         needs: publish-package
