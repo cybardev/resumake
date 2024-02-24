@@ -41,26 +41,26 @@ class Resume:
     @property
     def profile(self) -> str:
         return (
-            f"## Career Profile\n\n{self.author.profile}"
+            f"## Profile\n\n{self.author.profile}"
             if self.author.profile is not None
             else ""
         )
 
     @property
     def skills(self) -> str:
-        return "## Skills & Interests\n\n" + "  \n".join(
+        return "## Skills\n\n" + "  \n".join(
             [str(skill) for skill in self.author.skills]
         )
 
     @property
     def experience(self) -> str:
-        return "## Work Experience\n\n" + "\n\n".join(
+        return "## Experience\n\n" + "\n\n".join(
             [str(experience) for experience in self.author.experiences]
         )
 
     @property
     def projects(self) -> str:
-        return "## Project Experience\n\n" + "\n\n".join(
+        return "## Projects\n\n" + "\n\n".join(
             [str(project) for project in self.author.projects]
         )
 
