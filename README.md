@@ -8,6 +8,7 @@
 -   `pandoc`
 -   `wkhtmltopdf`
 -   `poppler-utils`
+-   `fonts-roboto` (or install the `Roboto` font family to your system)
 
 ### Installation
 
@@ -114,7 +115,7 @@ options:
 
 ```sh
 docker pull cybardev/resumake
-````
+```
 
 #### Usage
 

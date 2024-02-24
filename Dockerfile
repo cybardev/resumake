@@ -8,7 +8,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # install dependencies
 RUN apt-get update
-RUN apt-get install -y python3 python3-pip pandoc wkhtmltopdf poppler-utils
+RUN apt-get install -y python3 python3-pip pandoc wkhtmltopdf poppler-utils fonts-roboto
+RUN fc-cache -fv
 
 # install resume generator from PyPI
 RUN python3 -m pip install resumake
