@@ -15,6 +15,6 @@ jobs:
             - name: Create Tag
               run: |
                   VERSION_STRING=$(cat pyproject.toml | grep 'version')
-                  TAG=$(python3 -c "print('v' + '${VERSION_STRING}'.split('=')[1].strip().strip('\"'))")
+                  TAG=$(python3 -c "print('v' + '${VERSION_STRING}'.split()[2].strip('\"'))")
                   git tag ${TAG} main
                   git push origin ${TAG}
