@@ -4,7 +4,7 @@ build-backend = "pdm.backend"
 
 [project]
 name = "resumake"
-version = "3.1.5"
+version = "3.1.6"
 authors = [{ name = "cybardev", email = "sheikh@cybar.dev" }]
 description = "Generate resume using data representation objects in Python"
 readme = "README.md"
