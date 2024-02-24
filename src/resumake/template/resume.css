@@ -8,11 +8,13 @@
     font-family: Roboto;
     src: url(fonts/Roboto/Roboto-Regular.ttf) format("ttf");
 }
+
 :root {
     --footerHeaderBorderColor: #1c1c1c;
     --font-family: "Roboto", sans-serif;
     --font-size: 18px;
 }
+
 .markdown-body {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -22,32 +24,40 @@
     line-height: 1.5;
     word-wrap: break-word;
 }
+
 .markdown-body a {
     background-color: transparent;
 }
+
 .markdown-body strong {
     font-weight: inherit;
     font-weight: bolder;
 }
+
 .markdown-body h1 {
     font-size: 2em;
     margin: 0.67em 0;
 }
+
 .markdown-body hr {
     box-sizing: content-box;
     height: 0;
     overflow: visible;
 }
+
 .markdown-body * {
     box-sizing: border-box;
 }
+
 .markdown-body a {
     color: #0366d6;
     text-decoration: none;
 }
+
 .markdown-body strong {
     font-weight: 600;
 }
+
 .markdown-body hr {
     background: 0 0;
     border: 0;
@@ -56,15 +66,18 @@
     margin: 15px 0;
     overflow: hidden;
 }
+
 .markdown-body hr:before {
     content: "";
     display: table;
 }
+
 .markdown-body hr:after {
     clear: both;
     content: "";
     display: table;
 }
+
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3,
@@ -74,45 +87,56 @@
     margin-bottom: 0;
     margin-top: 0;
 }
+
 .markdown-body h1 {
     font-size: 32px;
 }
+
 .markdown-body h1,
 .markdown-body h2 {
     font-weight: 600;
 }
+
 .markdown-body h2 {
     font-size: 24px;
 }
+
 .markdown-body p {
     margin-bottom: 10px;
     margin-top: 0;
 }
+
 .markdown-body ul {
     margin-bottom: 0;
     margin-top: 0;
     padding-left: 0;
 }
+
 .markdown-body:before {
     content: "";
     display: table;
 }
+
 .markdown-body:after {
     clear: both;
     content: "";
     display: table;
 }
+
 .markdown-body > :first-child {
     margin-top: 0 !important;
 }
+
 .markdown-body > :last-child {
     margin-bottom: 0 !important;
 }
+
 .markdown-body p,
 .markdown-body ul {
     margin-bottom: 16px;
     margin-top: 0;
 }
+
 .markdown-body hr {
     background-color: #e1e4e8;
     border: 0;
@@ -120,6 +144,7 @@
     margin: 24px 0;
     padding: 0;
 }
+
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3,
@@ -131,29 +156,37 @@
     margin-bottom: 16px;
     margin-top: 24px;
 }
+
 .markdown-body h1 {
     font-size: 2em;
 }
+
 .markdown-body h1,
 .markdown-body h2 {
     border-bottom: 1px solid #eaecef;
     padding-bottom: 0.3em;
 }
+
 .markdown-body h2 {
     font-size: 1.5em;
 }
+
 .markdown-body ul {
     padding-left: 2em;
 }
+
 .markdown-body li {
     word-wrap: break-all;
 }
+
 .markdown-body li + li {
     margin-top: 0.25em;
 }
+
 .markdown-body hr {
     border-bottom-color: #eee;
 }
+
 .markdown-body {
     box-sizing: border-box;
     min-width: 200px;
@@ -161,16 +194,19 @@
     margin: 0 auto;
     padding: 45px;
 }
+
 @media not print {
     .markdown-body {
         padding: 45px;
     }
+
     @media (max-width: 767px) {
         .markdown-body {
             padding: 15px;
         }
     }
 }
+
 .markdown-body {
     font-family: var(--font-family);
     font-size: var(--font-size);
@@ -179,6 +215,7 @@
     padding: 0;
     margin: 0 auto;
 }
+
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3,
@@ -189,44 +226,53 @@
     color: #282828;
     margin-block: var(--font-size);
 }
+
 .markdown-body h1 {
     font-size: 1.8em;
     text-align: center;
     margin-block: 8px;
 }
+
 .markdown-body h2 {
     font-size: 1.4em;
     text-decoration: underline;
 }
+
 .markdown-body h1,
 .markdown-body h2 {
     border-bottom: none;
     padding-bottom: 0;
 }
+
 .markdown-body hr {
     background-color: #d7d8d9;
     height: 1px;
     margin-block: 12px;
 }
+
 .markdown-body header > p {
     text-align: center;
     margin-block: 0;
 }
+
 .markdown-body header section {
     display: flex;
     justify-content: space-around;
     margin-block: 8px;
 }
+
 .markdown-body [class^="xp-"] {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .markdown-body .xp-h {
     font-weight: 700;
     margin-top: 12px;
     margin-bottom: 6px;
 }
+
 .markdown-body .xp-s {
     font-style: italic;
     margin-top: 6px;
