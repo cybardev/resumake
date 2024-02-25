@@ -114,7 +114,6 @@ author = Author(
                 "CSS",
                 "Bootstrap",
                 "JavaScript",
-                "jQuery",
                 "ReactJS",
                 "NodeJS",
                 "ExpressJS",
