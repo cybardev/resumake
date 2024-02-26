@@ -55,5 +55,5 @@ Adaptable and enthusiastic Computer Science major with expertise in Python, Java
 
 ## Skills
 
-**Skills**: Python, HTML, CSS, Bootstrap, JavaScript, jQuery, ReactJS, NodeJS, ExpressJS, MongoDB, Java, C/C++, Git  
+**Technologies**: Python, HTML, CSS, Bootstrap, JavaScript, ReactJS, NodeJS, ExpressJS, MongoDB, Java, C/C++, Git  
 **Interests**: Linux, Open-source, Shell Scripting, Automation, Cloud, CI/CD, DevOps, Agile Development, Data Analytics

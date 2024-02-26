@@ -107,14 +107,13 @@ author = Author(
     ),
     skills=[
         Skill(
-            name="Skills",
+            name="Technologies",
             attributes=[
                 "Python",
                 "HTML",
                 "CSS",
                 "Bootstrap",
                 "JavaScript",
-                "jQuery",
                 "ReactJS",
                 "NodeJS",
                 "ExpressJS",
