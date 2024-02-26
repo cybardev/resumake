@@ -75,7 +75,7 @@ author = Author(
         ProjectSummary(
             name="Prayers",
             url="github.com/cybardev/prayers",
-            desc="API to retrieve Islamic prayer time for a given location and date. Uses serverless functions on the cloud for persistent service.",
+            desc="API to retrieve Islamic prayer time for a given location and date. Uses serverless functions on the cloud for reliable persistent service.",
             skills=["JavaScript", "API Development", "Serverless Functions"],
         ),
         ProjectSummary(
