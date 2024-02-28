@@ -47,11 +47,11 @@ Adaptable and enthusiastic Computer Science major with expertise in Python, Java
 
 **CybarPass** ([github.com/cybardev/CybarPass](https://github.com/cybardev/CybarPass)) Secure passphrase generator with GUI and CLI, published to PyPI. Companion webapp CheckPass can be used to check security of passphrases. **[Python, Cybersecurity, GUI Development]**
 
-**Prayers** ([github.com/cybardev/prayers](https://github.com/cybardev/prayers)) API to retrieve Islamic prayer time for a given location and date. Uses serverless functions on the cloud for persistent service. **[JavaScript, API Development, Serverless Functions]**
+**Prayers** ([github.com/cybardev/prayers](https://github.com/cybardev/prayers)) API to retrieve Islamic prayer time for a given location and date. Uses serverless functions on the cloud for reliable persistent service. **[JavaScript, API Development, Serverless Functions]**
 
 **Accessible Blog** ([github.com/cybardev/blog](https://github.com/cybardev/blog)) Full-stack webapp with custom CMS and accessible on-screen keyboard made for client with Cerebral Palsy. Group project as part of university course. **[JavaScript, MongoDB, ExpressJS]**
 
-**yt.py** ([github.com/cybardev/ytpy](https://github.com/cybardev/ytpy)) YouTube media player that uses web scraping techniques to retrieve and play media from YouTube without using the YouTube API. **[Python, Web Scraping, CLI Development]**
+**yt.py** ([github.com/cybardev/ytpy](https://github.com/cybardev/ytpy)) YouTube media player that uses web scraping techniques to play media from YouTube without the YouTube API. Also translated to Go (github.com/cybardev/ytgo) **[Python, Go, Web Scraping, CLI Development]**
 
 ## Skills
 
