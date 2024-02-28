@@ -87,8 +87,8 @@ author = Author(
         ProjectSummary(
             name="yt.py",
             url="github.com/cybardev/ytpy",
-            desc="YouTube media player that uses web scraping techniques to retrieve and play media from YouTube without using the YouTube API.",
-            skills=["Python", "Web Scraping", "CLI Development"],
+            desc="YouTube media player that uses web scraping techniques to play media from YouTube without the YouTube API. Also translated to Go (github.com/cybardev/ytgo)",
+            skills=["Python", "Go", "Web Scraping", "CLI Development"],
         ),
     ],
     education=Education(
