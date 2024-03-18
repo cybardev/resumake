@@ -29,17 +29,19 @@ Adaptable and enthusiastic Computer Science major with expertise in Python, Java
 <div class='xp-h'><span>ReelData AI</span><span>Halifax, Nova Scotia</span></div>
 <div class='xp-s'><span>Junior Software Developer</span><span>Sept 2023 - Dec 2023</span></div>
 
-- Collaborated with a dynamic remote-first Agile team on ReelAppetite - a flagship product - implementing key features according to client requirements, boosting client satisfaction and trust
-- Implemented features using test-driven development by creating unit tests and containerized integration tests to be run in the CI/CD pipeline, contributing to the software's robustness and preventing bugs from reaching production
-- Developed Python module to annotate videos with metadata consumed from Apache Kafka topics using GStreamer pipelines, allowing farm operators to view video stream information via dashboard
+- Developed Python module to annotate videos with metadata consumed from Apache Kafka topics using GStreamer pipelines, allowing farm operators to view video stream details via dashboard
+- Collaborated with a dynamic remote-first Agile team on ReelAppetite, a flagship product, implementing key features according to client requirements
+- Implemented features using test-driven development by creating unit and integration tests to be run in the CI/CD pipeline, validating expected processor workflow
+- Augmented stream processor in development to standardize environment variable names to avoid conflicts
+- Researched porting Docker container from x86 to ARM (Nvidia Jetson) to run processor locally as edge application
 
 <div class='xp-h'><span>Sensor Technology LTD (COVE)</span><span>Dartmouth, Nova Scotia</span></div>
 <div class='xp-s'><span>Research Intern</span><span>May 2023 - Aug 2023</span></div>
 
-- Configured Raspberry Pi SBCs with Linux to develop and test the Acoustic Projector Control and Logging System
-- Developed Python script for generation and playback of audio files from given wavelength and duration
+- Developed Python script for audio generation, playback, and logging, allowing in-house testing of underwater acoustic projectors
+- Configured Raspberry Pi systems with Linux to develop and test the Acoustic Projector Control and Logging System
 - Implemented module to connect to private Signal K server and utilize its API to effectively retrieve sensor data
-- Created a script for logging data from sensors, consuming it via API calls, and storing it in an SQLite database
+- Created a framework for logging data from sensors, consuming it via API calls, and storing it in an SQLite database
 
 ## Projects
 
@@ -47,13 +49,9 @@ Adaptable and enthusiastic Computer Science major with expertise in Python, Java
 
 **CybarPass** ([github.com/cybardev/CybarPass](https://github.com/cybardev/CybarPass)) Secure passphrase generator with GUI and CLI, published to PyPI. Companion webapp CheckPass can be used to check security of passphrases. **[Python, Cybersecurity, GUI Development]**
 
-**Prayers** ([github.com/cybardev/prayers](https://github.com/cybardev/prayers)) API to retrieve Islamic prayer time for a given location and date. Uses serverless functions on the cloud for reliable persistent service. **[JavaScript, API Development, Serverless Functions]**
-
-**Accessible Blog** ([github.com/cybardev/blog](https://github.com/cybardev/blog)) Full-stack webapp with custom CMS and accessible on-screen keyboard made for client with Cerebral Palsy. Group project as part of university course. **[JavaScript, MongoDB, ExpressJS]**
-
 **yt.py** ([github.com/cybardev/ytpy](https://github.com/cybardev/ytpy)) YouTube media player that uses web scraping techniques to play media from YouTube without the YouTube API. Also translated to Go (github.com/cybardev/ytgo) **[Python, Go, Web Scraping, CLI Development]**
 
 ## Skills
 
-**Technologies**: Python, HTML, CSS, Bootstrap, JavaScript, ReactJS, NodeJS, ExpressJS, MongoDB, Java, C/C++, Git  
+**Technologies**: Python, Go, Docker, Git, NodeJS, ExpressJS, Mongo, MySQL, MS Excel, JavaScript, Java, C#, C/C++  
 **Interests**: Linux, Open-source, Shell Scripting, Automation, Cloud, CI/CD, DevOps, Agile Development, Data Analytics
