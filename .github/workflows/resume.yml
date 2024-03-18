@@ -14,6 +14,7 @@ on:
 env:
     # TODO: change the order of sections and show/hide sections here
     RESUME_SCHEMA: "profile,education,experience,projects,skills"
+    RESUME_MARGIN: 6
 
 jobs:
     generate-resume:
@@ -39,7 +40,7 @@ jobs:
                   if [[ -f "${RESUME_SCRIPT}" ]]; then
                       fc-cache -fv
                       export PYTHONPATH=$PYTHONPATH:$PWD/src/
-                      python3 -m resumake.builder ${RESUME_SCRIPT} -o ./static/assets -s ${{ env.RESUME_SCHEMA }}
+                      python3 -m resumake.builder ${{ env.RESUME_SCRIPT }} -o ./static/assets -s ${{ env.RESUME_SCHEMA }} -m ${{ env.RESUME_MARGIN }}
                       FILENAME=$(basename $(ls ./static/assets/Resume_*.pdf) .pdf)
                       echo | pandoc -t html --template=./src/resources/index.html --metadata title="${FILENAME}" --variable filename="${FILENAME}" -o ./static/index.html
                       echo "skip=false" >> "${GITHUB_OUTPUT}"
