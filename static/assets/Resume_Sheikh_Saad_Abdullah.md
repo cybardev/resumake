@@ -20,14 +20,14 @@ Adaptable and enthusiastic Computer Science major with expertise in Python, Java
 ## Education
 
 <div class='xp-h'><span>Saint Mary's University</span><span>Halifax, Nova Scotia</span></div>
-<div class='xp-s'><span>Bachelor of Science in Computing Science</span><span>Graduation: Jan 2025</span></div>
+<div class='xp-s'><span>Bachelor of Science in Computing Science</span><span>Graduation: May 2025</span></div>
 
 **Notable Courses**: Artificial Intelligence, Data Structures and Algorithms, Software Engineering, Systems Security
 
 ## Experience
 
 <div class='xp-h'><span>ReelData AI</span><span>Halifax, Nova Scotia</span></div>
-<div class='xp-s'><span>Junior Software Developer</span><span>Sept 2023 - Dec 2023</span></div>
+<div class='xp-s'><span>Junior Software Developer (co-op)</span><span>Sept 2023 - Dec 2023</span></div>
 
 - Developed Python module to annotate videos with metadata consumed from Apache Kafka topics using GStreamer pipelines, allowing farm operators to view video stream details via dashboard
 - Collaborated with a dynamic remote-first Agile team on ReelAppetite, a flagship product, implementing key features according to client requirements
@@ -36,7 +36,7 @@ Adaptable and enthusiastic Computer Science major with expertise in Python, Java
 - Researched porting Docker container from x86 to ARM (Nvidia Jetson) to run processor locally as edge application
 
 <div class='xp-h'><span>Sensor Technology LTD (COVE)</span><span>Dartmouth, Nova Scotia</span></div>
-<div class='xp-s'><span>Research Intern</span><span>May 2023 - Aug 2023</span></div>
+<div class='xp-s'><span>Research Intern (co-op)</span><span>May 2023 - Aug 2023</span></div>
 
 - Developed Python script for audio generation, playback, and logging, allowing in-house testing of underwater acoustic projectors
 - Configured Raspberry Pi systems with Linux to develop and test the Acoustic Projector Control and Logging System
