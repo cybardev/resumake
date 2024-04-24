@@ -15,7 +15,7 @@ author = Author(
         Experience(
             name="ReelData AI",
             address="Halifax, Nova Scotia",
-            role="Junior Software Developer",
+            role="Junior Software Developer (co-op)",
             start="Sept 2023",
             end="Dec 2023",
             attributes=[
@@ -29,7 +29,7 @@ author = Author(
         Experience(
             name="Sensor Technology LTD (COVE)",
             address="Dartmouth, Nova Scotia",
-            role="Research Intern",
+            role="Research Intern (co-op)",
             start="May 2023",
             end="Aug 2023",
             attributes=[
@@ -99,7 +99,7 @@ author = Author(
         program="Bachelor of Science",
         major="Computing Science",
         start="Sep 2020",
-        end="Jan 2025",
+        end="May 2025",
         courses=[
             "Artificial Intelligence",
             "Data Structures and Algorithms",
