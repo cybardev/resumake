@@ -69,11 +69,17 @@ author = Author(
             skills=["Python", "Docker", "CI/CD"],
         ),
         ProjectSummary(
-            name="CybarPass",
-            url="github.com/cybardev/CybarPass",
-            desc="Secure passphrase generator with GUI and CLI, published to PyPI. Companion webapp CheckPass can be used to check security of passphrases.",
-            skills=["Python", "Cybersecurity", "GUI Development"],
+            name="Noctrun",
+            url="github.com/cybardev/Noctrun",
+            desc="2D side-scrolling endless runner game featuring the ghosts of Bengal, made in Unity using C# scripts. Built for Windows, Mac, Linux, and Desktop Web browsers.",
+            skills=["C#", "Unity", "Game Development"],
         ),
+        # ProjectSummary(
+        #     name="CybarPass",
+        #     url="github.com/cybardev/CybarPass",
+        #     desc="Secure passphrase generator with GUI and CLI, published to PyPI. Companion webapp CheckPass can be used to check security of passphrases.",
+        #     skills=["Python", "Cybersecurity", "GUI Development"],
+        # ),
         # ProjectSummary(
         #     name="Prayers",
         #     url="github.com/cybardev/prayers",
