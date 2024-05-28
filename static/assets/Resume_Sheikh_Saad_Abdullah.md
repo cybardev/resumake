@@ -15,7 +15,7 @@
 
 ## Profile
 
-Adaptable and enthusiastic Computer Science major with expertise in Python, JavaScript, Git, Linux, and various standard tools and technologies. Completed two co-op internships in the software development industry and proactively engaged in creating open-source software projects, showcasing a commitment to continuous learning and creative problem-solving. Highly interested in DevOps and Cloud computing, currently preparing for the AWS Cloud Practitioner certification exam.
+Adaptable and enthusiastic Computer Science major with expertise in Python, JavaScript, Git, Linux, and various standard tools and technologies. Completed two co-op internships in the software development industry and proactively engaged in creating open-source software projects, showcasing a commitment to continuous learning and creative problem-solving. Highly interested in DevOps and Cloud computing, looking to apply acquired skills in a novel work environment.
 
 ## Education
 
