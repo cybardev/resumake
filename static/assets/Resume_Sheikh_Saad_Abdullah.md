@@ -47,7 +47,7 @@ Adaptable and enthusiastic Computer Science major with expertise in Python, Java
 
 **Resumake** ([github.com/cybardev/resumake](https://github.com/cybardev/resumake)) Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage. **[Python, Docker, CI/CD]**
 
-**CybarPass** ([github.com/cybardev/CybarPass](https://github.com/cybardev/CybarPass)) Secure passphrase generator with GUI and CLI, published to PyPI. Companion webapp CheckPass can be used to check security of passphrases. **[Python, Cybersecurity, GUI Development]**
+**Noctrun** ([github.com/cybardev/Noctrun](https://github.com/cybardev/Noctrun)) 2D side-scrolling endless runner game featuring the ghosts of Bengal, made in Unity using C# scripts. Built for Windows, Mac, Linux, and Desktop Web browsers. **[C#, Unity, Game Development]**
 
 **yt.py** ([github.com/cybardev/ytpy](https://github.com/cybardev/ytpy)) YouTube media player that uses web scraping techniques to play media from YouTube without the YouTube API. Also translated to Go (github.com/cybardev/ytgo) **[Python, Go, Web Scraping, CLI Development]**
 
