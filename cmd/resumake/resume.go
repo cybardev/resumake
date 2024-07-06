@@ -14,6 +14,14 @@ type Resume[E ExperienceType, P ProjectType] struct {
 	Skills      Skills
 }
 
+type Experiences[T ExperienceType] struct {
+	Experiences []T
+}
+
+type ExperienceType interface {
+	Experience | ExperienceSummary
+}
+
 type Experience struct {
 	Name       string
 	Address    string
@@ -32,12 +40,12 @@ type ExperienceSummary struct {
 	Skills []string
 }
 
-type ExperienceType interface {
-	Experience | ExperienceSummary
+type Projects[T ProjectType] struct {
+	Projects []T
 }
 
-type Experiences[T ExperienceType] struct {
-	Experiences []T
+type ProjectType interface {
+	Project | ProjectSummary
 }
 
 type Project struct {
@@ -56,14 +64,6 @@ type ProjectSummary struct {
 	Skills []string
 }
 
-type ProjectType interface {
-	Project | ProjectSummary
-}
-
-type Projects[T ProjectType] struct {
-	Projects []T
-}
-
 type Education struct {
 	School   string
 	Location string
@@ -74,11 +74,11 @@ type Education struct {
 	Courses  []string
 }
 
+type Skills struct {
+	Skills []Skill
+}
+
 type Skill struct {
 	Name       string
 	Attributes []string
-}
-
-type Skills struct {
-	Skills []Skill
 }
