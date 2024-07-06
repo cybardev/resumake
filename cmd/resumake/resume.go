@@ -1,6 +1,6 @@
 package main
 
-type Resume struct {
+type Resume[E ExperienceType, P ProjectType] struct {
 	Name        string
 	Address     string
 	Phone       string
@@ -8,8 +8,8 @@ type Resume struct {
 	Website     string
 	Social      string
 	Profile     string
-	Experiences Experiences[Experience]
-	Projects    Projects[ProjectSummary]
+	Experiences Experiences[E]
+	Projects    Projects[P]
 	Education   Education
 	Skills      Skills
 }
