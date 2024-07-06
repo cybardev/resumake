@@ -1,1 +1,84 @@
 package main
+
+type Resume struct {
+	Name        string
+	Address     string
+	Phone       string
+	Email       string
+	Website     string
+	Social      string
+	Profile     string
+	Experiences Experiences[Experience]
+	Projects    Projects[ProjectSummary]
+	Education   Education
+	Skills      Skills
+}
+
+type Experience struct {
+	Name       string
+	Address    string
+	Role       string
+	Start      string
+	End        string
+	Attributes []string
+}
+
+type ExperienceSummary struct {
+	Name   string
+	Role   string
+	Start  string
+	End    string
+	Desc   string
+	Skills []string
+}
+
+type ExperienceType interface {
+	Experience | ExperienceSummary
+}
+
+type Experiences[T ExperienceType] struct {
+	Experiences []T
+}
+
+type Project struct {
+	Name       string
+	Url        string
+	Role       string
+	Start      string
+	End        string
+	Attributes []string
+}
+
+type ProjectSummary struct {
+	Name   string
+	Url    string
+	Desc   string
+	Skills []string
+}
+
+type ProjectType interface {
+	Project | ProjectSummary
+}
+
+type Projects[T ProjectType] struct {
+	Projects []T
+}
+
+type Education struct {
+	School   string
+	Location string
+	Program  string
+	Major    string
+	Start    string
+	End      string
+	Courses  []string
+}
+
+type Skill struct {
+	Name       string
+	Attributes []string
+}
+
+type Skills struct {
+	Skills []Skill
+}
