@@ -1,84 +1,54 @@
 package main
 
-type Resume[E ExperienceType, P ProjectType] struct {
-	Name        string
-	Address     string
-	Phone       string
-	Email       string
-	Website     string
-	Social      string
-	Profile     string
-	Experiences Experiences[E]
-	Projects    Projects[P]
-	Education   Education
-	Skills      Skills
-}
-
-type Experiences[T ExperienceType] struct {
-	Experiences []T
-}
-
-type ExperienceType interface {
-	Experience | ExperienceSummary
+type Resume struct {
+	Name        string       `yaml:"name"`
+	Address     string       `yaml:"address"`
+	Phone       string       `yaml:"phone"`
+	Email       string       `yaml:"email"`
+	Website     string       `yaml:"website"`
+	Social      string       `yaml:"social"`
+	Profile     string       `yaml:"profile"`
+	Experiences []Experience `yaml:"experiences"`
+	Projects    []Project    `yaml:"projects"`
+	Education   Education    `yaml:"education"`
+	Skills      []Skill      `yaml:"skills"`
 }
 
 type Experience struct {
-	Name       string
-	Address    string
-	Role       string
-	Start      string
-	End        string
-	Attributes []string
-}
-
-type ExperienceSummary struct {
-	Name   string
-	Role   string
-	Start  string
-	End    string
-	Desc   string
-	Skills []string
-}
-
-type Projects[T ProjectType] struct {
-	Projects []T
-}
-
-type ProjectType interface {
-	Project | ProjectSummary
+	Summarize  bool     `yaml:"summarize"`
+	Name       string   `yaml:"name"`
+	Address    string   `yaml:"address"`
+	Role       string   `yaml:"role"`
+	Start      string   `yaml:"start"`
+	End        string   `yaml:"end"`
+	Desc       string   `yaml:"desc"`
+	Attributes []string `yaml:"attributes"`
+	Skills     []string `yaml:"skills"`
 }
 
 type Project struct {
-	Name       string
-	Url        string
-	Role       string
-	Start      string
-	End        string
-	Attributes []string
-}
-
-type ProjectSummary struct {
-	Name   string
-	Url    string
-	Desc   string
-	Skills []string
+	Summarize  bool     `yaml:"summarize"`
+	Name       string   `yaml:"name"`
+	Url        string   `yaml:"url"`
+	Role       string   `yaml:"role"`
+	Start      string   `yaml:"start"`
+	End        string   `yaml:"end"`
+	Desc       string   `yaml:"desc"`
+	Attributes []string `yaml:"attributes"`
+	Skills     []string `yaml:"skills"`
 }
 
 type Education struct {
-	School   string
-	Location string
-	Program  string
-	Major    string
-	Start    string
-	End      string
-	Courses  []string
-}
-
-type Skills struct {
-	Skills []Skill
+	School   string   `yaml:"school"`
+	Location string   `yaml:"location"`
+	Program  string   `yaml:"program"`
+	Major    string   `yaml:"major"`
+	Start    string   `yaml:"start"`
+	End      string   `yaml:"end"`
+	Courses  []string `yaml:"courses"`
 }
 
 type Skill struct {
-	Name       string
-	Attributes []string
+	Name       string   `yaml:"name"`
+	Attributes []string `yaml:"attributes"`
 }
