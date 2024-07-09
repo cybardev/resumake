@@ -1,3 +1,2 @@
 # ignore template files from language statistics
-src/resumake/template/* linguist-vendored
-src/resources/* linguist-vendored
+template.* linguist-vendored
