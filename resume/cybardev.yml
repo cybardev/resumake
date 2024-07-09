@@ -1,7 +1,5 @@
-# Resume
-
-name: Sheikh Saad Abdullah
-address: B3L 4P7
+author: Sheikh Saad Abdullah
+location: B3L 4P7, Halifax, NS, Canada
 phone: +1 (902) 818-0048
 email: sheikh@cybar.dev
 website: www.cybar.dev
@@ -14,7 +12,7 @@ profile: >-
 experiences:
   - summarize: false
     name: ReelData AI
-    address: Halifax, Nova Scotia
+    location: Halifax, Nova Scotia
     role: Junior Software Developer (co-op)
     start: Sept 2023
     end: Dec 2023
@@ -26,7 +24,7 @@ experiences:
       - Researched porting Docker container from x86 to ARM (Nvidia Jetson) to run processor locally as edge application
   - summarize: false
     name: Sensor Technology LTD (COVE)
-    address: Dartmouth, Nova Scotia
+    location: Dartmouth, Nova Scotia
     role: Research Intern (co-op)
     start: May 2023
     end: Aug 2023
