@@ -13,3 +13,6 @@ dist/
 *test.*
 *_part.py
 *_partial.py
+
+# editor config
+.vscode/

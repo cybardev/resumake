@@ -1,0 +1,148 @@
+# Resume
+
+name: Sheikh Saad Abdullah
+address: B3L 4P7
+phone: +1 (902) 818-0048
+email: sheikh@cybar.dev
+website: www.cybar.dev
+social: cybardev
+profile: >-
+  Adaptable and enthusiastic Computer Science major with expertise in Python, JavaScript, Git, Linux, and various standard tools and technologies.
+  Completed two co-op internships in the software development industry and proactively engaged in creating open-source software projects,
+  showcasing a commitment to continuous learning and creative problem-solving. Highly interested in DevOps and Cloud computing,
+  currently looking to apply acquired skills in a new work environment.
+experiences:
+  - summarize: false
+    name: ReelData AI
+    address: Halifax, Nova Scotia
+    role: Junior Software Developer (co-op)
+    start: Sept 2023
+    end: Dec 2023
+    attributes:
+      - Developed Python module to annotate videos with metadata consumed from Apache Kafka topics using GStreamer pipelines, allowing farm operators to view video stream details via dashboard
+      - Collaborated with a dynamic remote-first Agile team on ReelAppetite, a flagship product, implementing key features according to client requirements
+      - Implemented features using test-driven development by creating unit and integration tests to be run in the CI/CD pipeline, validating expected processor workflow
+      - Augmented stream processor in development to standardize environment variable names to avoid conflicts
+      - Researched porting Docker container from x86 to ARM (Nvidia Jetson) to run processor locally as edge application
+  - summarize: false
+    name: Sensor Technology LTD (COVE)
+    address: Dartmouth, Nova Scotia
+    role: Research Intern (co-op)
+    start: May 2023
+    end: Aug 2023
+    attributes:
+      - Developed Python script for audio generation, playback, and logging, allowing in-house testing of underwater acoustic projectors
+      - Configured Raspberry Pi systems with Linux to develop and test the Acoustic Projector Control and Logging System
+      - Implemented module to connect to private Signal K server and utilize its API to effectively retrieve sensor data
+      - Created a framework for logging data from sensors, consuming it via API calls, and storing it in an SQLite database
+  # - summarize: true
+  #   name: The Source (BELL)
+  #   role: Seasonal Sales Associate
+  #   start: Oct 2022
+  #   end: Dec 2022
+  #   desc: Assisted customers with finding the best electronic products for their purposes. Utilized effective marketing and communication techniques to promote products and services.
+  #   skills:
+  #       - Marketing
+  #       - Sales
+  #       - Customer Service
+  #       - Communication
+projects:
+  # - summarize: false
+  #   name: Resumake - Programmatic Resume Generator
+  #   url: github.com/cybardev/resumake
+  #   role: Software Developer
+  #   start: Jun 2022
+  #   end: Present
+  #   attributes:
+  #       - Modularized code by splitting up project into multiple component files and using proper object-oriented techniques to ensure separation of concerns
+  #       - Containerized application in a Docker image via Dockerfile configuration to create self-contained package with proper dependency resolution
+  #       - Packaged and published project to Python Package Index (PyPI), DockerHub, and GitHub Packages registries, making it easy and convenient for users to install
+  #       - Created GitHub Actions workflows for CI/CD, to automatically build and deploy to package registries on tagged pushes, as well as re-generating personal resume and publishing to static website (https://resume.cybar.dev)
+  - summarize: true
+    name: Resumake
+    url: github.com/cybardev/resumake
+    desc: Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage.
+    skills:
+      - Python
+      - Docker
+      - CI/CD
+  - summarize: true
+    name: Noctrun
+    url: github.com/cybardev/Noctrun
+    desc: 2D side-scrolling endless runner game featuring the ghosts of Bengal, made in Unity using C# scripts. Built for Windows, Mac, Linux, and Desktop Web browsers.
+    skills:
+      - C#
+      - Unity
+      - Game Development
+  # - summarize: true
+  #   name: CybarPass
+  #   url: github.com/cybardev/CybarPass
+  #   desc: Secure passphrase generator with GUI and CLI, published to PyPI. Companion webapp CheckPass can be used to check security of passphrases.
+  #   skills:
+  #       - Python
+  #       - Cybersecurity
+  #       - GUI Development
+  # - summarize: true
+  #   name: Prayers
+  #   url: github.com/cybardev/prayers
+  #   desc: API to retrieve Islamic prayer time for a given location and date. Uses serverless functions on the cloud for reliable persistent service.
+  #   skills:
+  #       - JavaScript
+  #       - API Development
+  #       - Serverless Functions
+  # - summarize: true
+  #   name: Accessible Blog
+  #   url: github.com/cybardev/blog
+  #   desc: Full-stack webapp with custom CMS and accessible on-screen keyboard made for client with Cerebral Palsy. Group project as part of university course.
+  #   skills:
+  #       - JavaScript
+  #       - MongoDB
+  #       - ExpressJS
+  - summarize: true
+    name: yt.py
+    url: github.com/cybardev/ytpy
+    desc: YouTube media player that uses web scraping techniques to play media from YouTube without the YouTube API. Also translated to Go (github.com/cybardev/ytgo)
+    skills:
+      - Python
+      - Go
+      - Web Scraping
+      - CLI Development
+education:
+  school: Saint Mary's University
+  location: Halifax, Nova Scotia
+  program: Bachelor of Science
+  major: Computing Science
+  start: Sep 2020
+  end: May 2025
+  courses:
+    - Artificial Intelligence
+    - Data Structures and Algorithms
+    - Software Engineering
+    - Systems Security
+skills:
+  - name: Technologies
+    attributes:
+      - Python
+      - Go
+      - Docker
+      - Git
+      - NodeJS
+      - ExpressJS
+      - Mongo
+      - MySQL
+      - MS Excel
+      - JavaScript
+      - Java
+      - C#
+      - C/C++
+  - name: Interests
+    attributes:
+      - Linux
+      - Open-source
+      - Shell Scripting
+      - Automation
+      - Cloud
+      - CI/CD
+      - DevOps
+      - Agile Development
+      - Data Analytics
