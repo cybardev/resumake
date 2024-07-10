@@ -1,2 +1,2 @@
 # ignore template files from language statistics
-template.* linguist-vendored
+resources/* linguist-vendored
