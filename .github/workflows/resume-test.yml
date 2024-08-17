@@ -22,8 +22,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Run resume generation script
         run: bash resumake.sh ${{ env.RESUME_MARGIN }}
+      - name: Generate PNG preview
+        run: |
+          AUTHOR="$(head -n 1 resume.yml | cut -f 2- -d ' ' | tr ' ' '_')"
+          pdftoppm -png "./static/assets/Resume_${AUTHOR}.pdf" > "./static/assets/Resume_${AUTHOR}.png"
       - name: Upload resume files
         uses: actions/upload-artifact@v4
         with:
           name: resume
-          path: static/assets/Resume_*.pdf
+          path: static/assets/Resume_*.p*
