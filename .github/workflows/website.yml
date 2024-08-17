@@ -41,8 +41,14 @@ jobs:
           packages: pandoc wkhtmltopdf fonts-roboto
           version: 1.0
       - name: Run resume generation script
-        id: generate
         run: bash resumake.sh ${{ env.RESUME_MARGIN }}
+      - name: Generate landing page
+        run: |
+          AUTHOR="$(head -n 1 resume.yml | cut -f 2- -d ' ' | tr ' ' '_')"
+          echo | pandoc -t html --template=./resources/index.html \
+            --metadata title="${AUTHOR}" \
+            --variable author="${AUTHOR}" \
+            -o ./static/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
