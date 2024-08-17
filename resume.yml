@@ -3,7 +3,9 @@ location: B3L 4P7, Halifax, NS, Canada
 phone: +1 (902) 818-0048
 email: sheikh@cybar.dev
 website: www.cybar.dev
-social: cybardev
+socials:
+  github: cybardev
+  linkedin: cybardev
 profile: >-
   Adaptable and enthusiastic Computer Science major with expertise in Python, JavaScript, Git, Linux, and various standard tools and technologies.
   Completed two co-op internships in the software development industry and proactively engaged in creating open-source software projects,
