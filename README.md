@@ -1,6 +1,6 @@
 # Resumake
 
-## Generate resume using data representation objects in Python
+## Programmatic Resume Generator
 
 ### Dependencies
 
@@ -10,11 +10,7 @@
 
 ### Usage
 
-- edit [`resume.yml`](./resume.yml) file
-- run `resumake.sh` with bash
-  - optional: provide a number to use as `margin-top`
-
-#### Using GitHub Actions
+#### Using GitHub Actions [recommended]
 
 Automatically generate your resume and publish it as a website:
 
@@ -23,6 +19,12 @@ Automatically generate your resume and publish it as a website:
 - edit [`resume.yml`](./resume.yml) file
 - edit the `resume_png` link in this readme to the correct png file
 - push changes to your fork
+
+#### Running Locally
+
+- edit [`resume.yml`](./resume.yml) file
+- run `resumake.sh` with bash
+  - optional: provide a number to use as `margin-top`
 
 ### Extras
 
