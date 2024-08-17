@@ -1,22 +1,6 @@
-# boilerplate
-__pycache__/
-_site/
-dist/
-.pdm-build/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+# artifacts
 .DS_Store
-
-# custom resume files
-*.old
-*test.*
-*_part.py
-*_partial.py
 resources/_resume.md
 
 # editor config
 .vscode/
-
-# unignore workflows
-!.github/workflows/*
