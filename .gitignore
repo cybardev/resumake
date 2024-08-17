@@ -13,6 +13,7 @@ dist/
 *test.*
 *_part.py
 *_partial.py
+resources/_resume.md
 
 # editor config
 .vscode/
