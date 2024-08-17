@@ -7,7 +7,7 @@ on:
 
   # Run workflow when resume is updated
   push:
-    branches: pandoc
+    branches: main
     paths: resume.yml
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -71,5 +71,5 @@ jobs:
       - name: Upload resume files
         uses: ad-m/github-push-action@master
         with:
-          branch: pandoc
+          branch: main
           github_token: ${{ secrets.GITHUB_TOKEN }}
