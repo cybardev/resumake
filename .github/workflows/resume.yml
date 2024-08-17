@@ -32,15 +32,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
       - name: Install dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: pandoc wkhtmltopdf poppler-utils fonts-roboto
           version: 1.0
+
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
       - name: Run resume generation script
         run: bash resumake.sh ${{ env.RESUME_MARGIN }}
       - name: Generate PNG preview
