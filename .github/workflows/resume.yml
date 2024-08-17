@@ -56,7 +56,8 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -a -m "pipeline: update resume"
+          git add .
+          git commit -m "pipeline: update resume"
       - name: Upload resume files
         uses: ad-m/github-push-action@master
         with:
