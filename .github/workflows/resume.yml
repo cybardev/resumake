@@ -32,16 +32,18 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      # Setup
       - name: Install dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: pandoc wkhtmltopdf poppler-utils fonts-roboto
           version: 1.0
-
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
+      # Resumake
       - name: Run resume generation script
         run: bash resumake.sh ${{ env.RESUME_MARGIN }}
       - name: Generate PNG preview
@@ -50,6 +52,18 @@ jobs:
           AUTHOR="$(head -n 1 resume.yml | cut -f 2- -d ' ' | tr ' ' '_')"
           pdftoppm -png "./static/assets/Resume_${AUTHOR}.pdf" > "./static/assets/Resume_${AUTHOR}.png"
           echo "author=${AUTHOR}" >> "${GITHUB_OUTPUT}"
+      - name: Commit changes
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -a -m "pipeline: update resume"
+      - name: Upload resume files
+        uses: ad-m/github-push-action@master
+        with:
+          branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Website
       - name: Generate landing page
         run: |
           AUTHOR=${{ steps.gen-png.outputs.author }}
@@ -64,13 +78,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-      - name: Commit changes
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -a -m "pipeline: update resume"
-      - name: Upload resume files
-        uses: ad-m/github-push-action@master
-        with:
-          branch: main
-          github_token: ${{ secrets.GITHUB_TOKEN }}
