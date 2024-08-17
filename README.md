@@ -16,7 +16,7 @@
 
 #### Using GitHub Actions
 
-**Automatically generate your resume and publish it as a website**:
+Automatically generate your resume and publish it as a website:
 
 - fork this repo
 - navigate to your fork
