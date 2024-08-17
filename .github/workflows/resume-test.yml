@@ -5,8 +5,6 @@ on:
   workflow_dispatch:
 
 env:
-  # TODO: change the order of sections and show/hide sections here
-  RESUME_SCHEMA: "profile,education,experience,projects,skills"
   RESUME_MARGIN: 6
 
 jobs:
@@ -17,7 +15,7 @@ jobs:
       - name: Install dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: pandoc wkhtmltopdf fonts-roboto
+          packages: pandoc wkhtmltopdf
           version: 1.0
 
       - name: Checkout repository
