@@ -1,12 +1,13 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Upload Resume to Website
 
 on:
-  # Allows running this workflow from other workflows
-  workflow_call:
-
   # Allows running this workflow from GitHub Actions tab
   workflow_dispatch:
+
+  # Run workflow when resume is updated
+  push:
+    paths: resume.yml
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -20,6 +21,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  RESUME_MARGIN: 6
+
 jobs:
   publish-site:
     environment:
@@ -31,10 +35,17 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v4
+      - name: Install dependencies
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: pandoc wkhtmltopdf fonts-roboto
+          version: 1.0
+      - name: Run resume generation script
+        id: generate
+        run: bash resumake.sh ${{ env.RESUME_MARGIN }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload static directory
           path: "./static"
       - name: Deploy to GitHub Pages
         id: deployment
