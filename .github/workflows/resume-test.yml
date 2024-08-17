@@ -1,0 +1,32 @@
+name: "[TEST] Resume Builder"
+
+on:
+  # Allows running this workflow from GitHub Actions tab
+  workflow_dispatch:
+
+env:
+  # TODO: change the order of sections and show/hide sections here
+  RESUME_SCHEMA: "profile,education,experience,projects,skills"
+  RESUME_MARGIN: 6
+
+jobs:
+  generate-resume:
+    name: Generate Resume
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: pandoc wkhtmltopdf fonts-roboto
+          version: 1.0
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run resume generation script
+        id: generate
+        run: bash resumake.sh ${{ env.RESUME_MARGIN }}
+      - name: Upload resume files
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume
+          path: static/assets/Resume_*.pdf
