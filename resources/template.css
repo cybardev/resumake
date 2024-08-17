@@ -7,7 +7,7 @@
 :root {
   --footerHeaderBorderColor: #1c1c1c;
   --font-family: "Roboto", sans-serif;
-  --font-size: 16px;
+  --font-size: 18px;
 }
 
 .markdown-body a {
