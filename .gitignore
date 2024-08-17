@@ -16,3 +16,6 @@ dist/
 
 # editor config
 .vscode/
+
+# unignore workflows
+!.github/workflows/*
