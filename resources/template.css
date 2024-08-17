@@ -12,7 +12,7 @@
 :root {
   --footerHeaderBorderColor: #1c1c1c;
   --font-family: "Roboto", sans-serif;
-  --font-size: 18px;
+  --font-size: 16px;
 }
 
 .markdown-body a {
