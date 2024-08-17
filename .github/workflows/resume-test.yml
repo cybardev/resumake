@@ -21,7 +21,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Run resume generation script
-        id: generate
         run: bash resumake.sh ${{ env.RESUME_MARGIN }}
       - name: Upload resume files
         uses: actions/upload-artifact@v4
