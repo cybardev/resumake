@@ -2,12 +2,6 @@
 
 ## Programmatic Resume Generator
 
-### Dependencies
-
-- `pandoc`
-- `wkhtmltopdf`
-- `fonts-roboto` (or install the `Roboto` font family to your system)
-
 ### Usage
 
 #### Using GitHub Actions [recommended]
@@ -29,6 +23,14 @@ Automatically generate your resume and publish it as a website:
   - optional: `MARGIN` is a number to use as `margin-top`. Default is `2`
 
 #### Running Locally
+
+##### Dependencies
+
+- `pandoc`
+- `wkhtmltopdf`
+- `fonts-roboto` (or install the `Roboto` font family to your system)
+
+##### Instructions
 
 - edit [`resume.yml`](./resume.yml) file
 - run `resumake.sh` with bash
