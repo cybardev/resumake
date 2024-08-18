@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
 # variables
+[ -z $OUTDIR ] && OUTDIR="."
 [ -z $1 ] && INFILE="resume.yml" || INFILE=$1
 [ -z $2 ] && MARGIN=2 || MARGIN=$2
 AUTHOR="$(head -n 1 ${INFILE} | cut -f 2- -d ' ' | tr ' ' '_')"
 TEMPFILE="_resume.md"
-OUTFILE="Resume_${AUTHOR}.pdf"
+OUTFILE="${OUTDIR}/Resume_${AUTHOR}.pdf"
 
 # create metadata file with resume info
 echo "---" >${TEMPFILE}
