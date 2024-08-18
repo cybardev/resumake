@@ -10,6 +10,11 @@ on:
     branches: main
     paths: resume.yml
 
+# configuration variables
+env:
+  RESUME_FILE: resume.yml
+  RESUME_MARGIN: 6
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: write
@@ -21,9 +26,6 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
-
-env:
-  RESUME_MARGIN: 6
 
 jobs:
   publish-site:
@@ -45,7 +47,9 @@ jobs:
 
       # Resumake
       - name: Run resume generation script
-        run: bash resumake.sh ${{ env.RESUME_MARGIN }}
+        env:
+          OUTDIR: "./static/assets"
+        run: bash resumake.sh ${{ env.RESUME_FILE }} ${{ env.RESUME_MARGIN }}
       - name: Generate PNG preview
         id: gen-png
         run: |
