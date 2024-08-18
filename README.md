@@ -18,8 +18,8 @@ Automatically generate your resume and publish it as a website:
 
 - install Docker (at least runtime engine)
 - pull the image: `docker pull cybardev/resumake`
-- run resumake: `docker run --rm -v $PWD:/app/data cybardev/resumake data/<resume.yml> [MARGIN]`
-  - **MUST** prepend `data/` to the YAML filename as shown. `resume.yml` must be in current working directory. Can be named anything as long as it's a YAML file.
+- run resumake: `docker run --rm -v $PWD:/app/data cybardev/resumake <resume.yml> [MARGIN]`
+  - `resume.yml` must be in current working directory. Can be named anything as long as it's a YAML file.
   - optional: `MARGIN` is a number to use as `margin-top`. Default is `2`
 
 #### Running Locally
