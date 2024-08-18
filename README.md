@@ -20,11 +20,19 @@ Automatically generate your resume and publish it as a website:
 - edit the `resume_png` link in this readme to the correct png file
 - push changes to your fork
 
+#### Using Docker
+
+- install Docker (at least runtime engine)
+- pull the image: `docker pull cybardev/resumake`
+- run resumake: `docker run --rm -v $PWD:/app/data cybardev/resumake <resume.yml> [MARGIN]`
+  - `resume.yml` must be in current working directory. Can be named anything as long as it's a `.yml/.yaml` file.
+  - optional: `MARGIN` is a number to use as `margin-top`. Default is `2`
+
 #### Running Locally
 
 - edit [`resume.yml`](./resume.yml) file
 - run `resumake.sh` with bash
-  - optional: provide a number to use as `margin-top`
+  - optional: provide a number to use as `margin-top`. Default is `2`
 
 ### Extras
 
