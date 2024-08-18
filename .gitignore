@@ -1,6 +1,6 @@
 # artifacts
 .DS_Store
-resources/_resume.md
+*_resume.md
 
 # editor config
 .vscode/
