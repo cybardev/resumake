@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
 # variables
+[ -z $INDIR ] && INDIR="."
 [ -z $OUTDIR ] && OUTDIR="."
-[ -z $1 ] && INFILE="resume.yml" || INFILE=$1
+[ -z $TMPDIR ] && TMPDIR="."
+[ -z $1 ] && INFILE="${INDIR}/resume.yml" || INFILE=${INDIR}/$1
 [ -z $2 ] && MARGIN=2 || MARGIN=$2
 AUTHOR="$(head -n 1 ${INFILE} | cut -f 2- -d ' ' | tr ' ' '_')"
-TEMPFILE="_resume.md"
+TEMPFILE="${TMPDIR}/_resume.md"
 OUTFILE="${OUTDIR}/Resume_${AUTHOR}.pdf"
 
 # create metadata file with resume info
