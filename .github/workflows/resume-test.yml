@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: pandoc wkhtmltopdf fonts-roboto
+          packages: pandoc wkhtmltopdf poppler-utils fonts-roboto
           version: 1.0
 
       - name: Checkout repository
