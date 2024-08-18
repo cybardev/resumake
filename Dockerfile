@@ -18,11 +18,13 @@ RUN fc-cache -fv
 COPY resources /app/resources/
 COPY resumake.sh /app/
 
-# mount input/output directory
+# configure directories
 VOLUME [ "/app/data" ]
 WORKDIR /app
+ENV INDIR="data"
+ENV OUTDIR="data"
+ENV TMPDIR="/app/resources"
 
 # invoke resume generator script
-ENV OUTDIR="data"
 ENTRYPOINT [ "bash", "resumake.sh" ]
-CMD [ "data/resume.yml" ]
+CMD [ "resume.yml" ]
