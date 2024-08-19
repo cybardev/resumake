@@ -11,7 +11,7 @@ RUN echo "Acquire::BrokenProxy    true;" >> /etc/apt/apt.conf.d/99custom
 
 # install dependencies
 RUN apt-get update
-RUN apt-get install -y pandoc wkhtmltopdf poppler-utils fonts-roboto
+RUN apt-get install -y pandoc wkhtmltopdf fonts-roboto
 RUN fc-cache -fv
 
 # copy script files to container
