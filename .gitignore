@@ -4,3 +4,6 @@
 
 # editor config
 .vscode/
+
+# virtual environment
+.venv/
