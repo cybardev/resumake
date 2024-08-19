@@ -3,7 +3,7 @@
 
 # setup Ubuntu LTS environment
 FROM ubuntu:22.04
-ENV TZ=America/Halifax
+ENV TZ=Etc/GMT
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN echo "Acquire::http::Pipeline-Depth 0;" > /etc/apt/apt.conf.d/99custom
 RUN echo "Acquire::http::No-Cache true;" >> /etc/apt/apt.conf.d/99custom
