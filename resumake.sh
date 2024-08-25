@@ -23,3 +23,6 @@ pandoc -s "${TEMPFILE}" -t html \
   --variable margin-bottom=0 --variable margin-left=0 \
   --pdf-engine-opt=--enable-local-file-access \
   -o "${OUTFILE}"
+
+# Return path of generated file
+echo ${OUTFILE}
