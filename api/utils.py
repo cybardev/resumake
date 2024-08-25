@@ -1,32 +1,26 @@
-from dataclasses import dataclass
 from subprocess import run
 
 from fastapi import UploadFile
 
 
-@dataclass
-class Resume:
-    filename: str
-    filepath: str
-
-
-def generate_resume_pdf(resume_yaml: UploadFile) -> Resume:
+def generate_resume_pdf(resume_yaml: UploadFile) -> str:
     # Save resume.yml to server
-    with open(f"../{resume_yaml.filename}", "wb") as buffer:
+    with open(f"_{resume_yaml.filename}", "wb") as buffer:
         contents = resume_yaml.file
         buffer.write(contents.read())
 
     # Store metadata for response
     contents.seek(0)
-    fname = (b"_".join(contents.readline().split()[1:]) + b".pdf").decode()
-    resume = Resume(filename=fname, filepath=f"../{fname}")
+    resume = "Resume_" + b"_".join(contents.readline().split()[1:]).decode() + ".pdf"
 
     # Convert YAML to PDF
     run(
-        f"bash resumake.sh {resume_yaml.filename}",
-        cwd="..",
+        f"bash resumake.sh _{resume_yaml.filename}",
         shell=True,
         check=True,
     )
+
+    # clean up artifacts
+    run(["rm", f"_{resume_yaml.filename}"])
 
     return resume
