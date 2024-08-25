@@ -7,15 +7,14 @@ from fastapi import FastAPI, File, Form, UploadFile, Request
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
 
+# --- SERVER --- #
 
 app = FastAPI()
 templates = Jinja2Templates(directory="static/site")
 
-# --- SERVER --- #
-
 
 @app.get("/", response_class=HTMLResponse)
-async def root(request: Request):
+async def client(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
