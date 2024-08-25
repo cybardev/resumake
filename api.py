@@ -47,20 +47,17 @@ class Resume:
 
 def generate_resume_pdf(resume_yaml: UploadFile, margin: int) -> Resume:
     # Save resume.yml to server
-    with open(f"_{resume_yaml.filename}", "wb") as buffer:
+    with open(resume_yaml.filename, "wb") as buffer:
         copyfileobj(resume_yaml.file, buffer)
 
     # Convert YAML to PDF
     proc = run(
-        f"bash resumake.sh _{resume_yaml.filename} {margin}",
+        f"bash resumake.sh {resume_yaml.filename} {margin}",
         shell=True,
         check=True,
         capture_output=True,
         encoding="utf-8",
     )
-
-    # Clean up artifacts
-    run(["rm", f"_{resume_yaml.filename}"])
 
     # Return generated file metadata
     filepath = proc.stdout.strip()
