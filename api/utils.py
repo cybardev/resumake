@@ -12,7 +12,7 @@ class Resume:
 
 def generate_resume_pdf(resume_yaml: UploadFile) -> Resume:
     # Save resume.yml to server
-    with open(resume_yaml.filename, "wb") as buffer:
+    with open(f"../{resume_yaml.filename}", "wb") as buffer:
         contents = resume_yaml.file
         buffer.write(contents.read())
 
