@@ -3,7 +3,7 @@ from subprocess import run
 from fastapi import UploadFile
 
 
-def generate_resume_pdf(resume_yaml: UploadFile) -> str:
+def generate_resume_pdf(resume_yaml: UploadFile, margin: int) -> str:
     # Save resume.yml to server
     with open(f"_{resume_yaml.filename}", "wb") as buffer:
         contents = resume_yaml.file
@@ -15,7 +15,7 @@ def generate_resume_pdf(resume_yaml: UploadFile) -> str:
 
     # Convert YAML to PDF
     run(
-        f"bash resumake.sh _{resume_yaml.filename}",
+        f"bash resumake.sh _{resume_yaml.filename} {margin}",
         shell=True,
         check=True,
     )

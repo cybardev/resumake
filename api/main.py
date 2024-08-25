@@ -1,4 +1,6 @@
-from fastapi import FastAPI, UploadFile, Request
+from typing import Annotated
+
+from fastapi import FastAPI, File, Form, UploadFile, Request
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
 
@@ -14,8 +16,10 @@ async def root(request: Request):
 
 
 @app.post("/resume/")
-async def process_resume(resume: UploadFile) -> FileResponse:
-    resume_file = generate_resume_pdf(resume)
+async def process_resume(
+    resume: Annotated[UploadFile, File()], margin: Annotated[int, Form()]
+) -> FileResponse:
+    resume_file = generate_resume_pdf(resume, margin)
 
     # To view the file in the browser, use "inline" for the media_type
     headers = {
