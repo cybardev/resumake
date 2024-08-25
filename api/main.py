@@ -1,15 +1,21 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile
+from fastapi.responses import FileResponse
+
+from .utils import generate_resume_pdf
 
 app = FastAPI()
 
 
-@app.post("/resume")
-def process_resume(resume_yaml: bytes) -> dict[str, bytes]:
-    resume_pdf: bytes = generate_resume_pdf(resume_yaml)
-    return {"resume_pdf": resume_pdf}
+@app.post("/resume/")
+async def process_resume(resume_yaml: UploadFile) -> FileResponse:
+    resume_metadata = generate_resume_pdf(resume_yaml)
 
+    # To view the file in the browser, use "inline" for the media_type
+    headers = {
+        "Content-Disposition": f"inline; filename={resume_metadata.filename}",
+    }
 
-def generate_resume_pdf(data: bytes) -> bytes:
-    # TODO: Implement PDF generation logic here
-    resume = data
-    return resume
+    # Return FileResponse object with the file path, media type and headers
+    return FileResponse(
+        resume_metadata.filepath, media_type="application/pdf", headers=headers
+    )
