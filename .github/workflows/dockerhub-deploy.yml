@@ -4,6 +4,7 @@ on:
   push:
     branches: main
     paths: Dockerfile
+    tags: "v*"
 
   # Allows running this workflow from GitHub Actions tab
   workflow_dispatch:
