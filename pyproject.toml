@@ -1,0 +1,14 @@
+[tool.poetry]
+package-mode = false
+authors = ["cybardev <sheikh@cybar.dev>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["standard"], version = "^0.112.1"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
