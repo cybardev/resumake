@@ -20,8 +20,8 @@ ENV PATH=/venv/bin:$PATH
 
 # install Python dependencies
 RUN pip install "poetry==1.8.3"
-COPY pyproject.toml poetry.lock ./
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
+COPY pyproject.toml poetry.lock ./
 RUN poetry install --only=main
 
 # create stage to run app in and import dependencies
