@@ -35,7 +35,13 @@
         $endfor$
       </p>
       <h2 id="experience">Experience</h2>
-      $for(experiences)$ $if(experiences.summarize)$ <br />
+      $for(experiences)$ $if(experiences.summarize)$
+      <p>
+        <strong class="bold">$experiences.name$</strong> (<em
+          >$experiences.role$, $experiences.start$-$experiences.end$</em
+        >) $experiences.desc$
+        <strong>[$for(experiences.skills)$$experiences.skills$$sep$, $endfor$]</strong>
+      </p>
       $else$
       <div class="xp-h"><span>$experiences.name$</span><span>$experiences.location$</span></div>
       <div class="xp-s">
@@ -54,7 +60,19 @@
         $projects.desc$
         <strong>[$for(projects.skills)$$projects.skills$$sep$, $endfor$]</strong>
       </p>
-      $else$ <br />
+      $else$
+      <div class="xp-h">
+        <span>$projects.name$</span
+        ><span><a href="https://$projects.url$">$projects.url$</a></span>
+      </div>
+      <div class="xp-s">
+        <span>$projects.role$</span><span>$projects.start$ - $projects.end$</span>
+      </div>
+      <ul>
+        $for(projects.attributes)$
+        <li>$projects.attributes$</li>
+        $endfor$
+      </ul>
       $endif$ $endfor$
       <h2 id="skills">Skills</h2>
       <p>
