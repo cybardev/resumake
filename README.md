@@ -57,4 +57,4 @@ Automatically generate your resume and publish it as a website:
 
 [template]: ./resources/template.html "Resume Template"
 [resume_png]: https://raw.githubusercontent.com/cybardev/resumake/main/static/assets/Resume_Sheikh_Saad_Abdullah.png "Resume - Sheikh Saad Abdullah"
-[ui_img]: https://github.com/user-attachments/assets/50c27610-3055-4415-b83f-76120dced644 "UI screenshot of deployed container"
+[ui_img]: https://github.com/user-attachments/assets/36522c6d-8f81-4c9c-b63c-fc275ae1c759 "UI screenshot of deployed container"
