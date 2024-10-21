@@ -2,7 +2,7 @@
 # Docker container for resume generator
 
 # Python environment setup
-FROM python:3.12-slim AS base
+FROM python:3.13-slim AS base
 RUN echo "Acquire::http::Pipeline-Depth 0;" > /etc/apt/apt.conf.d/99custom
 RUN echo "Acquire::http::No-Cache   true;" >> /etc/apt/apt.conf.d/99custom
 RUN echo "Acquire::BrokenProxy      true;" >> /etc/apt/apt.conf.d/99custom
