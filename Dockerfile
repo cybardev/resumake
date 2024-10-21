@@ -31,7 +31,6 @@ ENV PATH=/app/.venv/bin:$PATH
 
 # copy script files to container
 COPY resources /app/resources/
-COPY resumake.sh /app/
 COPY api.py /app/
 COPY static/site /app/static/site/
 
