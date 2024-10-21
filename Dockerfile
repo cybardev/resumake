@@ -30,9 +30,9 @@ COPY --from=pkgs /app/.venv /app/.venv
 ENV PATH=/app/.venv/bin:$PATH
 
 # copy script files to container
+COPY static/site /app/static/site/
 COPY resources /app/resources/
 COPY api.py /app/
-COPY static/site /app/static/site/
 
 # run resumake server
 CMD [ "fastapi", "run", "api.py", "--port", "80" ]
