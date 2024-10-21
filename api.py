@@ -87,7 +87,7 @@ def generate_resume_pdf(resume_yaml: UploadFile, margin: int) -> str:
         ]
     )
 
-    if Path(pdf_filename).is_file():
+    if Path(pdf_filename).is_file(follow_symlinks=False):
         return pdf_filename
     else:
         raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), pdf_filename)
