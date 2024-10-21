@@ -50,14 +50,15 @@ def generate_resume_pdf(resume_yaml: UploadFile, margin: int) -> str:
         copyfileobj(resume_yaml.file, buffer)
 
     with open(resume_yaml.filename) as yaml_file, open("_resume.md", "w") as config:
-        # cache author name from first line
-        author_line = next(yaml_file).strip()
-        author = author_line.split(": ")[1].replace(" ", "_")
+        # cache author name
+        yaml = yaml_file.readlines()
+        author_line = next(s for s in yaml if s.startswith("author: ")).strip()
+        author = author_line.split(": ")[-1].replace(" ", "_")
 
         # create Markdown source from YAML
-        config.writelines(("---", "\n", author_line, "\n"))
-        config.writelines(yaml_file)
-        config.write("---")
+        config.write("---\n")
+        config.writelines(yaml)
+        config.write("---\n")
 
     # Convert YAML to PDF
     pdf_filename = f"Resume_{author}.pdf"
