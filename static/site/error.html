@@ -3,14 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% if err_code == 422 %}
+    <title>Unprocessable Content</title>
+    {% else %}
     <title>Internal Server Error</title>
+    {% endif %}
     <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
   </head>
   <body>
     <header>
+      {% if err_code == 422 %}
+      <h1>Unprocessable Content</h1>
+      <h2>Error: 422</h2>
+      <p>
+        There was an issue parsing the input YAML file.<br />Please check the file for
+        incompatible/missing attributes and try again.
+      </p>
+      {% else %}
       <h1>Internal Server Error</h1>
       <h2>Error: 500</h2>
       <p>The server encountered an internal error and was unable to complete your request.</p>
+      {% endif %}
     </header>
   </body>
 </html>
