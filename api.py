@@ -37,8 +37,17 @@ async def process_resume(
 
 
 @app.exception_handler(FileNotFoundError)
-async def filenotfound_handler(request: Request, exc: FileNotFoundError):
-    return templates.TemplateResponse("500.html", {"request": request}, status_code=500)
+async def internal_server_error_handler(request: Request, exc: FileNotFoundError):
+    return templates.TemplateResponse(
+        request=request, name="error.html", context={"err_code": 500}, status_code=500
+    )
+
+
+@app.exception_handler(KeyError)
+async def unprocessable_content_handler(request: Request, exc: KeyError):
+    return templates.TemplateResponse(
+        request=request, name="error.html", context={"err_code": 422}, status_code=422
+    )
 
 
 # --- UTILS --- #
@@ -52,8 +61,11 @@ def generate_resume_pdf(resume_yaml: UploadFile, margin: int) -> str:
     with open(resume_yaml.filename) as yaml_file, open("_resume.md", "w") as config:
         # cache author name
         yaml = yaml_file.readlines()
-        author_line = next(s for s in yaml if s.startswith("author: ")).strip()
-        author = author_line.split(": ")[-1].replace(" ", "_")
+        try:
+            author_line = next(s for s in yaml if s.startswith("author: "))
+        except StopIteration:
+            raise KeyError("author")
+        author = author_line.split(": ")[-1].replace(" ", "_").rstrip()
 
         # create Markdown source from YAML
         config.write("---\n")
