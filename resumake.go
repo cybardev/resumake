@@ -66,7 +66,7 @@ func resumake(c echo.Context) error {
 }
 
 func saveUploadedResume(c echo.Context) error {
-	// Source
+	// source
 	file, err := c.FormFile("resume")
 	if err != nil {
 		return err
@@ -77,19 +77,20 @@ func saveUploadedResume(c echo.Context) error {
 	}
 	defer src.Close()
 
-	// Destination
+	// destination
 	dst, err := os.Create("_resume.md")
 	if err != nil {
 		return err
 	}
 	defer dst.Close()
 
-	// Copy
+	// copy
 	_, err = dst.WriteString("---\n")
 	if err != nil {
 		return err
 	}
-	if _, err = io.Copy(dst, src); err != nil {
+	_, err = io.Copy(dst, src)
+	if err != nil {
 		return err
 	}
 	_, err = dst.WriteString("---\n")
