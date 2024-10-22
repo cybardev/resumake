@@ -3,7 +3,9 @@ name: Publish Docker image
 on:
   push:
     branches: main
-    paths: Dockerfile
+    paths:
+      - Dockerfile
+      - resumake.go
     tags: "v*"
 
   # Allows running this workflow from GitHub Actions tab
