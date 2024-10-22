@@ -24,12 +24,21 @@ func resumake(c echo.Context) error {
 	if err != nil {
 		return err
 	}
-	err = saveUploadedResume(c)
+	err = saveFile(c)
+	if err != nil {
+		return err
+	}
+	outfile := "Resume.pdf"
+	cmd := pdfgen(outfile, margin)
+	err = cmd.Run()
 	if err != nil {
 		return err
 	}
 
-	outfile := "Resume.pdf"
+	return c.Inline(outfile, outfile)
+}
+
+func pdfgen(f string, m int) exec.Cmd {
 	cmd := exec.Command(
 		"pandoc",
 		"-s",
@@ -41,7 +50,7 @@ func resumake(c echo.Context) error {
 		"--variable",
 		"papersize=letter",
 		"--variable",
-		fmt.Sprintf("margin-top=%d", margin),
+		fmt.Sprintf("margin-top=%d", m),
 		"--variable",
 		"margin-right=0",
 		"--variable",
@@ -51,21 +60,16 @@ func resumake(c echo.Context) error {
 		"--pdf-engine=wkhtmltopdf",
 		"--pdf-engine-opt=--enable-local-file-access",
 		"-o",
-		outfile,
+		f,
 	)
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
-	err = cmd.Run()
-	if err != nil {
-		return err
-	}
-
-	return c.Inline(outfile, outfile)
+	return *cmd
 }
 
-func saveUploadedResume(c echo.Context) error {
+func saveFile(c echo.Context) error {
 	// source
 	file, err := c.FormFile("resume")
 	if err != nil {
