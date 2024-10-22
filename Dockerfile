@@ -2,7 +2,7 @@
 # Docker container for resume generator
 
 # Go environment setup
-FROM golang:1.23-bookworm AS base
+FROM golang:1.23.2-bookworm AS base
 RUN echo "Acquire::http::Pipeline-Depth 0;" > /etc/apt/apt.conf.d/99custom
 RUN echo "Acquire::http::No-Cache   true;" >> /etc/apt/apt.conf.d/99custom
 RUN echo "Acquire::BrokenProxy      true;" >> /etc/apt/apt.conf.d/99custom
