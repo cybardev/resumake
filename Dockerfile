@@ -1,8 +1,8 @@
 # AUTHOR: cybardev
 # Docker container for resume generator
 
-# Python environment setup
-FROM python:3.13-slim AS base
+# Go environment setup
+FROM golang:1.23-bookworm AS base
 RUN echo "Acquire::http::Pipeline-Depth 0;" > /etc/apt/apt.conf.d/99custom
 RUN echo "Acquire::http::No-Cache   true;" >> /etc/apt/apt.conf.d/99custom
 RUN echo "Acquire::BrokenProxy      true;" >> /etc/apt/apt.conf.d/99custom
@@ -13,26 +13,29 @@ RUN apt-get update
 RUN apt-get install --no-install-recommends -y pandoc wkhtmltopdf fonts-roboto
 RUN fc-cache -fv
 
-# create stage to install runner dependencies
-FROM base AS pkgs
-RUN python3 -m venv /venv
-ENV PATH=/venv/bin:$PATH
+# create build stage
+FROM base AS build
 
-# install Python dependencies
-RUN pip install "poetry==1.8.3"
-ENV POETRY_VIRTUALENVS_IN_PROJECT=true
-COPY pyproject.toml poetry.lock ./
-RUN poetry install --only=main
+# download Go dependencies
+COPY go.mod go.sum ./
+RUN go mod download
 
-# create stage to run app in and import dependencies
+# copy source code
+COPY resumake.go ./
+
+# build executable
+ENV CGO_ENABLED=0
+ENV GOOS=linux
+RUN go build -o resumake
+
+# create runtime stage
 FROM base AS main
-COPY --from=pkgs /app/.venv /app/.venv
-ENV PATH=/app/.venv/bin:$PATH
+COPY --from=build /app/resumake /app/resumake
 
-# copy script files to container
+# copy static files to container
 COPY static/site /app/static/site/
 COPY resources /app/resources/
-COPY api.py /app/
 
 # run resumake server
-CMD [ "fastapi", "run", "api.py", "--port", "80" ]
+EXPOSE 80
+CMD [ "./resumake" ]
