@@ -1,2 +1,3 @@
-# ignore template files from language statistics
+# ignore templates and static files from language statistics
 resources/* linguist-vendored
+static/* linguist-vendored
