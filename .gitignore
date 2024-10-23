@@ -2,6 +2,7 @@
 __pycache__/
 .DS_Store
 *_resume.md
+resumake
 
 # editor config
 .vscode/
