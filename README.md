@@ -6,6 +6,14 @@
 
 ### Usage
 
+#### Using the Web App
+
+- edit [`resume.yml`](./resume.yml) file
+- go to [resumake.cybar.dev](https://resumake.cybar.dev)
+- upload edited [`resume.yml`](./resume.yml)
+- click the <kbd>Create Resume</kbd> button
+- download generated PDF
+
 #### Using GitHub Actions [recommended]
 
 Automatically generate your resume and publish it as a website:
@@ -18,12 +26,13 @@ Automatically generate your resume and publish it as a website:
 
 #### Using Docker
 
+- edit [`resume.yml`](./resume.yml) file
 - install Docker (at least runtime engine)
 - pull the image: `docker pull cybardev/resumake`
 - run resumake: `docker run -d --name resumake -p 80:80 cybardev/resumake`
 - open browser and navigate to [localhost](http://localhost:80)
-- upload YAML data file and set desired margin
-- click <kbd>Create Resume</kbd>
+- upload edited [`resume.yml`](./resume.yml)
+- click the <kbd>Create Resume</kbd> button
 - download generated PDF
 - shutdown the Docker container when done
 
@@ -33,6 +42,7 @@ Automatically generate your resume and publish it as a website:
 
 ##### Dependencies
 
+- `go`: `v1.23.2`
 - `pandoc`
 - `wkhtmltopdf`
 - `fonts-roboto` (or install the `Roboto` font family to your system)
@@ -40,8 +50,14 @@ Automatically generate your resume and publish it as a website:
 ##### Instructions
 
 - edit [`resume.yml`](./resume.yml) file
-- run `resumake.sh` with bash
-  - optional: provide a number to use as `margin-top`. Default is `2`
+- run the following commands in project directory:
+  - `go get .`
+  - `go build`
+  - `resumake`
+- open browser and navigate to [localhost](http://localhost:80)
+- upload edited [`resume.yml`](./resume.yml)
+- click the <kbd>Create Resume</kbd> button
+- download generated PDF
 
 ### Extras
 
