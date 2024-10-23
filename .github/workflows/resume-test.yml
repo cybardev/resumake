@@ -6,7 +6,7 @@ on:
 
 # configuration variables
 env:
-  AUTHOR: Sheikh Saad Abdullah
+  AUTHOR_NAME: Sheikh Saad Abdullah
   RESUME_FILE: resume.yml
   RESUME_MARGIN: 6
 
@@ -26,7 +26,7 @@ jobs:
       - name: Run resume generation script
         run: |
           # --< variables >-- #
-          AUTHOR="$(echo ${{ env.AUTHOR }} | cut -f 2- -d ' ' | tr ' ' '_')"
+          AUTHOR="$(echo ${{ env.AUTHOR_NAME }} | cut -f 2- -d ' ' | tr ' ' '_')"
           TEMPFILE="./_resume.md"
           OUTFILE="./static/assets/Resume_${AUTHOR}.pdf"
 
@@ -45,7 +45,7 @@ jobs:
             -o "${OUTFILE}"
       - name: Generate PNG preview
         run: |
-          AUTHOR="$(echo ${{ env.AUTHOR }} | cut -f 2- -d ' ' | tr ' ' '_')"
+          AUTHOR="$(echo ${{ env.AUTHOR_NAME }} | cut -f 2- -d ' ' | tr ' ' '_')"
           pdftoppm -png "./static/assets/Resume_${AUTHOR}.pdf" > "./static/assets/Resume_${AUTHOR}.png"
       - name: Upload resume files
         uses: actions/upload-artifact@v4
