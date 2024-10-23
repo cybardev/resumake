@@ -6,6 +6,7 @@ on:
 
 # configuration variables
 env:
+  AUTHOR: Sheikh Saad Abdullah
   RESUME_FILE: resume.yml
   RESUME_MARGIN: 6
 
@@ -23,12 +24,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Run resume generation script
-        env:
-          OUTDIR: "./static/assets"
-        run: bash resumake.sh ${{ env.RESUME_FILE }} ${{ env.RESUME_MARGIN }}
+        run: |
+          # --< variables >-- #
+          AUTHOR="$(echo ${{ env.AUTHOR }} | cut -f 2- -d ' ' | tr ' ' '_')"
+          TEMPFILE="./_resume.md"
+          OUTFILE="./static/assets/Resume_${AUTHOR}.pdf"
+
+          # --< create metadata file with resume info >-- #
+          echo "---" >${TEMPFILE}
+          cat ${{ env.RESUME_FILE }} >>${TEMPFILE}
+          echo "---" >>${TEMPFILE}
+
+          # --< generate resume PDF >-- #
+          pandoc -s "${TEMPFILE}" -t html \
+            --template=resources/template.html \
+            --metadata=title:Resume_${AUTHOR} --variable papersize=letter \
+            --variable margin-top=${{ env.RESUME_MARGIN }} --variable margin-right=0 \
+            --variable margin-bottom=0 --variable margin-left=0 \
+            --pdf-engine=wkhtmltopdf --pdf-engine-opt=--enable-local-file-access \
+            -o "${OUTFILE}"
       - name: Generate PNG preview
         run: |
-          AUTHOR="$(head -n 1 resume.yml | cut -f 2- -d ' ' | tr ' ' '_')"
+          AUTHOR="$(echo ${{ env.AUTHOR }} | cut -f 2- -d ' ' | tr ' ' '_')"
           pdftoppm -png "./static/assets/Resume_${AUTHOR}.pdf" > "./static/assets/Resume_${AUTHOR}.png"
       - name: Upload resume files
         uses: actions/upload-artifact@v4
