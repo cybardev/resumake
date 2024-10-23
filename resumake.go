@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
+	"mime/multipart"
 	"net/http"
 	"os"
 	"os/exec"
@@ -24,7 +25,11 @@ func resumake(c echo.Context) error {
 	if err != nil {
 		return err
 	}
-	err = saveFile(c)
+	file, err := c.FormFile("resume")
+	if err != nil {
+		return err
+	}
+	err = saveFile(file)
 	if err != nil {
 		return err
 	}
@@ -69,13 +74,9 @@ func pdfgen(f string, m int) exec.Cmd {
 	return *cmd
 }
 
-func saveFile(c echo.Context) error {
+func saveFile(f *multipart.FileHeader) error {
 	// source
-	file, err := c.FormFile("resume")
-	if err != nil {
-		return err
-	}
-	src, err := file.Open()
+	src, err := f.Open()
 	if err != nil {
 		return err
 	}
