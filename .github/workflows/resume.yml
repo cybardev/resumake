@@ -12,6 +12,7 @@ on:
 
 # configuration variables
 env:
+  AUTHOR_NAME: Sheikh Saad Abdullah
   RESUME_FILE: resume.yml
   RESUME_MARGIN: 6
 
@@ -47,15 +48,32 @@ jobs:
 
       # Resumake
       - name: Run resume generation script
-        env:
-          OUTDIR: "./static/assets"
-        run: bash resumake.sh ${{ env.RESUME_FILE }} ${{ env.RESUME_MARGIN }}
-      - name: Generate PNG preview
-        id: gen-png
+        id: resumake
         run: |
-          AUTHOR="$(head -n 1 resume.yml | cut -f 2- -d ' ' | tr ' ' '_')"
-          pdftoppm -png "./static/assets/Resume_${AUTHOR}.pdf" > "./static/assets/Resume_${AUTHOR}.png"
+          # --< variables >-- #
+          AUTHOR="$(echo ${{ env.AUTHOR_NAME }} | tr ' ' '_')"
+          TEMPFILE="./_resume.md"
+          OUTFILE="./static/assets/Resume_${AUTHOR}.pdf"
+
+          # --< create metadata file with resume info >-- #
+          echo "---" >${TEMPFILE}
+          cat ${{ env.RESUME_FILE }} >>${TEMPFILE}
+          echo "---" >>${TEMPFILE}
+
+          # --< generate resume PDF >-- #
+          pandoc -s "${TEMPFILE}" -t html \
+            --template=resources/template.html \
+            --metadata=title:Resume_${AUTHOR} --variable papersize=letter \
+            --variable margin-top=${{ env.RESUME_MARGIN }} --variable margin-right=0 \
+            --variable margin-bottom=0 --variable margin-left=0 \
+            --pdf-engine=wkhtmltopdf --pdf-engine-opt=--enable-local-file-access \
+            -o "${OUTFILE}"
+
           echo "author=${AUTHOR}" >> "${GITHUB_OUTPUT}"
+      - name: Generate PNG preview
+        run: |
+          AUTHOR="${{ steps.resumake.outputs.author }}"
+          pdftoppm -png "./static/assets/Resume_${AUTHOR}.pdf" > "./static/assets/Resume_${AUTHOR}.png"
       - name: Commit changes
         run: |
           git config --local user.name "github-actions[bot]"
@@ -71,7 +89,7 @@ jobs:
       # Website
       - name: Generate landing page
         run: |
-          AUTHOR=${{ steps.gen-png.outputs.author }}
+          AUTHOR=${{ steps.resumake.outputs.author }}
           echo | pandoc -t html --template=./resources/index.html \
             --metadata title="${AUTHOR}" \
             --variable author="${AUTHOR}" \
