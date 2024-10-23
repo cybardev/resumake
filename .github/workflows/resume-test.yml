@@ -24,6 +24,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Run resume generation script
+        id: resumake
         run: |
           # --< variables >-- #
           AUTHOR="$(echo ${{ env.AUTHOR_NAME }} | tr ' ' '_')"
@@ -43,9 +44,11 @@ jobs:
             --variable margin-bottom=0 --variable margin-left=0 \
             --pdf-engine=wkhtmltopdf --pdf-engine-opt=--enable-local-file-access \
             -o "${OUTFILE}"
+
+          echo "author=${AUTHOR}" >> "${GITHUB_OUTPUT}"
       - name: Generate PNG preview
         run: |
-          AUTHOR="$(echo ${{ env.AUTHOR_NAME }} | tr ' ' '_')"
+          AUTHOR="${{ steps.resumake.outputs.author }}"
           pdftoppm -png "./static/assets/Resume_${AUTHOR}.pdf" > "./static/assets/Resume_${AUTHOR}.png"
       - name: Upload resume files
         uses: actions/upload-artifact@v4
