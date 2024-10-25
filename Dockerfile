@@ -9,7 +9,7 @@ RUN echo "Acquire::BrokenProxy      true;" >> /etc/apt/apt.conf.d/99custom
 
 # install system dependencies
 RUN apt-get update
-RUN apt-get install --no-install-recommends -y pandoc wkhtmltopdf fonts-roboto
+RUN apt-get install --no-install-recommends -y pandoc weasyprint fonts-roboto
 RUN fc-cache -fv
 
 # copy static files to container

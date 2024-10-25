@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
-	"strconv"
 
 	"github.com/labstack/echo/v4"
 )
@@ -21,10 +20,6 @@ func main() {
 }
 
 func resumake(c echo.Context) error {
-	margin, err := strconv.Atoi(c.FormValue("margin"))
-	if err != nil {
-		return err
-	}
 	file, err := c.FormFile("resume")
 	if err != nil {
 		return err
@@ -34,7 +29,7 @@ func resumake(c echo.Context) error {
 		return err
 	}
 	outfile := "Resume.pdf"
-	cmd := pdfgen(outfile, margin)
+	cmd := pdfgen(outfile)
 	err = cmd.Run()
 	if err != nil {
 		return err
@@ -43,7 +38,7 @@ func resumake(c echo.Context) error {
 	return c.Inline(outfile, outfile)
 }
 
-func pdfgen(f string, m int) exec.Cmd {
+func pdfgen(f string) exec.Cmd {
 	cmd := exec.Command(
 		"pandoc",
 		"-s",
@@ -52,18 +47,7 @@ func pdfgen(f string, m int) exec.Cmd {
 		"html",
 		"--template=resources/template.html",
 		"--metadata=title:Resume",
-		"--variable",
-		"papersize=letter",
-		"--variable",
-		fmt.Sprintf("margin-top=%d", m),
-		"--variable",
-		"margin-right=0",
-		"--variable",
-		"margin-bottom=0",
-		"--variable",
-		"margin-left=0",
-		"--pdf-engine=wkhtmltopdf",
-		"--pdf-engine-opt=--enable-local-file-access",
+		"--pdf-engine=weasyprint",
 		"-o",
 		f,
 	)

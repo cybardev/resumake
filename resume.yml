@@ -106,7 +106,7 @@ projects:
       - Python
       - Go
       - Web Scraping
-      - CLI Development
+      - CLI
 education:
   school: Saint Mary's University
   location: Halifax, Nova Scotia

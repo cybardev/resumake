@@ -7,7 +7,12 @@
 :root {
   --footerHeaderBorderColor: #1c1c1c;
   --font-family: "Roboto", sans-serif;
-  --font-size: 18px;
+  --font-size: 14px;
+}
+
+@page {
+  size: letter;
+  margin: 0.125in 0.1in 0;
 }
 
 .markdown-body a {
@@ -25,12 +30,11 @@
   background: 0 0;
   overflow: hidden;
   border: 0;
-  margin: 24px 0;
+  margin: 12px 0;
   padding: 0;
   border-bottom-color: #eee;
   background-color: #d7d8d9;
   height: 1px;
-  margin-block: 12px;
 }
 
 .markdown-body * {
@@ -74,23 +78,23 @@
 }
 
 .markdown-body li {
-  word-wrap: break-all;
+  word-break: break-all;
 }
 
 .markdown-body li + li {
   margin-top: 0.25em;
 }
 
-@media not print {
+/* @media not print {
   .markdown-body {
     padding: 45px;
   }
-}
+} */
 
 .markdown-body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
   box-sizing: border-box;
   min-width: 200px;
   max-width: 980px;
@@ -103,33 +107,33 @@
 }
 
 .markdown-body h1 {
-  margin: 0.67em 0;
+  margin: 8px 0;
   font-size: 1.8em;
   text-align: center;
-  margin-block: 8px;
 }
 
 .markdown-body h1,
 .markdown-body h2 {
   line-height: 1.25;
-  margin-bottom: 16px;
-  margin-top: 24px;
   font-weight: 600;
   color: #282828;
-  margin-block: var(--font-size);
+  margin-top: var(--font-size);
+  margin-bottom: var(--font-size);
   border-bottom: none;
   padding-bottom: 0;
 }
 
 .markdown-body header > p {
   text-align: center;
-  margin-block: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .markdown-body header section {
   display: flex;
   justify-content: space-around;
-  margin-block: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .markdown-body [class^="xp-"] {
