@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"io"
+	"log"
 	"mime/multipart"
 	"net/http"
 	"os"
@@ -78,10 +79,9 @@ func htmlgen(f *multipart.FileHeader) error {
 	r := Resume{}
 	err = yaml.Unmarshal(bytes, &r)
 	if err != nil {
-		return err
+		// TODO: validate received YAML
+		log.Println(err.Error())
 	}
-
-	// TODO: validate received YAML
 
 	// populate template
 	tmpl, err := template.ParseFiles("resources/template.go.tmpl")
