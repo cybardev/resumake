@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume</title>
+  </head>
+  <body>
+    <article class="markdown-body">
+      <h1>{{ .Author }}</h1>
+      <header>
+        <p>{{ .Location }}</p>
+        <section>
+          <a href="tel:{{ .Phone }}">{{ .Phone }}</a>
+          <a href="mailto:{{ .Email }}">{{ .Email }}</a>
+          <a href="https://{{ .Website }}">{{ .Website }}</a>
+          {{ with .Socials }}
+          <a href="https://github.com/{{ .Github }}">github.com/{{ .Github }}</a>
+          <a href="https://www.linkedin.com/in/{{ .Linkedin }}"
+            >linkedin.com/in/{{ .Linkedin }}</a
+          >
+          {{ end }}
+        </section>
+      </header>
+      <hr />
+      <h2 id="profile">Profile</h2>
+      <p>{{ .Profile }}</p>
+      <h2 id="education">Education</h2>
+      {{ with .Education }}
+      <div class="xp-h"><span>{{ .School }}</span><span>{{ .Location }}</span></div>
+      <div class="xp-s">
+        <span>{{ .Program }} in {{ .Major }}</span
+        ><span>Graduation: {{ .End }}</span>
+      </div>
+      <p>
+        <strong>Notable Courses</strong>: {{ .Courses.Join }}
+      </p>
+      {{ end }}
+      <h2 id="experience">Experience</h2>
+      {{ range .Experiences }}{{ if .Summarize }}
+      <p>
+        <strong class="bold">{{ .Name }}</strong> (<em
+          >{{ .Role }}, {{ .Start }}-{{ .End }}</em
+        >) {{ .Description }}
+        <strong>[{{ .Skills.Join }}]</strong>
+      </p>
+      {{ else }}
+      <div class="xp-h"><span>{{ .Name }}</span><span>{{ .Location }}</span></div>
+      <div class="xp-s">
+        <span>{{ .Role }}</span><span>{{ .Start }} - {{ .End }}</span>
+      </div>
+      <ul>
+        {{ range .Attributes }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+      {{ end }}{{ end }}
+      <h2 id="projects">Projects</h2>
+      {{ range .Projects }}{{ if .Summarize }}
+      <p>
+        <strong>{{ .Name }}</strong> (<a href="https://{{ .Url }}">{{ .Url }}</a>) {{ .Description }} <strong>[{{ .Skills.Join }}]</strong>
+      </p>
+      {{ else }}
+      <div class="xp-h">
+        <span>{{ .Name }}</span
+        ><span><a href="https://{{ .Url }}">{{ .Url }}</a></span>
+      </div>
+      <div class="xp-s">
+        <span>{{ .Role }}</span><span>{{ .Start }} - {{ .End }}</span>
+      </div>
+      <ul>
+        {{ range .Attributes }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+      {{ end }}{{ end }}
+      <h2 id="skills">Skills</h2>
+      <p>
+      {{ range .Skills }}
+      <strong>{{ .Name }}</strong>: {{ .Attributes.Join }}<br />
+      {{ end }}
+      </p>
+    </article>
+  </body>
+</html>

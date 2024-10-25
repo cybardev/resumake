@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"io"
 	"mime/multipart"
 	"net/http"
@@ -9,6 +10,7 @@ import (
 	"os/exec"
 
 	"github.com/labstack/echo/v4"
+	"gopkg.in/yaml.v3"
 )
 
 func main() {
@@ -24,7 +26,7 @@ func resumake(c echo.Context) error {
 	if err != nil {
 		return err
 	}
-	err = saveFile(file)
+	err = htmlgen(file)
 	if err != nil {
 		return err
 	}
@@ -40,15 +42,10 @@ func resumake(c echo.Context) error {
 
 func pdfgen(f string) exec.Cmd {
 	cmd := exec.Command(
-		"pandoc",
+		"weasyprint",
 		"-s",
-		"_resume.md",
-		"-t",
-		"html",
-		"--template=resources/template.html",
-		"--metadata=title:Resume",
-		"--pdf-engine=weasyprint",
-		"-o",
+		"resources/template.css",
+		"resources/template.html",
 		f,
 	)
 	cmd.Stdin = os.Stdin
@@ -58,7 +55,7 @@ func pdfgen(f string) exec.Cmd {
 	return *cmd
 }
 
-func saveFile(f *multipart.FileHeader) error {
+func htmlgen(f *multipart.FileHeader) error {
 	// source
 	src, err := f.Open()
 	if err != nil {
@@ -67,22 +64,31 @@ func saveFile(f *multipart.FileHeader) error {
 	defer src.Close()
 
 	// destination
-	dst, err := os.Create("_resume.md")
+	dst, err := os.Create("resources/template.html")
 	if err != nil {
 		return err
 	}
 	defer dst.Close()
 
-	// copy
-	_, err = dst.WriteString("---\n")
+	// populate resume struct
+	bytes, err := io.ReadAll(src)
 	if err != nil {
 		return err
 	}
-	_, err = io.Copy(dst, src)
+	r := Resume{}
+	err = yaml.Unmarshal(bytes, &r)
 	if err != nil {
 		return err
 	}
-	_, err = dst.WriteString("---\n")
+
+	// TODO: validate received YAML
+
+	// populate template
+	tmpl, err := template.ParseFiles("resources/template.go.tmpl")
+	if err != nil {
+		return err
+	}
+	err = tmpl.Execute(dst, r)
 	if err != nil {
 		return err
 	}

@@ -2,7 +2,10 @@ module github.com/cybardev/resumake
 
 go 1.23.2
 
-require github.com/labstack/echo/v4 v4.12.0
+require (
+	github.com/labstack/echo/v4 v4.12.0
+	gopkg.in/yaml.v3 v3.0.1
+)
 
 require (
 	github.com/labstack/gommon v0.4.2 // indirect
