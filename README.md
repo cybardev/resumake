@@ -1,5 +1,8 @@
 # Resumake
 
+> [!IMPORTANT]
+> The project is going through a rework. Please use the image on Dockerhub in the meantime. **DO NOT** depend on the state of this repository.
+
 ## Programmatic Resume Generator
 
 ![UI screenshot][ui_img]
