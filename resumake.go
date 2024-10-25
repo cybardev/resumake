@@ -14,9 +14,19 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// file names
+const (
+	GO_TEMPLATE   string = "resources/template.go.tmpl"
+	HTML_TEMPLATE string = "resources/template.html"
+	CSS_TEMPLATE  string = "resources/template.css"
+	INDEX_PAGE    string = "static/site/index.html"
+	ERROR_PAGE    string = "static/site/%d.html" // %d is replaced by HTTP error code
+	PDF_FILE      string = "Resume.pdf"
+)
+
 func main() {
 	app := echo.New()
-	app.File("/", "static/site/index.html")
+	app.File("/", INDEX_PAGE)
 	app.POST("/resume/", resumake)
 	app.HTTPErrorHandler = customHTTPErrorHandler
 	app.Logger.Fatal(app.Start(":80"))
@@ -31,7 +41,7 @@ func resumake(c echo.Context) error {
 	if err != nil {
 		return err
 	}
-	outfile := "Resume.pdf"
+	outfile := PDF_FILE
 	cmd := pdfgen(outfile)
 	err = cmd.Run()
 	if err != nil {
@@ -45,8 +55,8 @@ func pdfgen(f string) exec.Cmd {
 	cmd := exec.Command(
 		"weasyprint",
 		"-s",
-		"resources/template.css",
-		"resources/template.html",
+		CSS_TEMPLATE,
+		HTML_TEMPLATE,
 		f,
 	)
 	cmd.Stdin = os.Stdin
@@ -65,7 +75,7 @@ func htmlgen(f *multipart.FileHeader) error {
 	defer src.Close()
 
 	// destination
-	dst, err := os.Create("resources/template.html")
+	dst, err := os.Create(HTML_TEMPLATE)
 	if err != nil {
 		return err
 	}
@@ -84,7 +94,7 @@ func htmlgen(f *multipart.FileHeader) error {
 	}
 
 	// populate template
-	tmpl, err := template.ParseFiles("resources/template.go.tmpl")
+	tmpl, err := template.ParseFiles(GO_TEMPLATE)
 	if err != nil {
 		return err
 	}
@@ -102,7 +112,7 @@ func customHTTPErrorHandler(err error, c echo.Context) {
 		code = he.Code
 	}
 	c.Logger().Error(err)
-	errorPage := fmt.Sprintf("static/site/%d.html", code)
+	errorPage := fmt.Sprintf(ERROR_PAGE, code)
 	if err := c.File(errorPage); err != nil {
 		c.Logger().Error(err)
 	}
