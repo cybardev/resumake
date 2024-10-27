@@ -85,12 +85,6 @@
   margin-top: 0.25em;
 }
 
-/* @media not print {
-  .markdown-body {
-    padding: 45px;
-  }
-} */
-
 .markdown-body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
