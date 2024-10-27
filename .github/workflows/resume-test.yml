@@ -18,33 +18,15 @@ jobs:
       - name: Install dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: pandoc wkhtmltopdf poppler-utils fonts-roboto
+          packages: poppler-utils
           version: 1.0
-
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Run resume generation script
+      - name: Run resume generator
         id: resumake
         run: |
-          # --< variables >-- #
           AUTHOR="$(echo ${{ env.AUTHOR_NAME }} | tr ' ' '_')"
-          TEMPFILE="./_resume.md"
-          OUTFILE="./static/assets/Resume_${AUTHOR}.pdf"
-
-          # --< create metadata file with resume info >-- #
-          echo "---" >${TEMPFILE}
-          cat ${{ env.RESUME_FILE }} >>${TEMPFILE}
-          echo "---" >>${TEMPFILE}
-
-          # --< generate resume PDF >-- #
-          pandoc -s "${TEMPFILE}" -t html \
-            --template=resources/template.html \
-            --metadata=title:Resume_${AUTHOR} --variable papersize=letter \
-            --variable margin-top=${{ env.RESUME_MARGIN }} --variable margin-right=0 \
-            --variable margin-bottom=0 --variable margin-left=0 \
-            --pdf-engine=wkhtmltopdf --pdf-engine-opt=--enable-local-file-access \
-            -o "${OUTFILE}"
-
+          curl -X POST -F "resume=@${{ env.RESUME_FILE }}" "https://resumake.cybar.dev/resume/" > "./static/assets/Resume_${AUTHOR}.pdf"
           echo "author=${AUTHOR}" >> "${GITHUB_OUTPUT}"
       - name: Generate PNG preview
         run: |
