@@ -1,8 +1,6 @@
 package main
 
 import (
-	"errors"
-	"fmt"
 	"html/template"
 	"io"
 	"mime/multipart"
@@ -16,12 +14,13 @@ import (
 
 // file names
 const (
-	GO_TEMPLATE   string = "resources/template.go.tmpl"
-	HTML_TEMPLATE string = "resources/template.html"
-	CSS_TEMPLATE  string = "resources/template.css"
-	INDEX_PAGE    string = "static/site/index.html"
-	ERROR_PAGE    string = "static/site/%d.html" // %d is replaced by HTTP error code
-	PDF_FILE      string = "Resume.pdf"
+	GO_TEMPLATE    string = "resources/template.go.tmpl"
+	ERROR_TEMPLATE string = "resources/error.go.tmpl"
+	HTML_TEMPLATE  string = "resources/template.html"
+	CSS_TEMPLATE   string = "resources/template.css"
+	INDEX_PAGE     string = "static/site/index.html"
+	ERROR_PAGE     string = "static/site/error.html"
+	PDF_FILE       string = "Resume.pdf"
 )
 
 func main() {
@@ -93,7 +92,7 @@ func htmlgen(f *multipart.FileHeader) error {
 	}
 	isValid, msg := r.Validate()
 	if !isValid {
-		return errors.New(msg)
+		return &YAMLValidationError{msg}
 	}
 
 	// populate template
@@ -114,9 +113,82 @@ func customHTTPErrorHandler(err error, c echo.Context) {
 	if he, ok := err.(*echo.HTTPError); ok {
 		code = he.Code
 	}
-	c.Logger().Error(err)
-	errorPage := fmt.Sprintf(ERROR_PAGE, code)
-	if err := c.File(errorPage); err != nil {
+	switch e := err.(type) {
+	default:
+		c.Logger().Error(e)
+		if 400 <= code && code < 500 {
+			ep := ErrorPage{
+				code,
+				"Client Error",
+				"There has been an error on the client side.",
+				true,
+			}
+			tmpErr := ep.Generate()
+			if tmpErr != nil {
+				c.Logger().Error(tmpErr)
+			}
+		} else {
+			ep := ErrorPage{
+				code,
+				"Server Error",
+				"There has been an error on the server side.",
+				false,
+			}
+			tmpErr := ep.Generate()
+			if tmpErr != nil {
+				c.Logger().Error(tmpErr)
+			}
+		}
+	case *YAMLValidationError:
+		c.Logger().Error(e)
+		ep := ErrorPage{
+			422,
+			"YAML Validation Error",
+			e.Msg,
+			true,
+		}
+		tmpErr := ep.Generate()
+		if tmpErr != nil {
+			c.Logger().Error(tmpErr)
+		}
+	}
+	if err := c.File(ERROR_PAGE); err != nil {
 		c.Logger().Error(err)
 	}
+}
+
+type YAMLValidationError struct {
+	Msg string
+}
+
+func (e *YAMLValidationError) Error() string {
+	return e.Msg
+}
+
+type ErrorPage struct {
+	Code      int
+	Header    string
+	Msg       string
+	UserError bool
+}
+
+func (p *ErrorPage) Generate() error {
+	// destination
+	dst, err := os.Create(ERROR_PAGE)
+	if err != nil {
+		return err
+	}
+	defer dst.Close()
+
+	// populate template
+	tmpl, err := template.ParseFiles(ERROR_TEMPLATE)
+	if err != nil {
+		return err
+	}
+	err = tmpl.Execute(dst, p)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

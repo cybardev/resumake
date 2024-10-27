@@ -23,7 +23,6 @@ RUN go mod download
 
 # copy source code
 COPY resume.go ./
-COPY validators.go ./
 COPY resumake.go ./
 
 # build executable
