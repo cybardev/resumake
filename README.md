@@ -1,31 +1,10 @@
 # Resumake
 
-> [!IMPORTANT]
-> The project is going through a rework. Please use the image on Dockerhub in the meantime. **DO NOT** depend on the state of this repository.
-
 ## Programmatic Resume Generator
 
 ![UI screenshot][ui_img]
 
 ### Usage
-
-#### Using the Web App
-
-- edit [`resume.yml`](./resume.yml) file
-- go to [resumake.cybar.dev](https://resumake.cybar.dev)
-- upload edited [`resume.yml`](./resume.yml)
-- click the <kbd>Create Resume</kbd> button
-- download generated PDF
-
-#### Using GitHub Actions [recommended]
-
-Automatically generate your resume and publish it as a website:
-
-- fork this repo
-- navigate to your fork
-- edit [`resume.yml`](./resume.yml) file
-- edit the `resume_png` link in this readme to the correct png file
-- push changes to your fork
 
 #### Using Docker
 
@@ -38,6 +17,28 @@ Automatically generate your resume and publish it as a website:
 - click the <kbd>Create Resume</kbd> button
 - download generated PDF
 - shutdown the Docker container when done
+
+#### Using the Web App
+
+**PS**: recommended to use [Docker](#using-docker) to avoid rate limits
+
+- edit [`resume.yml`](./resume.yml) file
+- go to [resumake.cybar.dev](https://resumake.cybar.dev)
+- upload edited [`resume.yml`](./resume.yml)
+- click the <kbd>Create Resume</kbd> button
+- download generated PDF
+
+#### Using GitHub Actions
+
+**PS**: recommended to use [Docker](#using-docker) to avoid rate limits
+
+Automatically generate your resume and publish it as a website:
+
+- fork this repo
+- navigate to your fork
+- edit [`resume.yml`](./resume.yml) file
+- edit the `resume_png` link in this readme to the correct png file
+- push changes to your fork
 
 #### Running Locally
 
@@ -76,4 +77,4 @@ Automatically generate your resume and publish it as a website:
 
 [template]: ./resources/template.html "Resume Template"
 [resume_png]: https://raw.githubusercontent.com/cybardev/resumake/main/static/assets/Resume_Sheikh_Saad_Abdullah.png "Resume - Sheikh Saad Abdullah"
-[ui_img]: https://github.com/user-attachments/assets/36522c6d-8f81-4c9c-b63c-fc275ae1c759 "UI screenshot of deployed container"
+[ui_img]: https://github.com/user-attachments/assets/caa4e42d-9fb4-415b-9377-02c829d13621 "UI screenshot of deployed container"
