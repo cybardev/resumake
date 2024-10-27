@@ -1,10 +1,10 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"html/template"
 	"io"
-	"log"
 	"mime/multipart"
 	"net/http"
 	"os"
@@ -89,8 +89,11 @@ func htmlgen(f *multipart.FileHeader) error {
 	r := Resume{}
 	err = yaml.Unmarshal(bytes, &r)
 	if err != nil {
-		// TODO: validate received YAML
-		log.Println(err.Error())
+		return err
+	}
+	isValid, msg := r.Validate()
+	if !isValid {
+		return errors.New(msg)
 	}
 
 	// populate template

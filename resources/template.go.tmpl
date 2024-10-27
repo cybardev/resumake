@@ -37,7 +37,7 @@
       </p>
       {{ end }}
       <h2 id="experience">Experience</h2>
-      {{ range .Experiences }}{{ if .Summarize }}
+      {{ range .Experiences }}{{ if .Summarize.Bool }}
       <p>
         <strong class="bold">{{ .Name }}</strong> (<em
           >{{ .Role }}, {{ .Start }}-{{ .End }}</em
@@ -56,7 +56,7 @@
       </ul>
       {{ end }}{{ end }}
       <h2 id="projects">Projects</h2>
-      {{ range .Projects }}{{ if .Summarize }}
+      {{ range .Projects }}{{ if .Summarize.Bool }}
       <p>
         <strong>{{ .Name }}</strong> (<a href="https://{{ .Url }}">{{ .Url }}</a>) {{ .Description }} <strong>[{{ .Skills.Join }}]</strong>
       </p>
