@@ -122,6 +122,14 @@ func customHTTPErrorHandler(err error, c echo.Context) {
 	}
 	// check for user error
 	switch e := err.(type) {
+	case *YAMLValidationError:
+		c.Logger().Error(e)
+		ep = ErrorPage{
+			422,
+			"YAML Validation Error",
+			e.Msg,
+			true,
+		}
 	default:
 		c.Logger().Error(e)
 		if 400 <= code && code < 500 {
@@ -131,14 +139,6 @@ func customHTTPErrorHandler(err error, c echo.Context) {
 				"There has been an error on the client side.",
 				true,
 			}
-		}
-	case *YAMLValidationError:
-		c.Logger().Error(e)
-		ep = ErrorPage{
-			422,
-			"YAML Validation Error",
-			e.Msg,
-			true,
 		}
 	}
 	// create and return error page
