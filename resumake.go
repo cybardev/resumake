@@ -113,44 +113,38 @@ func customHTTPErrorHandler(err error, c echo.Context) {
 	if he, ok := err.(*echo.HTTPError); ok {
 		code = he.Code
 	}
+	// server error by default
+	ep := ErrorPage{
+		code,
+		"Server Error",
+		"There has been an error on the server side.",
+		false,
+	}
+	// check for user error
 	switch e := err.(type) {
 	default:
 		c.Logger().Error(e)
 		if 400 <= code && code < 500 {
-			ep := ErrorPage{
+			ep = ErrorPage{
 				code,
 				"Client Error",
 				"There has been an error on the client side.",
 				true,
 			}
-			tmpErr := ep.Generate()
-			if tmpErr != nil {
-				c.Logger().Error(tmpErr)
-			}
-		} else {
-			ep := ErrorPage{
-				code,
-				"Server Error",
-				"There has been an error on the server side.",
-				false,
-			}
-			tmpErr := ep.Generate()
-			if tmpErr != nil {
-				c.Logger().Error(tmpErr)
-			}
 		}
 	case *YAMLValidationError:
 		c.Logger().Error(e)
-		ep := ErrorPage{
+		ep = ErrorPage{
 			422,
 			"YAML Validation Error",
 			e.Msg,
 			true,
 		}
-		tmpErr := ep.Generate()
-		if tmpErr != nil {
-			c.Logger().Error(tmpErr)
-		}
+	}
+	// create and return error page
+	tmpErr := ep.Generate()
+	if tmpErr != nil {
+		c.Logger().Error(tmpErr)
 	}
 	if err := c.File(ERROR_PAGE); err != nil {
 		c.Logger().Error(err)
