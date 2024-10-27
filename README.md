@@ -67,7 +67,7 @@ Automatically generate your resume and publish it as a website:
 
 - check `Actions` tab of your fork for workflow run details
 - configure custom domain (if desired) from `Settings > Pages`
-- edit [`resources/template.html`][template] to change order of sections or show/hide sections in resume
+- edit [`resources/template.go.tmpl`][template] to change order of sections or show/hide sections in resume
 
 ### Sample Output
 
@@ -75,6 +75,6 @@ Automatically generate your resume and publish it as a website:
 
 <!-- links -->
 
-[template]: ./resources/template.html "Resume Template"
+[template]: ./resources/template.go.tmpl "Resume Template"
 [resume_png]: https://raw.githubusercontent.com/cybardev/resumake/main/static/assets/Resume_Sheikh_Saad_Abdullah.png "Resume - Sheikh Saad Abdullah"
 [ui_img]: https://github.com/user-attachments/assets/caa4e42d-9fb4-415b-9377-02c829d13621 "UI screenshot of deployed container"
