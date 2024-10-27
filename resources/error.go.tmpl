@@ -3,14 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Error: Internal Server Error</title>
+    <title>Error {{ .Code }}: {{ .Header }}</title>
     <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
   </head>
   <body>
     <header>
-      <h1>Internal Server Error</h1>
-      <h2>Error: 500</h2>
-      <p>The server encountered an internal error and was unable to complete your request.</p>
+      <h1>{{ .Header }}</h1>
+      <h2>Error: {{ .Code }}</h2>
+      <p>{{ .Msg }}</p>
+      {{ if .UserError }}
+      <p>Please check your YAML attributes and try again.</p>
+      {{ end }}
     </header>
   </body>
 </html>

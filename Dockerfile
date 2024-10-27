@@ -2,14 +2,10 @@
 # Docker container for resume generator
 
 # Go environment setup
-FROM debian:bookworm-slim AS base
-RUN echo "Acquire::http::Pipeline-Depth 0;" > /etc/apt/apt.conf.d/99custom
-RUN echo "Acquire::http::No-Cache   true;" >> /etc/apt/apt.conf.d/99custom
-RUN echo "Acquire::BrokenProxy      true;" >> /etc/apt/apt.conf.d/99custom
+FROM alpine:3.20 AS base
 
 # install system dependencies
-RUN apt-get update
-RUN apt-get install --no-install-recommends -y pandoc weasyprint fonts-roboto
+RUN apk add --no-cache weasyprint font-roboto
 RUN fc-cache -fv
 
 # copy static files to container
@@ -18,7 +14,7 @@ COPY static/site ./static/site/
 COPY resources ./resources/
 
 # create build stage
-FROM golang:1.23.2-bookworm AS build
+FROM golang:1.23.2-alpine3.20 AS build
 WORKDIR /build
 
 # download Go dependencies
@@ -26,6 +22,7 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 # copy source code
+COPY resume.go ./
 COPY resumake.go ./
 
 # build executable
