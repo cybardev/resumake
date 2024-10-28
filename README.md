@@ -42,13 +42,12 @@ Automatically generate your resume and publish it as a website:
 
 #### Running Locally
 
-**PS**: recommended to use [Docker](#using-docker) on non-Linux systems
+**PS**: recommended to use [Docker](#using-docker) on Windows
 
 ##### Dependencies
 
 - `go`: `v1.23.2`
-- `pandoc`
-- `wkhtmltopdf`
+- `weasyprint`
 - `fonts-roboto` (or install the `Roboto` font family to your system)
 
 ##### Instructions
