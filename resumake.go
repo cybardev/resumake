@@ -34,7 +34,7 @@ func main() {
 func resumake(c echo.Context) error {
 	file, err := c.FormFile("resume")
 	if err != nil {
-		return err
+		return &YAMLValidationError{"Invalid YAML file provided"}
 	}
 	err = htmlgen(file)
 	if err != nil {
