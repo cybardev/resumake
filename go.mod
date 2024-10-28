@@ -1,4 +1,4 @@
-module github.com/cybardev/resumake
+module github.com/cybardev/resumake/v4
 
 go 1.23.2
 
