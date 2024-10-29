@@ -48,15 +48,46 @@ Automatically generate your resume and publish it as a website:
 
 - `go`: `v1.23.2`
 - `weasyprint`
-- `fonts-roboto` (or install the `Roboto` font family to your system)
 
-##### Instructions
+##### Manual
+
+- edit [`resume.yml`](./resume.yml) file
+- Download the archive file from the Releases page: [resumake-{os}-{arch}.zip][release]
+  - **PS**: Make sure to choose the archive corresponding to your OS and architecture
+- extract the archive
+- `cd` into the extracted directory
+- run the executable (may need to chmod or make it executable otherwise)
+- open browser and navigate to [localhost](http://localhost:80)
+- upload edited [`resume.yml`](./resume.yml)
+- click the <kbd>Create Resume</kbd> button
+- download generated PDF
+
+##### Install Go Package
+
+> **Link to package**: [pkg.go.dev/github.com/cybardev/resumake/v4][gopkg]
+
+- Run the following command:
+
+    ```sh
+    go install github.com/cybardev/resumake/v4@latest
+    ```
+
+- Ensure `$GOPATH/bin` is added to `$PATH`. An easy way is to add this line to `~/.profile`:
+
+    ```sh
+    export PATH="$(go env GOPATH)/bin:$PATH"
+    ```
+
+> [!IMPORTANT]
+> The [pkg.go.dev][gopkg] registry may have an outdated version. If you encounter bugs or feature disparity, please replace `latest` after `@` with `main`, e.g. `github.com/cybardev/resumake/v4@main`, **OR** try the [Manual installation](#manual) method for the latest updates.
+
+##### Build from Source
 
 - edit [`resume.yml`](./resume.yml) file
 - run the following commands in project directory:
   - `go get .`
   - `go build`
-  - `resumake`
+  - `./resumake`
 - open browser and navigate to [localhost](http://localhost:80)
 - upload edited [`resume.yml`](./resume.yml)
 - click the <kbd>Create Resume</kbd> button
@@ -77,3 +108,5 @@ Automatically generate your resume and publish it as a website:
 [template]: ./resources/template.go.tmpl "Resume Template"
 [resume_png]: https://raw.githubusercontent.com/cybardev/resumake/main/static/assets/Resume_Sheikh_Saad_Abdullah.png "Resume - Sheikh Saad Abdullah"
 [ui_img]: https://github.com/user-attachments/assets/caa4e42d-9fb4-415b-9377-02c829d13621 "UI screenshot of deployed container"
+[gopkg]: https://pkg.go.dev/github.com/cybardev/resumake/v4
+[release]: https://github.com/cybardev/resumake/releases/
