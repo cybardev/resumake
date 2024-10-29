@@ -1,7 +1,5 @@
 package main
 
-import "strings"
-
 type Resume struct {
 	Author      *string      `yaml:"author,omitempty"`
 	Location    *string      `yaml:"location,omitempty"`
@@ -29,8 +27,8 @@ type Experience struct {
 	Start       *string    `yaml:"start,omitempty"`
 	End         *string    `yaml:"end,omitempty"`
 	Description *string    `yaml:"desc,omitempty"`
-	Attributes  StrArr     `yaml:"attributes,omitempty"`
-	Skills      StrArr     `yaml:"skills,omitempty"`
+	Attributes  []string   `yaml:"attributes,omitempty"`
+	Skills      []string   `yaml:"skills,omitempty"`
 }
 
 type Project struct {
@@ -41,35 +39,29 @@ type Project struct {
 	Start       *string    `yaml:"start,omitempty"`
 	End         *string    `yaml:"end,omitempty"`
 	Description *string    `yaml:"desc,omitempty"`
-	Attributes  StrArr     `yaml:"attributes,omitempty"`
-	Skills      StrArr     `yaml:"skills,omitempty"`
+	Attributes  []string   `yaml:"attributes,omitempty"`
+	Skills      []string   `yaml:"skills,omitempty"`
 }
 
 type Education struct {
-	School   *string `yaml:"school,omitempty"`
-	Location *string `yaml:"location,omitempty"`
-	Program  *string `yaml:"program,omitempty"`
-	Major    *string `yaml:"major,omitempty"`
-	Start    *string `yaml:"start,omitempty"`
-	End      *string `yaml:"end,omitempty"`
-	Courses  StrArr  `yaml:"courses,omitempty"`
+	School   *string  `yaml:"school,omitempty"`
+	Location *string  `yaml:"location,omitempty"`
+	Program  *string  `yaml:"program,omitempty"`
+	Major    *string  `yaml:"major,omitempty"`
+	Start    *string  `yaml:"start,omitempty"`
+	End      *string  `yaml:"end,omitempty"`
+	Courses  []string `yaml:"courses,omitempty"`
 }
 
 type Skill struct {
-	Name       *string `yaml:"name,omitempty"`
-	Attributes StrArr  `yaml:"attributes,omitempty"`
+	Name       *string  `yaml:"name,omitempty"`
+	Attributes []string `yaml:"attributes,omitempty"`
 }
 
 type Summarize bool
 
 func (s Summarize) Bool() bool {
 	return bool(s)
-}
-
-type StrArr []string
-
-func (s StrArr) Join() string {
-	return strings.Join(s, ", ")
 }
 
 // ----- VALIDATION METHODS ----- //

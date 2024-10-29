@@ -33,7 +33,7 @@
         ><span>Graduation: {{ .End }}</span>
       </div>
       <p>
-        <strong>Notable Courses</strong>: {{ .Courses.Join }}
+        <strong>Notable Courses</strong>: {{ join .Courses ", " }}
       </p>
       {{ end }}
       <h2 id="experience">Experience</h2>
@@ -42,7 +42,7 @@
         <strong class="bold">{{ .Name }}</strong> (<em
           >{{ .Role }}, {{ .Start }}-{{ .End }}</em
         >) {{ .Description }}
-        <strong>[{{ .Skills.Join }}]</strong>
+        <strong>[{{ join .Skills ", " }}]</strong>
       </p>
       {{ else }}
       <div class="xp-h"><span>{{ .Name }}</span><span>{{ .Location }}</span></div>
@@ -58,7 +58,7 @@
       <h2 id="projects">Projects</h2>
       {{ range .Projects }}{{ if .Summarize.Bool }}
       <p>
-        <strong>{{ .Name }}</strong> (<a href="https://{{ .Url }}">{{ .Url }}</a>) {{ .Description }} <strong>[{{ .Skills.Join }}]</strong>
+        <strong>{{ .Name }}</strong> (<a href="https://{{ .Url }}">{{ .Url }}</a>) {{ .Description }} <strong>[{{ join .Skills ", " }}]</strong>
       </p>
       {{ else }}
       <div class="xp-h">
@@ -77,7 +77,7 @@
       <h2 id="skills">Skills</h2>
       <p>
       {{ range .Skills }}
-      <strong>{{ .Name }}</strong>: {{ .Attributes.Join }}<br />
+      <strong>{{ .Name }}</strong>: {{ join .Attributes ", " }}<br />
       {{ end }}
       </p>
     </article>

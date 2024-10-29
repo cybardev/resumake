@@ -9,6 +9,8 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
+	"path"
+	"strings"
 
 	"github.com/labstack/echo/v4"
 	"gopkg.in/yaml.v3"
@@ -44,7 +46,9 @@ func resumake(c echo.Context) error {
 	if err != nil {
 		return &YAMLValidationError{"Invalid YAML file provided"}
 	}
-	tmpl, err := template.ParseFiles(GO_TEMPLATE)
+	tmpl, err := template.New(path.Base(GO_TEMPLATE)).Funcs(template.FuncMap{
+		"join": strings.Join,
+	}).ParseFiles(GO_TEMPLATE)
 	if err != nil {
 		return err
 	}
