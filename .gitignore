@@ -1,5 +1,6 @@
 # artifacts
 .DS_Store
+bin/
 
 # editor config
 .vscode/
