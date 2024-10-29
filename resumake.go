@@ -1,6 +1,8 @@
 package main
 
 import (
+	"flag"
+	"fmt"
 	"html/template"
 	"io"
 	"mime/multipart"
@@ -24,11 +26,17 @@ const (
 )
 
 func main() {
+	// CLI arg for server port
+	var port int
+	flag.IntVar(&port, "p", 80, "Port number to serve on")
+	flag.Parse()
+
+	// run server
 	app := echo.New()
 	app.File("/", INDEX_PAGE)
 	app.POST("/resume/", resumake)
 	app.HTTPErrorHandler = customHTTPErrorHandler
-	app.Logger.Fatal(app.Start(":80"))
+	app.Logger.Fatal(app.Start(fmt.Sprintf(":%d", port)))
 }
 
 func resumake(c echo.Context) error {

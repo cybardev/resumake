@@ -36,4 +36,4 @@ COPY --from=build /build/resumake /app/resumake
 
 # run resumake server
 EXPOSE 80
-CMD [ "./resumake" ]
+CMD [ "./resumake", "-p", "80" ]
