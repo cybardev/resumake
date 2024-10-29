@@ -1,11 +1,5 @@
 # artifacts
-__pycache__/
 .DS_Store
-*_resume.md
-resumake
 
 # editor config
 .vscode/
-
-# virtual environment
-.venv/
