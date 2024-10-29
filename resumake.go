@@ -44,7 +44,11 @@ func resumake(c echo.Context) error {
 	if err != nil {
 		return &YAMLValidationError{"Invalid YAML file provided"}
 	}
-	err = htmlgen(file)
+	tmpl, err := template.ParseFiles(GO_TEMPLATE)
+	if err != nil {
+		return err
+	}
+	err = htmlgen(file, tmpl)
 	if err != nil {
 		return err
 	}
@@ -73,7 +77,7 @@ func pdfgen(f string) exec.Cmd {
 	return *cmd
 }
 
-func htmlgen(f *multipart.FileHeader) error {
+func htmlgen(f *multipart.FileHeader, t *template.Template) error {
 	// source
 	src, err := f.Open()
 	if err != nil {
@@ -104,11 +108,7 @@ func htmlgen(f *multipart.FileHeader) error {
 	}
 
 	// populate template
-	tmpl, err := template.ParseFiles(GO_TEMPLATE)
-	if err != nil {
-		return err
-	}
-	err = tmpl.Execute(dst, r)
+	err = t.Execute(dst, r)
 	if err != nil {
 		return err
 	}
@@ -123,33 +123,36 @@ func customHTTPErrorHandler(err error, c echo.Context) {
 	}
 	c.Logger().Error(err)
 	// server error by default
-	ep := &ErrorPage{
+	ep, tmpErr := NewErrorPage(
 		code,
 		"Server Error",
 		"There has been an error on the server side.",
 		false,
-	}
+	)
 	// check for user error
 	switch e := err.(type) {
 	case *YAMLValidationError:
-		ep = &ErrorPage{
+		ep.Update(
 			422,
 			"YAML Validation Error",
 			e.Msg,
 			true,
-		}
+		)
 	default:
 		if 400 <= code && code < 500 {
-			ep = &ErrorPage{
+			ep.Update(
 				code,
 				"Client Error",
 				"There has been an error on the client side.",
 				true,
-			}
+			)
 		}
 	}
+	if tmpErr != nil {
+		c.Logger().Error(tmpErr)
+	}
 	// create and return error page
-	tmpErr := ep.Generate()
+	tmpErr = ep.Generate()
 	if tmpErr != nil {
 		c.Logger().Error(tmpErr)
 	}
@@ -171,9 +174,26 @@ type ErrorPage struct {
 	Header    string
 	Msg       string
 	UserError bool
+	Tmpl      *template.Template
 }
 
-func (p *ErrorPage) Generate() error {
+func NewErrorPage(code int, header string, msg string, uerr bool) (*ErrorPage, error) {
+	tmpl, err := template.ParseFiles(ERROR_TEMPLATE)
+	if err != nil {
+		return &ErrorPage{}, err
+	}
+	ep := ErrorPage{code, header, msg, uerr, tmpl}
+	return &ep, nil
+}
+
+func (p *ErrorPage) Update(code int, header string, msg string, uerr bool) {
+	p.Code = code
+	p.Header = header
+	p.Msg = msg
+	p.UserError = uerr
+}
+
+func (p ErrorPage) Generate() error {
 	// destination
 	dst, err := os.Create(ERROR_PAGE)
 	if err != nil {
@@ -182,11 +202,7 @@ func (p *ErrorPage) Generate() error {
 	defer dst.Close()
 
 	// populate template
-	tmpl, err := template.ParseFiles(ERROR_TEMPLATE)
-	if err != nil {
-		return err
-	}
-	err = tmpl.Execute(dst, p)
+	err = p.Tmpl.Execute(dst, p)
 	if err != nil {
 		return err
 	}
