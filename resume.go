@@ -74,7 +74,7 @@ func (s StrArr) Join() string {
 
 // ----- VALIDATION METHODS ----- //
 
-func (r *Resume) Validate() (bool, string) {
+func (r Resume) Validate() (bool, string) {
 	if r.Author == nil {
 		return false, "'author' is missing"
 	}
@@ -144,7 +144,7 @@ func (r *Resume) Validate() (bool, string) {
 	return true, ""
 }
 
-func (s *Socials) Validate() (bool, string) {
+func (s Socials) Validate() (bool, string) {
 	if s.Github == nil {
 		return false, "'socials.github' is missing"
 	}
@@ -156,7 +156,7 @@ func (s *Socials) Validate() (bool, string) {
 	return true, ""
 }
 
-func (e *Experience) Validate() (bool, string) {
+func (e Experience) Validate() (bool, string) {
 	if e.Summarize == nil {
 		return false, "'summarize' is missing for an experience"
 	} else {
@@ -193,7 +193,7 @@ func (e *Experience) Validate() (bool, string) {
 	return true, ""
 }
 
-func (p *Project) Validate() (bool, string) {
+func (p Project) Validate() (bool, string) {
 	if p.Summarize == nil {
 		return false, "'summarize' is missing for a project"
 	} else {
@@ -230,7 +230,7 @@ func (p *Project) Validate() (bool, string) {
 	return true, ""
 }
 
-func (e *Education) Validate() (bool, string) {
+func (e Education) Validate() (bool, string) {
 	if e.School == nil {
 		return false, "'education.school' is missing"
 	}
@@ -258,7 +258,7 @@ func (e *Education) Validate() (bool, string) {
 	return true, ""
 }
 
-func (s *Skill) Validate() (bool, string) {
+func (s Skill) Validate() (bool, string) {
 	if s.Name == nil {
 		return false, "'name' is missing for a skill"
 	}
