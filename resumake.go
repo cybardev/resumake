@@ -106,9 +106,9 @@ func htmlgen(f *multipart.FileHeader, t *template.Template) error {
 	if err != nil {
 		return err
 	}
-	isValid, msg := r.Validate()
-	if !isValid {
-		return &YAMLValidationError{msg}
+	err = r.Validate()
+	if err != nil {
+		return &YAMLValidationError{err.Error()}
 	}
 
 	// populate template

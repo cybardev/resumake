@@ -1,5 +1,7 @@
 package main
 
+import "errors"
+
 type Resume struct {
 	Author      *string      `yaml:"author,omitempty"`
 	Location    *string      `yaml:"location,omitempty"`
@@ -66,198 +68,198 @@ func (s Summarize) Bool() bool {
 
 // ----- VALIDATION METHODS ----- //
 
-func (r Resume) Validate() (bool, string) {
+func (r Resume) Validate() error {
 	if r.Author == nil {
-		return false, "'author' is missing"
+		return errors.New("'author' is missing")
 	}
 	if r.Location == nil {
-		return false, "'location' is missing"
+		return errors.New("'location' is missing")
 	}
 	if r.Phone == nil {
-		return false, "'phone' is missing"
+		return errors.New("'phone' is missing")
 	}
 	if r.Email == nil {
-		return false, "'email' is missing"
+		return errors.New("'email' is missing")
 	}
 	if r.Website == nil {
-		return false, "'website' is missing"
+		return errors.New("'website' is missing")
 	}
 	if r.Socials == nil {
-		return false, "'socials' is missing"
+		return errors.New("'socials' is missing")
 	} else {
-		isValid, msg := r.Socials.Validate()
-		if !isValid {
-			return false, msg
+		err := r.Socials.Validate()
+		if err != nil {
+			return errors.New(err.Error())
 		}
 	}
 	if r.Profile == nil {
-		return false, "'profile' is missing"
+		return errors.New("'profile' is missing")
 	}
 	if r.Experiences == nil {
-		return false, "'experiences' is missing"
+		return errors.New("'experiences' is missing")
 	} else {
 		for _, e := range r.Experiences {
-			isValid, msg := e.Validate()
-			if !isValid {
-				return false, msg
+			err := e.Validate()
+			if err != nil {
+				return errors.New(err.Error())
 			}
 		}
 	}
 	if r.Projects == nil {
-		return false, "'projects' is missing"
+		return errors.New("'projects' is missing")
 	} else {
 		for _, p := range r.Projects {
-			isValid, msg := p.Validate()
-			if !isValid {
-				return false, msg
+			err := p.Validate()
+			if err != nil {
+				return errors.New(err.Error())
 			}
 		}
 	}
 	if r.Education == nil {
-		return false, "'education' is missing"
+		return errors.New("'education' is missing")
 	} else {
-		isValid, msg := r.Education.Validate()
-		if !isValid {
-			return false, msg
+		err := r.Education.Validate()
+		if err != nil {
+			return errors.New(err.Error())
 		}
 	}
 	if r.Skills == nil {
-		return false, "'skills' is missing"
+		return errors.New("'skills' is missing")
 	} else {
 		for _, s := range r.Skills {
-			isValid, msg := s.Validate()
-			if !isValid {
-				return false, msg
+			err := s.Validate()
+			if err != nil {
+				return errors.New(err.Error())
 			}
 		}
 	}
 
 	// if nothing is missing:
-	return true, ""
+	return nil
 }
 
-func (s Socials) Validate() (bool, string) {
+func (s Socials) Validate() error {
 	if s.Github == nil {
-		return false, "'socials.github' is missing"
+		return errors.New("'socials.github' is missing")
 	}
 	if s.Linkedin == nil {
-		return false, "'socials.linkedin' is missing"
+		return errors.New("'socials.linkedin' is missing")
 	}
 
 	// if nothing is missing:
-	return true, ""
+	return nil
 }
 
-func (e Experience) Validate() (bool, string) {
+func (e Experience) Validate() error {
 	if e.Summarize == nil {
-		return false, "'summarize' is missing for an experience"
+		return errors.New("'summarize' is missing for an experience")
 	} else {
 		if e.Name == nil {
-			return false, "'name' is missing for an experience"
+			return errors.New("'name' is missing for an experience")
 		}
 		if e.Role == nil {
-			return false, "'role' is missing for an experience"
+			return errors.New("'role' is missing for an experience")
 		}
 		if e.Start == nil {
-			return false, "'start' is missing for an experience"
+			return errors.New("'start' is missing for an experience")
 		}
 		if e.End == nil {
-			return false, "'end' is missing for an experience"
+			return errors.New("'end' is missing for an experience")
 		}
 		if *e.Summarize {
 			if e.Description == nil {
-				return false, "'desc' is missing for an experience"
+				return errors.New("'desc' is missing for an experience")
 			}
 			if e.Skills == nil {
-				return false, "'skills' is missing for an experience"
+				return errors.New("'skills' is missing for an experience")
 			}
 		} else {
 			if e.Location == nil {
-				return false, "'location' is missing for an experience"
+				return errors.New("'location' is missing for an experience")
 			}
 			if e.Attributes == nil {
-				return false, "'attributes' is missing for an experience"
+				return errors.New("'attributes' is missing for an experience")
 			}
 		}
 	}
 
 	// if nothing is missing:
-	return true, ""
+	return nil
 }
 
-func (p Project) Validate() (bool, string) {
+func (p Project) Validate() error {
 	if p.Summarize == nil {
-		return false, "'summarize' is missing for a project"
+		return errors.New("'summarize' is missing for a project")
 	} else {
 		if p.Name == nil {
-			return false, "'name' is missing for a project"
+			return errors.New("'name' is missing for a project")
 		}
 		if p.Url == nil {
-			return false, "'url' is missing for a project"
+			return errors.New("'url' is missing for a project")
 		}
 		if *p.Summarize {
 			if p.Description == nil {
-				return false, "'desc' is missing for a project"
+				return errors.New("'desc' is missing for a project")
 			}
 			if p.Skills == nil {
-				return false, "'skills' is missing for a project"
+				return errors.New("'skills' is missing for a project")
 			}
 		} else {
 			if p.Role == nil {
-				return false, "'role' is missing for a project"
+				return errors.New("'role' is missing for a project")
 			}
 			if p.Start == nil {
-				return false, "'start' is missing for a project"
+				return errors.New("'start' is missing for a project")
 			}
 			if p.End == nil {
-				return false, "'end' is missing for a project"
+				return errors.New("'end' is missing for a project")
 			}
 			if p.Attributes == nil {
-				return false, "'attributes' is missing for a project"
+				return errors.New("'attributes' is missing for a project")
 			}
 		}
 	}
 
 	// if nothing is missing:
-	return true, ""
+	return nil
 }
 
-func (e Education) Validate() (bool, string) {
+func (e Education) Validate() error {
 	if e.School == nil {
-		return false, "'education.school' is missing"
+		return errors.New("'education.school' is missing")
 	}
 	if e.Location == nil {
-		return false, "'education.location' is missing"
+		return errors.New("'education.location' is missing")
 	}
 	if e.Program == nil {
-		return false, "'education.program' is missing"
+		return errors.New("'education.program' is missing")
 	}
 	if e.Major == nil {
-		return false, "'education.major' is missing"
+		return errors.New("'education.major' is missing")
 	}
 	// NOTE: we don't use this value in the template
 	// if e.Start == nil {
-	// 	return false, "'education.start' is missing"
+	// 	return errors.New("'education.start' is missing")
 	// }
 	if e.End == nil {
-		return false, "'education.end' is missing"
+		return errors.New("'education.end' is missing")
 	}
 	if e.Courses == nil {
-		return false, "'education.courses' is missing"
+		return errors.New("'education.courses' is missing")
 	}
 
 	// if nothing is missing:
-	return true, ""
+	return nil
 }
 
-func (s Skill) Validate() (bool, string) {
+func (s Skill) Validate() error {
 	if s.Name == nil {
-		return false, "'name' is missing for a skill"
+		return errors.New("'name' is missing for a skill")
 	}
 	if s.Attributes == nil {
-		return false, "'attributes' is missing for a skill"
+		return errors.New("'attributes' is missing for a skill")
 	}
 
 	// if nothing is missing:
-	return true, ""
+	return nil
 }
