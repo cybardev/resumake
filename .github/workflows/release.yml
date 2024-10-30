@@ -49,7 +49,7 @@ jobs:
           zip "../resumake-${{ matrix.os }}-${{ matrix.arch }}.zip" "resumake${EXT}" "../../resources/*" "../../static/*"
 
       - name: Upload ${{ matrix.os }}-${{ matrix.arch }} archive
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: resumake-${{ matrix.os }}-${{ matrix.arch }}
           path: |
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download Release Archives
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           path: |
             bin/
