@@ -15,10 +15,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        os: [linux, darwin, windows]
-        arch: [amd64, arm64]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -33,37 +29,24 @@ jobs:
         with:
           version: v1.61
 
-      - name: Build for ${{ matrix.os }} (${{ matrix.arch }})
-        id: builds
-        env:
-          GOOS: ${{ matrix.os }}
-          GOARCH: ${{ matrix.arch }}
+      - name: Create Release Archives
         run: |
-          [ "$GOOS" = "windows" ] && EXT=".exe" || EXT=""
-          go build -o "bin/${GOOS}-${GOARCH}/resumake${EXT}"
+          ARCH_LIST=("amd64" "arm64")
+          OS_LIST=("linux" "darwin" "windows")
 
-      - name: Create Release Archive for ${{ matrix.os }} (${{ matrix.arch }})
-        run: |
-          [ "${{ matrix.os }}" = "windows" ] && EXT=".exe" || EXT=""
-          cd "bin/${{ matrix.os }}-${{ matrix.arch }}"
-          zip "../resumake-${{ matrix.os }}-${{ matrix.arch }}.zip" "resumake${EXT}" "../../resources/*" "../../static/*"
-
-      - name: Upload ${{ matrix.os }}-${{ matrix.arch }} archive
-        uses: actions/upload-artifact@v4
-        with:
-          name: resumake-${{ matrix.os }}-${{ matrix.arch }}
-          path: |
-            bin/resumake-${{ matrix.os }}-${{ matrix.arch }}.zip
-
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download Release Archives
-        uses: actions/download-artifact@v4
-        with:
-          path: |
-            bin/
+          for GOARCH in "${ARCH_LIST[@]}"; do
+              for GOOS in "${OS_LIST[@]}"; do
+                  [ "${GOOS}" == "windows" ] && EXT=".exe" || EXT=""
+                  echo "Building for ${GOOS}-${GOARCH}..."
+                  go build -o "bin/${GOOS}-${GOARCH}/resumake${EXT}"
+                  echo "Build complete. Creating archives..."
+                  (cd bin/${GOOS}-${GOARCH} && zip ../resumake-${GOOS}-${GOARCH}.zip resumake${EXT} ../../resources/* ../../static/site/*)
+                  echo "Archives generated. Cleaning up build files..."
+                  rm -rf "bin/${GOOS}-${GOARCH}/"
+                  echo "DONE."
+                  echo
+              done
+          done
 
       - name: Create Release with pushed tag
         uses: "marvinpinto/action-automatic-releases@latest"
@@ -71,4 +54,4 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           files: |
-            bin/*/*.zip
+            bin/*.zip
