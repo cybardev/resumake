@@ -31,7 +31,7 @@ experiences:
     start: May 2023
     end: Aug 2023
     attributes:
-      - Developed Python script for audio generation, playback, and logging, allowing in-house testing of underwater acoustic projectors
+      - Developed Python script for audio generation, playback, and logging, to test underwater acoustic projectors in-house
       - Configured Raspberry Pi systems with Linux to develop and test the Acoustic Projector Control and Logging System
       - Implemented module to connect to private Signal K server and utilize its API to effectively retrieve sensor data
       - Created a framework for logging data from sensors, consuming it via API calls, and storing it in an SQLite database
@@ -61,11 +61,14 @@ projects:
   - summarize: true
     name: Resumake
     url: github.com/cybardev/resumake
-    desc: Programmatic resume generator published to PyPI and DockerHub, built and deployed using GitHub Actions CI/CD workflow for easy installation and usage.
+    desc: Programmatic resume generator published to pkg.go.dev and Dockerhub - built and deployed using GitHub Actions CI/CD workflow. Deployed to Microsoft Azure as a publicly available Azure Container App.
     skills:
-      - Python
+      - Go
       - Docker
       - CI/CD
+      - Azure
+      - Python
+      - Shell Script
   - summarize: true
     name: Noctrun
     url: github.com/cybardev/Noctrun
