@@ -8,3 +8,5 @@ services:
     runtime: image
     image:
       url: ghcr.io/cybardev/resumake:latest
+    domains:
+      - resumake.cybar.dev
