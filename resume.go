@@ -89,7 +89,7 @@ func (r Resume) Validate() error {
 	} else {
 		err := r.Socials.Validate()
 		if err != nil {
-			return errors.New(err.Error())
+			return err
 		}
 	}
 	if r.Profile == nil {
@@ -101,7 +101,7 @@ func (r Resume) Validate() error {
 		for _, e := range r.Experiences {
 			err := e.Validate()
 			if err != nil {
-				return errors.New(err.Error())
+				return err
 			}
 		}
 	}
@@ -111,7 +111,7 @@ func (r Resume) Validate() error {
 		for _, p := range r.Projects {
 			err := p.Validate()
 			if err != nil {
-				return errors.New(err.Error())
+				return err
 			}
 		}
 	}
@@ -120,7 +120,7 @@ func (r Resume) Validate() error {
 	} else {
 		err := r.Education.Validate()
 		if err != nil {
-			return errors.New(err.Error())
+			return err
 		}
 	}
 	if r.Skills == nil {
@@ -129,7 +129,7 @@ func (r Resume) Validate() error {
 		for _, s := range r.Skills {
 			err := s.Validate()
 			if err != nil {
-				return errors.New(err.Error())
+				return err
 			}
 		}
 	}
