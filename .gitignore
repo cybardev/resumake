@@ -1,6 +1,8 @@
 # artifacts
 .DS_Store
+.terraform
 bin/
+/*.exe
 
 # editor config
 .vscode/
