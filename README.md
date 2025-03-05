@@ -6,6 +6,10 @@
 
 ### Usage
 
+#### Using Render
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/cybardev/resumake)
+
 #### Using Docker
 
 - edit [`resume.yml`](./resume.yml) file
