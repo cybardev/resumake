@@ -2,7 +2,6 @@
   lib,
   pkgs,
   buildGoModule,
-  fetchFromGitHub,
 }:
 
 let
@@ -14,12 +13,7 @@ buildGoModule {
   inherit pname;
   inherit version;
 
-  src = fetchFromGitHub {
-    owner = author;
-    repo = pname;
-    rev = "v${version}";
-    hash = "sha256-UYKvjUJicgGAHzza7GYyLnlYfF6fK7aLL2VcLaA2L/I=";
-  };
+  src = ./.;
 
   nativeBuildInputs = [ pkgs.makeWrapper ];
 
