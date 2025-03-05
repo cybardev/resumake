@@ -1,10 +1,4 @@
-{
-  pkgs,
-}:
-
-let
-  resumake = pkgs.callPackage ./resumake.nix;
-in
+{ pkgs }:
 pkgs.dockerTools.buildImage {
   name = "resumake";
   copyToRoot = pkgs.buildEnv {
@@ -12,7 +6,7 @@ pkgs.dockerTools.buildImage {
     paths = with pkgs; [
       python3Packages.weasyprint
       roboto
-      resumake
+      (pkgs.callPackage ./resumake.nix { })
     ];
     pathsToLink = [
       "/bin"
@@ -20,10 +14,11 @@ pkgs.dockerTools.buildImage {
     ];
   };
   config = {
+    WorkingDir = "/app";
     Cmd = [
-      "${resumake}/bin/resumake"
+      "resumake"
       "-p"
-      80
+      "80"
     ];
     ExposedPorts = {
       "80" = { };
