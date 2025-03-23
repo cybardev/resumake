@@ -2,7 +2,7 @@
 
 ## Programmatic Resume Generator
 
-![UI screenshot][ui_img]
+<img height="128px" width="128px" src="./resumake.png" alt="resumake logo"><img height="128px" src="./resumake-banner.png" alt="resumake banner">
 
 ### Usage
 
@@ -111,6 +111,5 @@ Automatically generate your resume and publish it as a website:
 
 [template]: ./resources/template.go.tmpl "Resume Template"
 [resume_png]: https://raw.githubusercontent.com/cybardev/resumake/main/static/assets/Resume_Sheikh_Saad_Abdullah.png "Resume - Sheikh Saad Abdullah"
-[ui_img]: https://github.com/user-attachments/assets/caa4e42d-9fb4-415b-9377-02c829d13621 "UI screenshot of deployed container"
 [gopkg]: https://pkg.go.dev/github.com/cybardev/resumake/v4
 [release]: https://github.com/cybardev/resumake/releases/
