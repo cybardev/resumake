@@ -103,8 +103,8 @@ projects:
   #       - ExpressJS
   - summarize: true
     name: Pyrefly Nix Package
-    url: github.com/cybardev/nixpkgs
-    desc: Packaged Facebook's new Python type checker (github.com/facebook/pyrefly) for Nixpkgs (github.com/NixOS/nixpkgs), making it available to 10,000+ Nix users.
+    url: github.com/NixOS/nixpkgs
+    desc: Packaged Facebook's new Python type checker (github.com/facebook/pyrefly) for Nixpkgs, making it available to 10,000+ Nix users on macOS, Linux, and WSL.
     skills:
       - Nix
       - Rust
