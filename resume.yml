@@ -102,14 +102,14 @@ projects:
   #       - MongoDB
   #       - ExpressJS
   - summarize: true
-    name: yt.py
-    url: github.com/cybardev/ytpy
-    desc: YouTube media player that uses web scraping techniques to play media from YouTube without the YouTube API. Also translated to Go (github.com/cybardev/ytgo)
+    name: Pyrefly Nix Package
+    url: github.com/cybardev/nixpkgs
+    desc: Packaged Facebook's new Python type checker (github.com/facebook/pyrefly) for Nixpkgs (github.com/NixOS/nixpkgs), making it available to 10,000+ Nix users.
     skills:
+      - Nix
+      - Rust
       - Python
-      - Go
-      - Web Scraping
-      - CLI
+      - Build Systems
 education:
   school: Saint Mary's University
   location: Halifax, Nova Scotia
@@ -127,13 +127,14 @@ skills:
     attributes:
       - Python
       - Go
+      - Nix
       - Docker
       - Git
       - NodeJS
       - ExpressJS
       - Mongo
       - MySQL
-      - MS Excel
+      - Excel
       - JavaScript
       - Java
       - "C#"
