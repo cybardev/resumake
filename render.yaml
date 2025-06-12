@@ -8,3 +8,6 @@ services:
     runtime: image
     image:
       url: ghcr.io/cybardev/resumake:latest
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
