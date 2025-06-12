@@ -105,11 +105,12 @@ Automatically generate your resume and publish it as a website:
 
 ### Sample Output
 
-![resume][resume_png]
+[![resume][resume_png]][resume_pdf]
 
 <!-- links -->
 
 [template]: ./resources/template.go.tmpl "Resume Template"
 [resume_png]: https://raw.githubusercontent.com/cybardev/resumake/main/static/assets/Resume_Sheikh_Saad_Abdullah.png "Resume - Sheikh Saad Abdullah"
+[resume_pdf]: https://resume.cybar.dev "Resume - Sheikh Saad Abdullah"
 [gopkg]: https://pkg.go.dev/github.com/cybardev/resumake/v4
 [release]: https://github.com/cybardev/resumake/releases/
