@@ -1,11 +1,16 @@
 author: Sheikh Saad Abdullah
 location: B3L 4P7, Halifax, NS, Canada
-phone: +1 (902) 818-0048
-email: sheikh@cybar.dev
-website: links.cybar.dev
-socials:
-  github: cybardev
-  linkedin: cybardev
+links:
+  - text: +1 (902) 818-0048
+    type: tel
+  - text: sheikh@cybar.dev
+    type: mailto
+  - text: links.cybar.dev
+    type: url
+  - text: github.com/cybardev
+    type: url
+  - text: linkedin.com/in/cybardev
+    type: url
 profile: >-
   Adaptable and enthusiastic Computer Science recent grad with expertise in Python, JavaScript, Git, Linux, and various standard tools and technologies.
   Completed two co-op internships in the software development industry and proactively engaged in creating open-source software projects,

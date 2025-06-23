@@ -1,14 +1,15 @@
 package main
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+	"html/template"
+)
 
 type Resume struct {
 	Author      *string      `yaml:"author,omitempty"`
 	Location    *string      `yaml:"location,omitempty"`
-	Phone       *string      `yaml:"phone,omitempty"`
-	Email       *string      `yaml:"email,omitempty"`
-	Website     *string      `yaml:"website,omitempty"`
-	Socials     *Socials     `yaml:"socials,omitempty"`
+	Links       []Link       `yaml:"links,omitempty"`
 	Profile     *string      `yaml:"profile,omitempty"`
 	Experiences []Experience `yaml:"experiences,omitempty"`
 	Projects    []Project    `yaml:"projects,omitempty"`
@@ -16,9 +17,19 @@ type Resume struct {
 	Skills      []Skill      `yaml:"skills,omitempty"`
 }
 
-type Socials struct {
-	Github   *string `yaml:"github,omitempty"`
-	Linkedin *string `yaml:"linkedin,omitempty"`
+type Link struct {
+	Text *string `yaml:"text,omitempty"`
+	Type *string `yaml:"type,omitempty"`
+}
+
+func (l Link) Href() (template.URL, error) {
+	switch *l.Type {
+	case "mailto", "tel":
+		return template.URL(fmt.Sprintf("%s:%s", *l.Type, *l.Text)), nil
+	case "url":
+		return template.URL(fmt.Sprintf("https://%s", *l.Text)), nil
+	}
+	return "", errors.New("'kind' must be one of: mailto, tel, url")
 }
 
 type Experience struct {
@@ -75,21 +86,14 @@ func (r Resume) Validate() error {
 	if r.Location == nil {
 		return errors.New("'location' is missing")
 	}
-	if r.Phone == nil {
-		return errors.New("'phone' is missing")
-	}
-	if r.Email == nil {
-		return errors.New("'email' is missing")
-	}
-	if r.Website == nil {
-		return errors.New("'website' is missing")
-	}
-	if r.Socials == nil {
-		return errors.New("'socials' is missing")
+	if r.Links == nil {
+		return errors.New("'links' is missing")
 	} else {
-		err := r.Socials.Validate()
-		if err != nil {
-			return err
+		for _, l := range r.Links {
+			err := l.Validate()
+			if err != nil {
+				return err
+			}
 		}
 	}
 	if r.Profile == nil {
@@ -138,12 +142,12 @@ func (r Resume) Validate() error {
 	return nil
 }
 
-func (s Socials) Validate() error {
-	if s.Github == nil {
-		return errors.New("'socials.github' is missing")
+func (l Link) Validate() error {
+	if l.Text == nil {
+		return errors.New("'text' is missing for a link")
 	}
-	if s.Linkedin == nil {
-		return errors.New("'socials.linkedin' is missing")
+	if l.Type == nil {
+		return errors.New("'type' is missing for a link")
 	}
 
 	// if nothing is missing:

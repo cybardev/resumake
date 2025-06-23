@@ -11,14 +11,8 @@
       <header>
         <p>{{ .Location }}</p>
         <section>
-          <a href="tel:{{ .Phone }}">{{ .Phone }}</a>
-          <a href="mailto:{{ .Email }}">{{ .Email }}</a>
-          <a href="https://{{ .Website }}">{{ .Website }}</a>
-          {{ with .Socials }}
-          <a href="https://github.com/{{ .Github }}">github.com/{{ .Github }}</a>
-          <a href="https://www.linkedin.com/in/{{ .Linkedin }}"
-            >linkedin.com/in/{{ .Linkedin }}</a
-          >
+          {{ range .Links }}
+          <a href="{{ .Href }}">{{ .Text }}</a>
           {{ end }}
         </section>
       </header>
