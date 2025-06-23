@@ -29,6 +29,7 @@ jobs:
           curl -X POST -F "resume=@${{ env.RESUME_FILE }}" "https://resumake.cybar.dev/resume/" > "./static/assets/Resume_${AUTHOR}.pdf"
           echo "author=${AUTHOR}" >> "${GITHUB_OUTPUT}"
       - name: Generate PNG preview
+        continue-on-error: true
         run: |
           AUTHOR="${{ steps.resumake.outputs.author }}"
           pdftoppm -png "./static/assets/Resume_${AUTHOR}.pdf" > "./static/assets/Resume_${AUTHOR}.png"
