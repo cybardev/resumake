@@ -29,7 +29,7 @@ func (l Link) Href() (template.URL, error) {
 	case "url":
 		return template.URL(fmt.Sprintf("https://%s", *l.Text)), nil
 	}
-	return "", errors.New("'kind' must be one of: mailto, tel, url")
+	return "", errors.New("'type' must be one of: mailto, tel, url")
 }
 
 type Experience struct {
