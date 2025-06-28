@@ -7,7 +7,7 @@ services:
     name: resumake
     runtime: image
     image:
-      url: ghcr.io/cybardev/resumake:v6.0.0
+      url: ghcr.io/cybardev/resumake:v6.0.1
     envVars:
       - key: BOT_TOKEN
         sync: false
