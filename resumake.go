@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"html/template"
 	"io"
+	"log"
 	"mime/multipart"
 	"net/http"
 	"os"
@@ -45,10 +46,10 @@ func main() {
 	http.HandleFunc("/resume/", resumakeHandler)
 
 	// Start server
-	fmt.Printf("Starting server on port %d...\n", port)
+	log.Printf("Starting server on port %d...", port)
 	err := http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
 	if err != nil {
-		fmt.Printf("Error starting server: %v\n", err)
+		log.Fatalf("Error starting server: %v", err)
 	}
 }
 
@@ -172,7 +173,7 @@ func handleError(w http.ResponseWriter, err error) {
 	// Create a new error page
 	ep, tmpErr := NewErrorPage(code, http.StatusText(code), msg, code >= 400 && code < 500)
 	if tmpErr != nil {
-		fmt.Printf("Error generating error page: %v\n", tmpErr)
+		log.Printf("Error generating error page: %v", tmpErr)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
@@ -181,7 +182,7 @@ func handleError(w http.ResponseWriter, err error) {
 	var errorPageContent strings.Builder
 	tmpErr = ep.Tmpl.Execute(&errorPageContent, ep)
 	if tmpErr != nil {
-		fmt.Printf("Error generating error page: %v\n", tmpErr)
+		log.Printf("Error generating error page: %v", tmpErr)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
