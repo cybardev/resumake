@@ -87,14 +87,22 @@ func htmlgen(f *multipart.FileHeader, t *template.Template) error {
 	if err != nil {
 		return err
 	}
-	defer src.Close()
+	defer func() {
+		if cerr := src.Close(); cerr != nil && err == nil {
+			err = cerr
+		}
+	}()
 
 	// destination
 	dst, err := os.Create(HTML_TEMPLATE)
 	if err != nil {
 		return err
 	}
-	defer dst.Close()
+	defer func() {
+		if cerr := dst.Close(); cerr != nil && err == nil {
+			err = cerr
+		}
+	}()
 
 	// populate resume struct
 	bytes, err := io.ReadAll(src)
@@ -203,7 +211,11 @@ func (p ErrorPage) Generate() error {
 	if err != nil {
 		return err
 	}
-	defer dst.Close()
+	defer func() {
+		if cerr := dst.Close(); cerr != nil && err == nil {
+			err = cerr
+		}
+	}()
 
 	// populate template
 	err = p.Tmpl.Execute(dst, p)
