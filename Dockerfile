@@ -8,11 +8,6 @@ FROM alpine:3.20 AS base
 RUN apk add --no-cache weasyprint font-roboto
 RUN fc-cache -fv
 
-# copy static files to container
-WORKDIR /app
-COPY static/site ./static/site/
-COPY resources ./resources/
-
 # create build stage
 FROM golang:1.23.2-alpine3.20 AS build
 WORKDIR /build
@@ -22,8 +17,9 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 # copy source code
-COPY resume.go ./
-COPY resumake.go ./
+COPY *.go ./
+COPY resources ./resources
+COPY static ./static
 
 # build executable
 ENV CGO_ENABLED=0
@@ -32,6 +28,9 @@ RUN go build -o resumake
 
 # create runtime stage
 FROM base AS main
+WORKDIR /app
+
+# copy compiled binary from build stage
 COPY --from=build /build/resumake /app/resumake
 
 # run resumake server

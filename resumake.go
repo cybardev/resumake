@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "embed"
 	"flag"
 	"fmt"
 	"html/template"
@@ -9,22 +10,29 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
-	"path"
 	"strings"
 
 	"gopkg.in/yaml.v3"
 )
 
-// file names
-const (
-	GO_TEMPLATE    string = "resources/template.go.tmpl"
-	ERROR_TEMPLATE string = "resources/error.go.tmpl"
-	HTML_TEMPLATE  string = "resources/template.html"
-	CSS_TEMPLATE   string = "resources/template.css"
-	INDEX_PAGE     string = "static/site/index.html"
-	ERROR_PAGE     string = "static/site/error.html"
-	PDF_FILE       string = "Resume.pdf"
-)
+// Embedded files
+//
+//go:embed resources/template.go.tmpl
+var goTemplate string
+
+//go:embed resources/error.go.tmpl
+var errorTemplate string
+
+//go:embed resources/template.css
+var cssTemplate string
+
+//go:embed static/site/index.html
+var indexPage string
+
+// Constants
+const PDF_FILE = "Resume.pdf"
+const HTML_TEMPLATE = "template.html"
+const CSS_TEMPLATE = "template.css"
 
 func main() {
 	// CLI arg for server port
@@ -45,7 +53,9 @@ func main() {
 }
 
 func serveIndexPage(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, INDEX_PAGE)
+	w.Header().Set("Content-Type", "text/html")
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte(indexPage))
 }
 
 func resumakeHandler(w http.ResponseWriter, r *http.Request) {
@@ -56,22 +66,28 @@ func resumakeHandler(w http.ResponseWriter, r *http.Request) {
 
 	file, _, err := r.FormFile("resume")
 	if err != nil {
-		handleError(w, r, &YAMLValidationError{"Invalid YAML file provided"})
+		handleError(w, &YAMLValidationError{"Invalid YAML file provided"})
 		return
 	}
 	defer file.Close()
 
-	tmpl, err := template.New(path.Base(GO_TEMPLATE)).Funcs(template.FuncMap{
+	tmpl, err := template.New("resume").Funcs(template.FuncMap{
 		"join": strings.Join,
-	}).ParseFiles(GO_TEMPLATE)
+	}).Parse(goTemplate)
 	if err != nil {
-		handleError(w, r, err)
+		handleError(w, err)
 		return
 	}
 
 	err = htmlgen(file, tmpl)
 	if err != nil {
-		handleError(w, r, err)
+		handleError(w, err)
+		return
+	}
+
+	err = os.WriteFile(CSS_TEMPLATE, []byte(cssTemplate), 0644)
+	if err != nil {
+		handleError(w, err)
 		return
 	}
 
@@ -79,7 +95,7 @@ func resumakeHandler(w http.ResponseWriter, r *http.Request) {
 	cmd := pdfgen(outfile)
 	err = cmd.Run()
 	if err != nil {
-		handleError(w, r, err)
+		handleError(w, err)
 		return
 	}
 
@@ -88,13 +104,13 @@ func resumakeHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, outfile)
 }
 
-func pdfgen(f string) exec.Cmd {
+func pdfgen(outputFile string) exec.Cmd {
 	cmd := exec.Command(
 		"weasyprint",
-		"-s",
-		CSS_TEMPLATE,
-		HTML_TEMPLATE,
-		f,
+		HTML_TEMPLATE, // Path to the generated HTML file
+		outputFile,    // Path to the output PDF file
+		"-s",          // Specify the CSS file
+		CSS_TEMPLATE,  // Path to the CSS file
 	)
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
@@ -139,7 +155,7 @@ func htmlgen(f multipart.File, t *template.Template) error {
 	return nil
 }
 
-func handleError(w http.ResponseWriter, r *http.Request, err error) {
+func handleError(w http.ResponseWriter, err error) {
 	code := http.StatusInternalServerError
 	msg := "Server Error: There has been an error on the server side."
 
@@ -153,6 +169,7 @@ func handleError(w http.ResponseWriter, r *http.Request, err error) {
 		}
 	}
 
+	// Create a new error page
 	ep, tmpErr := NewErrorPage(code, http.StatusText(code), msg, code >= 400 && code < 500)
 	if tmpErr != nil {
 		fmt.Printf("Error generating error page: %v\n", tmpErr)
@@ -160,14 +177,19 @@ func handleError(w http.ResponseWriter, r *http.Request, err error) {
 		return
 	}
 
-	tmpErr = ep.Generate()
+	// Generate the error page content in memory
+	var errorPageContent strings.Builder
+	tmpErr = ep.Tmpl.Execute(&errorPageContent, ep)
 	if tmpErr != nil {
 		fmt.Printf("Error generating error page: %v\n", tmpErr)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
 
-	http.ServeFile(w, r, ERROR_PAGE)
+	// Serve the generated error page
+	w.Header().Set("Content-Type", "text/html")
+	w.WriteHeader(code)
+	w.Write([]byte(errorPageContent.String()))
 }
 
 type YAMLValidationError struct {
@@ -187,7 +209,7 @@ type ErrorPage struct {
 }
 
 func NewErrorPage(code int, header string, msg string, uerr bool) (*ErrorPage, error) {
-	tmpl, err := template.ParseFiles(ERROR_TEMPLATE)
+	tmpl, err := template.New("error").Parse(errorTemplate)
 	if err != nil {
 		return &ErrorPage{}, err
 	}
@@ -204,7 +226,7 @@ func (p *ErrorPage) Update(code int, header string, msg string, uerr bool) {
 
 func (p ErrorPage) Generate() error {
 	// destination
-	dst, err := os.Create(ERROR_PAGE)
+	dst, err := os.Create("error.html")
 	if err != nil {
 		return err
 	}
