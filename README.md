@@ -68,12 +68,12 @@ Automatically generate your resume and publish it as a website:
 
 ##### Install Go Package
 
-> **Link to package**: [pkg.go.dev/github.com/cybardev/resumake/v4][gopkg]
+> **Link to package**: [pkg.go.dev/github.com/cybardev/resumake/v6][gopkg]
 
 - Run the following command:
 
     ```sh
-    go install github.com/cybardev/resumake/v4@latest
+    go install github.com/cybardev/resumake/v6@latest
     ```
 
 - Ensure `$GOPATH/bin` is added to `$PATH`. An easy way is to add this line to `~/.profile`:
@@ -83,7 +83,7 @@ Automatically generate your resume and publish it as a website:
     ```
 
 > [!IMPORTANT]
-> The [pkg.go.dev][gopkg] registry may have an outdated version. If you encounter bugs or feature disparity, please replace `latest` after `@` with `main`, e.g. `github.com/cybardev/resumake/v4@main`, **OR** try the [Manual installation](#manual) method for the latest updates.
+> The [pkg.go.dev][gopkg] registry may have an outdated version. If you encounter bugs or feature disparity, please replace `latest` after `@` with `main`, e.g. `github.com/cybardev/resumake/v6@main`, **OR** try the [Manual installation](#manual) method for the latest updates.
 
 ##### Build from Source
 
@@ -112,5 +112,5 @@ Automatically generate your resume and publish it as a website:
 [template]: ./resources/template.go.tmpl "Resume Template"
 [resume_png]: https://raw.githubusercontent.com/cybardev/resumake/main/static/assets/Resume_Sheikh_Saad_Abdullah.png "Resume - Sheikh Saad Abdullah"
 [resume_pdf]: https://resume.cybar.dev "Resume - Sheikh Saad Abdullah"
-[gopkg]: https://pkg.go.dev/github.com/cybardev/resumake/v4
+[gopkg]: https://pkg.go.dev/github.com/cybardev/resumake/v6
 [release]: https://github.com/cybardev/resumake/releases/
