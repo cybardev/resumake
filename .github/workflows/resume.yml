@@ -73,7 +73,7 @@ jobs:
       - name: Generate landing page
         run: |
           AUTHOR=${{ steps.resumake.outputs.author }}
-          echo | pandoc -t html --template=./resources/index.html \
+          echo | pandoc -t html --template=./static/site/index.html \
             --metadata title="${AUTHOR}" \
             --variable author="${AUTHOR}" \
             -o ./static/index.html

@@ -19,7 +19,6 @@ RUN go mod download
 # copy source code
 COPY *.go ./
 COPY resources ./resources
-COPY static ./static
 
 # build executable
 ENV CGO_ENABLED=0

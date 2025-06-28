@@ -26,7 +26,7 @@ var errorTemplate string
 //go:embed resources/template.css
 var cssTemplate string
 
-//go:embed static/site/index.html
+//go:embed resources/index.html
 var indexPage string
 
 // Constants
