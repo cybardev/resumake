@@ -12,7 +12,6 @@ import (
 	"path"
 	"strings"
 
-	"github.com/labstack/echo/v4"
 	"gopkg.in/yaml.v3"
 )
 
@@ -33,37 +32,60 @@ func main() {
 	flag.IntVar(&port, "p", 80, "Port number to serve on")
 	flag.Parse()
 
-	// run server
-	app := echo.New()
-	app.File("/", INDEX_PAGE)
-	app.POST("/resume/", resumake)
-	app.HTTPErrorHandler = customHTTPErrorHandler
-	app.Logger.Fatal(app.Start(fmt.Sprintf(":%d", port)))
+	// HTTP handlers
+	http.HandleFunc("/", serveIndexPage)
+	http.HandleFunc("/resume/", resumakeHandler)
+
+	// Start server
+	fmt.Printf("Starting server on port %d...\n", port)
+	err := http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
+	if err != nil {
+		fmt.Printf("Error starting server: %v\n", err)
+	}
 }
 
-func resumake(c echo.Context) error {
-	file, err := c.FormFile("resume")
-	if err != nil {
-		return &YAMLValidationError{"Invalid YAML file provided"}
+func serveIndexPage(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, INDEX_PAGE)
+}
+
+func resumakeHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
 	}
+
+	file, _, err := r.FormFile("resume")
+	if err != nil {
+		handleError(w, r, &YAMLValidationError{"Invalid YAML file provided"})
+		return
+	}
+	defer file.Close()
+
 	tmpl, err := template.New(path.Base(GO_TEMPLATE)).Funcs(template.FuncMap{
 		"join": strings.Join,
 	}).ParseFiles(GO_TEMPLATE)
 	if err != nil {
-		return err
+		handleError(w, r, err)
+		return
 	}
+
 	err = htmlgen(file, tmpl)
 	if err != nil {
-		return err
+		handleError(w, r, err)
+		return
 	}
+
 	outfile := PDF_FILE
 	cmd := pdfgen(outfile)
 	err = cmd.Run()
 	if err != nil {
-		return err
+		handleError(w, r, err)
+		return
 	}
 
-	return c.Inline(outfile, outfile)
+	w.Header().Set("Content-Disposition", fmt.Sprintf("inline; filename=%s", outfile))
+	w.Header().Set("Content-Type", "application/pdf")
+	http.ServeFile(w, r, outfile)
 }
 
 func pdfgen(f string) exec.Cmd {
@@ -81,18 +103,7 @@ func pdfgen(f string) exec.Cmd {
 	return *cmd
 }
 
-func htmlgen(f *multipart.FileHeader, t *template.Template) error {
-	// source
-	src, err := f.Open()
-	if err != nil {
-		return err
-	}
-	defer func() {
-		if cerr := src.Close(); cerr != nil && err == nil {
-			err = cerr
-		}
-	}()
-
+func htmlgen(f multipart.File, t *template.Template) error {
 	// destination
 	dst, err := os.Create(HTML_TEMPLATE)
 	if err != nil {
@@ -105,7 +116,7 @@ func htmlgen(f *multipart.FileHeader, t *template.Template) error {
 	}()
 
 	// populate resume struct
-	bytes, err := io.ReadAll(src)
+	bytes, err := io.ReadAll(f)
 	if err != nil {
 		return err
 	}
@@ -128,49 +139,35 @@ func htmlgen(f *multipart.FileHeader, t *template.Template) error {
 	return nil
 }
 
-func customHTTPErrorHandler(err error, c echo.Context) {
+func handleError(w http.ResponseWriter, r *http.Request, err error) {
 	code := http.StatusInternalServerError
-	if he, ok := err.(*echo.HTTPError); ok {
-		code = he.Code
-	}
-	c.Logger().Error(err)
-	// server error by default
-	ep, tmpErr := NewErrorPage(
-		code,
-		"Server Error",
-		"There has been an error on the server side.",
-		false,
-	)
-	// check for user error
+	msg := "Server Error: There has been an error on the server side."
+
 	switch e := err.(type) {
 	case *YAMLValidationError:
-		ep.Update(
-			422,
-			"YAML Validation Error",
-			e.Msg,
-			true,
-		)
+		code = http.StatusUnprocessableEntity
+		msg = fmt.Sprintf("YAML Validation Error: %s", e.Msg)
 	default:
-		if 400 <= code && code < 500 {
-			ep.Update(
-				code,
-				"Client Error",
-				"There has been an error on the client side.",
-				true,
-			)
+		if code >= 400 && code < 500 {
+			msg = "Client Error: There has been an error on the client side."
 		}
 	}
+
+	ep, tmpErr := NewErrorPage(code, http.StatusText(code), msg, code >= 400 && code < 500)
 	if tmpErr != nil {
-		c.Logger().Error(tmpErr)
+		fmt.Printf("Error generating error page: %v\n", tmpErr)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
 	}
-	// create and return error page
+
 	tmpErr = ep.Generate()
 	if tmpErr != nil {
-		c.Logger().Error(tmpErr)
+		fmt.Printf("Error generating error page: %v\n", tmpErr)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
 	}
-	if err := c.File(ERROR_PAGE); err != nil {
-		c.Logger().Error(err)
-	}
+
+	http.ServeFile(w, r, ERROR_PAGE)
 }
 
 type YAMLValidationError struct {
