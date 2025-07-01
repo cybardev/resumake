@@ -5,7 +5,7 @@ links:
     type: tel
   - text: sheikh@cybar.dev
     type: mailto
-  - text: links.cybar.dev
+  - text: cybar.dev
     type: url
   - text: github.com/cybardev
     type: url
